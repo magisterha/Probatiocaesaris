@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="la">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Bello Gallico - Analysis Textualis</title>
+    
+    <style type="text/css">
+      /* --- Tailwind CSS Pre-compilado (Preflight & Utilitarios Usados) --- */
+      *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::before,::after{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,[type='button'],[type='reset'],[type='submit']{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type='search']{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}button, [role="button"]{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}
+      .container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}
+      .fixed{position:fixed}.absolute{position:absolute}.inset-0{top:0;right:0;bottom:0;left:0}.top-0{top:0}.top-3{top:0.75rem}.right-3{right:0.75rem}.left-0{left:0}.z-20{z-index:20}.z-30{z-index:30}
+      .mx-auto{margin-left:auto;margin-right:auto}.mb-8{margin-bottom:2rem}.mb-10{margin-bottom:2.5rem}.mt-2{margin-top:0.5rem}.mr-2{margin-right:0.5rem}.mt-6{margin-top:1.5rem}
+      .block{display:block}.inline-flex{display:inline-flex}.flex{display:flex}.h-4{height:1rem}.w-4{width:1rem}.h-5{height:1.25rem}.w-5{width:1.25rem}.h-full{height:100%}.w-80{width:20rem}
+      .transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+      .-translate-x-full{--tw-translate-x:-100%}.gap-x-1{column-gap:0.25rem}.gap-x-4{column-gap:1rem}.gap-x-6{column-gap:1.5rem}.gap-12{gap:3rem}
+      .overflow-y-auto{overflow-y:auto}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}
+      .border-b-2{border-bottom-width:2px}.border-stone-300{--tw-border-opacity:1;border-color:rgb(214 211 209 / var(--tw-border-opacity))}
+      .bg-stone-50{--tw-bg-opacity:1;background-color:rgb(250 250 249 / var(--tw-bg-opacity))}
+      .bg-stone-100{--tw-bg-opacity:1;background-color:rgb(245 245 244 / var(--tw-bg-opacity))}
+      .bg-stone-200{--tw-bg-opacity:1;background-color:rgb(231 229 228 / var(--tw-bg-opacity))}
+      .bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}
+      .bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity))}
+      .hover\:bg-gray-800:hover{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity))}
+      .p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.pb-4{padding-bottom:1rem}.pb-5{padding-bottom:1.25rem}
+      .text-center{text-align:center}.text-justify{text-align:justify}
+      .text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}
+      .text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}
+      .font-bold{font-weight:700}.leading-loose{line-height:2}.leading-relaxed{line-height:1.625}
+      .text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}
+      .text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}
+      .text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}
+      .text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity))}
+      .text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}
+      .hover\:text-gray-800:hover{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity))}
+      .shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}
+      .shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}
+      .transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}
+      .duration-300{transition-duration:300ms}.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}
+      .grid{display:grid}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
+      .space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}
+      @media (min-width:1024px){.lg\:p-12{padding:3rem}.lg\:text-3xl{font-size:1.875rem;line-height:2.25rem}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+      body{background-color:#f3f0e9;font-family:'Helvetica Neue',Arial,sans-serif;color:#4a4a4a}
+      .textum-classicum{font-family:'Georgia','Times New Roman',serif}
+      .verbum,.oratio{cursor:pointer;transition:background-color .2s ease-in-out}
+      .oratio:hover{background-color:#d8cbad}.verbum:hover{background-color:#eaddc5}
+      .activus{background-color:#cbbca7!important;font-weight:700}
+      #visus-paragrafi{transition:margin-left .4s ease-in-out}
+      #marginalia-sinistra{transition:transform .4s ease-in-out}
+      #visus-orationis{transition:opacity .3s ease-in-out,transform .3s ease-in-out}
+      .sidebar-aperta{margin-left:20rem}
+      .occultus{opacity:0;pointer-events:none;transform:scale(.95)}
+      #translatio-tooltip{position:absolute;display:none;padding:.5rem 1rem;background-color:#2d3748;color:#fff;border-radius:.375rem;font-size:.875rem;line-height:1.25rem;max-width:320px;z-index:50;pointer-events:none}
+    </style>
+</head>
+<body class="bg-stone-100">
+
+    <!-- BARRA LATERAL PARA ANÁLISIS DE PALABRAS (siempre en el DOM) -->
+    <aside id="marginalia-sinistra" class="fixed top-0 left-0 h-full w-80 bg-white shadow-xl p-6 transform -translate-x-full z-20 overflow-y-auto">
+        <button id="claudere-marginalia" class="absolute top-3 right-3 text-2xl font-bold text-gray-500 hover:text-gray-800">&times;</button>
+        <div id="marginalia-contentus">
+            <!-- Contenido del análisis de la palabra se insertará aquí -->
+        </div>
+    </aside>
+
+    <!-- I. VISTA PRINCIPAL DEL PARÁGRAFO (Contenedor que se desplaza) -->
+    <div id="visus-paragrafi">
+        <main class="container mx-auto p-8 lg:p-12">
+            <header class="text-center mb-10 border-b-2 border-stone-300 pb-5">
+                <h1 class="text-5xl textum-classicum text-gray-800">De Bello Gallico</h1>
+                <h2 class="text-2xl text-gray-600 mt-2">Liber I, Caput I</h2>
+            </header>
+            
+            <!-- Selector de Idioma -->
+            <section id="lingua-selector" class="mb-8 p-4 bg-stone-200 rounded-lg flex items-center justify-center gap-x-6">
+                <h3 class="font-bold text-gray-700">Lingua Translationis:</h3>
+                <div class="flex items-center gap-x-4">
+                    <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="es" class="h-4 w-4"> Español</label>
+                    <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="en" class="h-4 w-4"> English</label>
+                    <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="zh" class="h-4 w-4"> 中文</label>
+                    <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="ko" class="h-4 w-4"> 한국어</label>
+                </div>
+            </section>
+
+            <div id="paragrafus-contentus" class="textum-classicum text-2xl lg:text-3xl leading-loose text-justify bg-white p-8 lg:p-12 rounded-lg shadow-lg">
+                <!-- El parágrafo interactivo se generará aquí -->
+            </div>
+             <footer class="text-center mt-6 text-sm text-gray-500">
+                <p><i>Preme verbum singulum pro analysi. Preme sententiam totam pro analysi completa. Suspende murem super sententiam pro translatione rapida.</i></p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- II. VISTA SECUNDARIA PARA ANÁLISIS DE LA ORACIÓN -->
+    <div id="visus-orationis" class="occultus fixed inset-0 bg-stone-50 z-30 p-8 lg:p-16 overflow-y-auto">
+        <header class="flex justify-between items-center border-b-2 border-stone-300 pb-4 mb-8">
+            <h2 class="text-3xl textum-classicum text-gray-800">Analysis Orationis</h2>
+            <button id="button-redire" class="inline-flex items-center px-6 py-2 bg-gray-700 text-white font-bold rounded-md hover:bg-gray-800 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Redire ad Textum
+            </button>
+        </header>
+        
+        <div id="oratio-analysis-contentus" class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+                <section class="mb-8">
+                    <h3 class="text-xl font-bold text-gray-700 mb-2">Oratio Latina</h3>
+                    <p id="oratio-latina-textus" class="textum-classicum text-2xl leading-relaxed bg-white p-4 rounded-md shadow"></p>
+                </section>
+                <section>
+                    <h3 class="text-xl font-bold text-gray-700 mb-3">Translationes</h3>
+                    <div class="space-y-3">
+                        <div id="translatio-es"></div>
+                        <div id="translatio-en"></div>
+                        <div id="translatio-zh"></div>
+                        <div id="translatio-ko"></div>
+                    </div>
+                </section>
+            </div>
+            <div>
+                <section>
+                    <h3 class="text-xl font-bold text-gray-700 mb-3">Analysis Syntactica</h3>
+                    <div id="analysis-syntactica-contentus" class="bg-white p-4 rounded-md shadow space-y-3 text-gray-700"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tooltip Element -->
+    <div id="translatio-tooltip"></div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- STRUCTURA DATARUM ---
+        const paragrafus = {
+            id: 1,
+            orationes: [
+                {
+                    id_orationis: 'o1',
+                    textus_latinus: "Gallia est omnis diuisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Toda la Galia está dividida en tres partes, una de las cuales la habitan los belgas, otra los aquitanos y la tercera la habitan aquellos que en su propia lengua se llaman celtas y en la nuestra, galos.',
+                        en: '<strong>English</strong>: All Gaul is divided into three parts, one of which the Belgae inhabit, another the Aquitani, and the third, those who in their own language are called Celts, in ours, Gauls.',
+                        zh: '<strong>中文（繁體）</strong>: 高盧全境分為三個部分，其中一部分由貝爾蓋人居住，另一部分由阿基坦人居住，第三部分則由那些用他們自己的語言稱為凱爾特人、用我們的語言稱為高盧人的人居住。',
+                        ko: '<strong>한국어</strong>: 모든 갈리아는 세 부분으로 나뉘는데, 그 중 하나는 벨가이족이, 다른 하나는 아퀴타니족이, 그리고 세 번째는 자신들의 언어로는 켈트족, 우리의 언어로는 갈리아인이라 불리는 사람들이 살고 있다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis:</strong> Gallia est omnis diuisa in partes tres.</p><ul><li><strong>Subiectum:</strong> Gallia</li><li><strong>Praedicātum nōmināle:</strong> est omnis diuisa (<em>est</em> = copula; <em>diuisa</em> = nōmen praedicātīvum; <em>omnis</em> = adiectīvum praedicātīvum)</li><li><strong>Complēmentum circumstantiāle loci (quō):</strong> in partes tres</li></ul><p class="mt-2"><strong>Claūsula relātīva complexa:</strong> ...quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur.</p><ul><li><strong>Complēmentum nōminis (Genitīvus partitīvus):</strong> quarum</li><li><strong>1. Prima propositio coordinata:</strong> unam [partem] incolunt Belgae</li><li><strong>2. Secunda propositio coordinata (elliptica):</strong> aliam [partem incolunt] Aquitani</li><li><strong>3. Tertia propositio coordinata (elliptica):</strong> tertiam [partem incolunt ii] qui...appellantur</li><li><strong>Claūsula relātīva (subordināta ad <em>ii</em> subaudītum):</strong> qui ipsorum lingua Celtae, nostra Galli appellantur</li></ul>`,
+                    verba: [
+                        { id_verbi: 'v1_1', terminus: 'Gallia', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, nōminātīvus', significationes: { es: 'La Galia', en: 'Gaul', zh: '高盧', ko: '갈리아' } },
+                        { id_verbi: 'v1_2', terminus: 'est', analysis_morphologicus: 'Verbum (sum, esse, fuī), praesēns, indicātīvus, āctīvus, tertia persōna, singulāris', significationes: { es: 'es, está', en: 'is', zh: '是', ko: '이다, 있다' } },
+                        { id_verbi: 'v1_3', terminus: 'omnis', analysis_morphologicus: 'Adiectīvum, fēminīnum, singulāris, nōminātīvus', significationes: { es: 'toda', en: 'all, whole', zh: '全部的', ko: '모든' } },
+                        { id_verbi: 'v1_4', terminus: 'diuisa', analysis_morphologicus: 'Participium perfectum passīvum (dīvidō), fēminīnum, singulāris, nōminātīvus', significationes: { es: 'dividida', en: 'divided', zh: '被分開的', ko: '나뉜' } },
+                        { id_verbi: 'v1_5', terminus: 'in', analysis_morphologicus: 'Praepositiō (+ accūsātīvum)', significationes: { es: 'en', en: 'into, in', zh: '進入，在...之中', ko: '~에, ~안에' } },
+                        { id_verbi: 'v1_6', terminus: 'partes', analysis_morphologicus: 'Nōmen, fēminīnum, plūrālis, accūsātīvus', significationes: { es: 'partes', en: 'parts', zh: '部分', ko: '부분들' } },
+                        { id_verbi: 'v1_7', terminus: 'tres', analysis_morphologicus: 'Adiectīvum numerāle, fēminīnum, plūrālis, accūsātīvus', significationes: { es: 'tres', en: 'three', zh: '三', ko: '셋' } },
+                        { id_verbi: 'v1_8', terminus: 'quarum', analysis_morphologicus: 'Pronomēn relātīvum, fēminīnum, plūrālis, genitīvus', significationes: { es: 'de las cuales', en: 'of which', zh: '其中', ko: '그것들 중' } },
+                        { id_verbi: 'v1_9', terminus: 'unam', analysis_morphologicus: 'Adiectīvum numerāle, fēminīnum, singulāris, accūsātīvus', significationes: { es: 'una', en: 'one', zh: '一', ko: '하나' } },
+                        { id_verbi: 'v1_10', terminus: 'incolunt', analysis_morphologicus: 'Verbum (incolō), praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'habitan', en: 'inhabit', zh: '居住', ko: '거주하다' } },
+                        { id_verbi: 'v1_11', terminus: 'Belgae', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, nōminātīvus', significationes: { es: 'los belgas', en: 'the Belgae', zh: '比利時人', ko: '벨가이족' } },
+                        { id_verbi: 'v1_12', terminus: 'aliam', analysis_morphologicus: 'Adiectīvum, fēminīnum, singulāris, accūsātīvus', significationes: { es: 'otra', en: 'another', zh: '另一個', ko: '다른' } },
+                        { id_verbi: 'v1_13', terminus: 'Aquitani', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, nōminātīvus', significationes: { es: 'los aquitanos', en: 'the Aquitani', zh: '阿基坦人', ko: '아퀴타니족' } },
+                        { id_verbi: 'v1_14', terminus: 'tertiam', analysis_morphologicus: 'Adiectīvum numerāle, fēminīnum, singulāris, accūsātīvus', significationes: { es: 'la tercera', en: 'a third', zh: '第三', ko: '세 번째' } },
+                        { id_verbi: 'v1_15', terminus: 'qui', analysis_morphologicus: 'Pronomēn relātīvum, masculīnum, plūrālis, nōminātīvus', significationes: { es: 'los que', en: 'who', zh: '那些人', ko: '그들' } },
+                        { id_verbi: 'v1_16', terminus: 'ipsorum', analysis_morphologicus: 'Pronomēn dēmonstrātīvum, masculīnum, plūrālis, genitīvus', significationes: { es: 'de ellos mismos', en: 'of themselves, their own', zh: '他們自己的', ko: '그들 자신의' } },
+                        { id_verbi: 'v1_17', terminus: 'lingua', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, ablātīvus', significationes: { es: 'en (su) lengua', en: 'in language, tongue', zh: '語言', ko: '언어로' } },
+                        { id_verbi: 'v1_18', terminus: 'Celtae', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, nōminātīvus', significationes: { es: 'celtas', en: 'the Celts', zh: '凱爾特人', ko: '켈트족' } },
+                        { id_verbi: 'v1_19', terminus: 'nostra', analysis_morphologicus: 'Adiectīvum possessīvum, fēminīnum, singulāris, ablātīvus', significationes: { es: 'en nuestra', en: 'in our', zh: '我們的', ko: '우리의' } },
+                        { id_verbi: 'v1_20', terminus: 'Galli', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, nōminātīvus', significationes: { es: 'galos', en: 'the Gauls', zh: '高盧人', ko: '갈리아인' } },
+                        { id_verbi: 'v1_21', terminus: 'appellantur', analysis_morphologicus: 'Verbum (appellō), praesēns, indicātīvus, passīvus, tertia persōna, plūrālis', significationes: { es: 'son llamados', en: 'are called', zh: '被稱為', ko: '불리다' } },
+                    ]
+                },
+                {
+                    id_orationis: 'o2',
+                    textus_latinus: "Hi omnes lingua, institutis, legibus inter se differunt.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Todos estos se diferencian entre sí en lengua, instituciones y leyes.',
+                        en: '<strong>English</strong>: All these differ from each other in language, institutions, and laws.',
+                        zh: '<strong>中文（繁體）</strong>: 這所有民族在語言、制度和法律上彼此不同。',
+                        ko: '<strong>한국어</strong>: 이들은 모두 언어, 제도, 법률에서 서로 다르다.'
+                    },
+                    analysis_syntactica: `<ul><li><strong>Subiectum:</strong> Hī (+ <em>omnes</em> in appositiōne)</li><li><strong>Praedicātum:</strong> differunt</li><li><strong>Complēmentum circumstantiāle respectūs (Ablātīvus respectūs):</strong> lingua, institutis, legibus</li><li><strong>Complēmentum reciprocum:</strong> inter se</li></ul>`,
+                    verba: [
+                        { id_verbi: 'v2_1', terminus: 'Hi', analysis_morphologicus: 'Pronomēn dēmonstrātīvum, masculīnum, plūrālis, nōminātīvus', significationes: { es: 'estos', en: 'these', zh: '這些人', ko: '이들' } },
+                        { id_verbi: 'v2_2', terminus: 'omnes', analysis_morphologicus: 'Adiectīvum, masculīnum, plūrālis, nōminātīvus', significationes: { es: 'todos', en: 'all', zh: '全部的', ko: '모두' } },
+                        { id_verbi: 'v2_3', terminus: 'lingua', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, ablātīvus', significationes: { es: 'en la lengua', en: 'in language', zh: '語言', ko: '언어에서' } },
+                        { id_verbi: 'v2_4', terminus: 'institutis', analysis_morphologicus: 'Nōmen, neutrum, plūrālis, ablātīvus', significationes: { es: 'en las instituciones', en: 'in institutions', zh: '制度', ko: '제도에서' } },
+                        { id_verbi: 'v2_5', terminus: 'legibus', analysis_morphologicus: 'Nōmen, fēminīnum, plūrālis, ablātīvus', significationes: { es: 'en las leyes', en: 'in laws', zh: '法律', ko: '법률에서' } },
+                        { id_verbi: 'v2_6', terminus: 'inter', analysis_morphologicus: 'Praepositiō (+ accūsātīvum)', significationes: { es: 'entre', en: 'between, among', zh: '在...之間', ko: '사이에' } },
+                        { id_verbi: 'v2_7', terminus: 'se', analysis_morphologicus: 'Pronomēn reflexīvum, accūsātīvus', significationes: { es: 'sí', en: 'themselves', zh: '他們自己', ko: '서로' } },
+                        { id_verbi: 'v2_8', terminus: 'differunt', analysis_morphologicus: 'Verbum (differō), praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'se diferencian', en: 'they differ', zh: '不同', ko: '다르다' } },
+                    ]
+                },
+                {
+                    id_orationis: 'o3',
+                    textus_latinus: "Gallos ab Aquitanis Garumna flumen, a Belgis Matrona et Sequana diuidit.",
+                    translationes: {
+                        es: '<strong>Español</strong>: A los galos los separa de los aquitanos el río Garona, y de los belgas, los ríos Marne y Sena.',
+                        en: '<strong>English</strong>: The Garonne River separates the Gauls from the Aquitani; the Marne and the Seine separate them from the Belgae.',
+                        zh: '<strong>中文（繁體）</strong>: 高盧人與阿基坦人以加龍河為界，與貝爾蓋人則以馬恩河和塞納河為界。',
+                        ko: '<strong>한국어</strong>: 가론 강은 갈리아인들을 아퀴타니인들과 나누고, 마른 강과 센 강은 그들을 벨가이인들과 나눈다.'
+                    },
+                    analysis_syntactica: `<ul><li><strong>Praedicātum:</strong> diuidit</li><li><strong>Subiectum (duplex):</strong> Garumna flumen <em>et</em> Matrona et Sequana</li><li><strong>Obiectum dīrēctum:</strong> Gallos</li><li><strong>Complēmentum circumstantiāle separātiōnis:</strong> ab Aquitanis <em>et</em> a Belgis</li></ul>`,
+                    verba: [
+                        { id_verbi: 'v3_1', terminus: 'Gallos', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, accūsātīvus', significationes: { es: 'a los galos', en: 'the Gauls', zh: '高盧人', ko: '갈리아인들을' } },
+                        { id_verbi: 'v3_2', terminus: 'ab', analysis_morphologicus: 'Praepositiō (+ ablātīvum)', significationes: { es: 'de', en: 'from, by', zh: '從', ko: '~로부터' } },
+                        { id_verbi: 'v3_3', terminus: 'Aquitanis', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, ablātīvus', significationes: { es: 'los aquitanos', en: 'the Aquitani', zh: '阿基坦人', ko: '아퀴타니인들' } },
+                        { id_verbi: 'v3_4', terminus: 'Garumna', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, nōminātīvus', significationes: { es: 'el Garona', en: 'the Garonne', zh: '加龍河', ko: '가론 강' } },
+                        { id_verbi: 'v3_5', terminus: 'flumen', analysis_morphologicus: 'Nōmen, neutrum, singulāris, nōminātīvus', significationes: { es: 'río', en: 'river', zh: '河流', ko: '강' } },
+                        { id_verbi: 'v3_6', terminus: 'a', analysis_morphologicus: 'Praepositiō (+ ablātīvum)', significationes: { es: 'de', en: 'from, by', zh: '從', ko: '~로부터' } },
+                        { id_verbi: 'v3_7', terminus: 'Belgis', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, ablātīvus', significationes: { es: 'los belgas', en: 'the Belgae', zh: '比利時人', ko: '벨가이인들' } },
+                        { id_verbi: 'v3_8', terminus: 'Matrona', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, nōminātīvus', significationes: { es: 'el Marne', en: 'the Marne', zh: '馬恩河', ko: '마른 강' } },
+                        { id_verbi: 'v3_9', terminus: 'et', analysis_morphologicus: 'Coniunctiō', significationes: { es: 'y', en: 'and', zh: '和', ko: '그리고' } },
+                        { id_verbi: 'v3_10', terminus: 'Sequana', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, nōminātīvus', significationes: { es: 'el Sena', en: 'the Seine', zh: '塞納河', ko: '센 강' } },
+                        { id_verbi: 'v3_11', terminus: 'diuidit', analysis_morphologicus: 'Verbum (dīvidō), praesēns, indicātīvus, āctīvus, tertia persōna, singulāris', significationes: { es: 'divide', en: 'divides, separates', zh: '分開', ko: '나누다' } },
+                    ]
+                },
+                {
+                    id_orationis: 'o4',
+                    textus_latinus: "Horum omnium fortissimi sunt Belgae, propterea quod a cultu atque humanitate prouinciae longissime absunt, minimeque ad eos mercatores saepe commeant atque ea quae ad effeminandos animos pertinent inportant, proximique sunt Germanis, qui trans Rhenum incolunt, quibuscum continenter bellum gerunt.",
+                    translationes: {
+                        es: '<strong>Español</strong>: De todos estos, los más valientes son los belgas, porque son los que más alejados están de la cultura y la civilización de la Provincia, y muy raras veces los mercaderes viajan hacia ellos ni importan aquellas cosas que tienden a afeminar los espíritus; y son los más próximos a los germanos, que habitan al otro lado del Rin, con quienes continuamente están en guerra.',
+                        en: '<strong>English</strong>: Of all these, the bravest are the Belgae, because they are furthest from the culture and refinement of the Province, and merchants least often travel to them and import those things which tend to weaken the spirit, and they are nearest to the Germans, who live across the Rhine, with whom they are continually waging war.',
+                        zh: '<strong>中文（繁體）</strong>: 在所有這些民族中，最勇敢的是比利時人，因為他們離羅馬行省的文明與文雅最遠，商人極少到他們那裡去，也很少引進那些足以軟化精神的東西；此外，他們與居住在萊茵河對岸的日耳曼人最為鄰近，並與之持續作戰。',
+                        ko: '<strong>한국어</strong>: 이 모든 이들 중에서 가장 용감한 자들은 벨가이인들인데, 이는 그들이 프로빈키아의 문화와 문명에서 가장 멀리 떨어져 있고, 상인들이 그들에게 가장 드물게 방문하며 정신을 약화시키는 경향이 있는 것들을 거의 수입하지 않기 때문이다. 또한 그들은 라인 강 건너편에 사는 게르만인들과 가장 가까우며, 그들과 계속해서 전쟁을 벌이고 있다.'
+                    },
+                    analysis_syntactica: `<p><strong>Oratio Principalis (duplex et coordinata):</strong></p><ul class="list-disc list-inside"><li>Horum omnium fortissimi sunt Belgae</li><li>proximique sunt Germanis</li></ul><p class="mt-2"><strong>Claūsula causālis (introducta per <em>propterea quod</em>):</strong></p><ul class="list-disc list-inside"><li>...quod a cultu atque humanitate prouinciae longissime absunt,</li><li>...minimeque ad eos mercatores saepe commeant atque ea... inportant</li></ul><p class="mt-2"><strong>Claūsulae relātīvae subordinātae:</strong></p><ul class="list-disc list-inside"><li>...quae ad effeminandos animos pertinent (ad <em>ea</em> referēns)</li><li>...qui trans Rhenum incolunt (ad <em>Germanis</em> referēns)</li><li>...quibuscum continenter bellum gerunt (ad <em>Germanis</em> referēns)</li></ul>`,
+                    verba: [
+                        { id_verbi: 'v4_1', terminus: 'Horum', analysis_morphologicus: 'Pronomēn dēmōnstrātīvum, masculīnum, plūrālis, genitīvus', significationes: { es: 'De estos', en: 'Of these', zh: '在這些人中', ko: '이들 중' } },
+                        { id_verbi: 'v4_2', terminus: 'omnium', analysis_morphologicus: 'Adiectīvum, masculīnum, plūrālis, genitīvus', significationes: { es: 'de todos', en: 'of all', zh: '所有的', ko: '모든' } },
+                        { id_verbi: 'v4_3', terminus: 'fortissimi', analysis_morphologicus: 'Adiectīvum (superlātīvus), masculīnum, plūrālis, nōminātīvus', significationes: { es: 'los más valientes', en: 'the bravest', zh: '最勇敢的', ko: '가장 용감한' } },
+                        { id_verbi: 'v4_4', terminus: 'sunt', analysis_morphologicus: 'Verbum (sum, esse, fuī), praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'son', en: 'are', zh: '是', ko: '이다' } },
+                        { id_verbi: 'v4_5', terminus: 'Belgae', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, nōminātīvus', significationes: { es: 'los belgas', en: 'the Belgae', zh: '比利時人', ko: '벨가이족' } },
+                        { id_verbi: 'v4_6', terminus: 'propterea', analysis_morphologicus: 'Adverbium', significationes: { es: 'por esta razón', en: 'for this reason', zh: '因為', ko: '이러한 이유로' } },
+                        { id_verbi: 'v4_7', terminus: 'quod', analysis_morphologicus: 'Coniūnctiō causālis', significationes: { es: 'porque', en: 'because', zh: '因為', ko: '왜냐하면' } },
+                        { id_verbi: 'v4_8', terminus: 'a', analysis_morphologicus: 'Praepositiō (+ ablātīvum)', significationes: { es: 'de', en: 'from', zh: '遠離', ko: '~로부터' } },
+                        { id_verbi: 'v4_9', terminus: 'cultu', analysis_morphologicus: 'Nōmen, masculīnum, singulāris, ablātīvus', significationes: { es: 'de la cultura', en: 'from the culture', zh: '文明', ko: '문화' } },
+                        { id_verbi: 'v4_10', terminus: 'atque', analysis_morphologicus: 'Coniūnctiō', significationes: { es: 'y', en: 'and', zh: '以及', ko: '그리고' } },
+                        { id_verbi: 'v4_11', terminus: 'humanitate', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, ablātīvus', significationes: { es: 'de la civilización', en: 'from the refinement', zh: '文雅', ko: '문명' } },
+                        { id_verbi: 'v4_12', terminus: 'prouinciae', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, genitīvus', significationes: { es: 'de la provincia', en: 'of the province', zh: '行省的', ko: '속주의' } },
+                        { id_verbi: 'v4_13', terminus: 'longissime', analysis_morphologicus: 'Adverbium (superlātīvus)', significationes: { es: 'muy lejos / los más alejados', en: 'furthest', zh: '最遠地', ko: '가장 멀리' } },
+                        { id_verbi: 'v4_14', terminus: 'absunt', analysis_morphologicus: 'Verbum (absum), praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'están alejados', en: 'they are distant', zh: '他們遠離', ko: '떨어져 있다' } },
+                        { id_verbi: 'v4_15', terminus: 'minimeque', analysis_morphologicus: 'Adverbium + coniūnctiō enclitica', significationes: { es: 'y muy poco', en: 'and least', zh: '最少地並且', ko: '그리고 거의 ~않다' } },
+                        { id_verbi: 'v4_16', terminus: 'ad', analysis_morphologicus: 'Praepositiō (+ accūsātīvum)', significationes: { es: 'a', en: 'to', zh: '向', ko: '~에게' } },
+                        { id_verbi: 'v4_17', terminus: 'eos', analysis_morphologicus: 'Pronomēn persōnāle, masculīnum, plūrālis, accūsātīvus', significationes: { es: 'ellos', en: 'them', zh: '他們', ko: '그들에게' } },
+                        { id_verbi: 'v4_18', terminus: 'mercatores', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, nōminātīvus', significationes: { es: 'los mercaderes', en: 'merchants', zh: '商人', ko: '상인들' } },
+                        { id_verbi: 'v4_19', terminus: 'saepe', analysis_morphologicus: 'Adverbium', significationes: { es: 'a menudo', en: 'often', zh: '經常', ko: '자주' } },
+                        { id_verbi: 'v4_20', terminus: 'commeant', analysis_morphologicus: 'Verbum (commeō), praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'viajan', en: 'they travel', zh: '他們來往', ko: '왕래하다' } },
+                        { id_verbi: 'v4_21', terminus: 'ea', analysis_morphologicus: 'Pronomēn dēmōnstrātīvum, neutrum, plūrālis, accūsātīvus', significationes: { es: 'aquellas cosas', en: 'those things', zh: '那些東西', ko: '그러한 것들' } },
+                        { id_verbi: 'v4_22', terminus: 'quae', analysis_morphologicus: 'Pronomēn relātīvum, neutrum, plūrālis, nōminātīvus', significationes: { es: 'que', en: 'which', zh: '那些', ko: '그것들은' } },
+                        { id_verbi: 'v4_23', terminus: 'effeminandos', analysis_morphologicus: 'Gerundīvum, masculīnum, plūrālis, accūsātīvus', significationes: { es: 'afeminar', en: 'weakening', zh: '使...軟弱', ko: '약화시키는' } },
+                        { id_verbi: 'v4_24', terminus: 'animos', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, accūsātīvus', significationes: { es: 'los espíritus', en: 'the spirits', zh: '精神', ko: '정신을' } },
+                        { id_verbi: 'v4_25', terminus: 'pertinent', analysis_morphologicus: 'Verbum (pertineō), praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'tienden a', en: 'relate to', zh: '關係到', ko: '~하는 경향이 있다' } },
+                        { id_verbi: 'v4_26', terminus: 'inportant', analysis_morphologicus: 'Verbum (inportō), praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'importan', en: 'they import', zh: '他們引進', ko: '수입하다' } },
+                        { id_verbi: 'v4_27', terminus: 'proximique', analysis_morphologicus: 'Adiectīvum (superlātīvus) + coniūnctiō enclitica', significationes: { es: 'y son los más próximos', en: 'and are nearest', zh: '並且最近的', ko: '그리고 가장 가까운' } },
+                        { id_verbi: 'v4_28', terminus: 'Germanis', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, datīvus', significationes: { es: 'a los germanos', en: 'to the Germans', zh: '日耳曼人', ko: '게르만족에게' } },
+                        { id_verbi: 'v4_29', terminus: 'qui', analysis_morphologicus: 'Pronomēn relātīvum, masculīnum, plūrālis, nōminātīvus', significationes: { es: 'quienes', en: 'who', zh: '他們', ko: '그들은' } },
+                        { id_verbi: 'v4_30', terminus: 'trans', analysis_morphologicus: 'Praepositiō (+ accūsātīvum)', significationes: { es: 'al otro lado de', en: 'across', zh: '橫越', ko: '건너편에' } },
+                        { id_verbi: 'v4_31', terminus: 'Rhenum', analysis_morphologicus: 'Nōmen proprium, masculīnum, singulāris, accūsātīvus', significationes: { es: 'el Rin', en: 'the Rhine', zh: '萊茵河', ko: '라인 강' } },
+                        { id_verbi: 'v4_32', terminus: 'incolunt', analysis_morphologicus: 'Verbum (incolō), praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'habitan', en: 'they inhabit', zh: '他們居住', ko: '거주하다' } },
+                        { id_verbi: 'v4_33', terminus: 'quibuscum', analysis_morphologicus: 'Pronomēn relātīvum (ablātīvus) + praepositiō', significationes: { es: 'con quienes', en: 'with whom', zh: '與他們', ko: '그들과 함께' } },
+                        { id_verbi: 'v4_34', terminus: 'continenter', analysis_morphologicus: 'Adverbium', significationes: { es: 'continuamente', en: 'continuously', zh: '持續地', ko: '계속해서' } },
+                        { id_verbi: 'v4_35', terminus: 'bellum', analysis_morphologicus: 'Nōmen, neutrum, singulāris, accūsātīvus', significationes: { es: 'la guerra', en: 'war', zh: '戰爭', ko: '전쟁을' } },
+                        { id_verbi: 'v4_36', terminus: 'gerunt', analysis_morphologicus: 'Verbum (gerō), praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'hacen', en: 'they wage', zh: '他們進行', ko: '벌이다' } },
+                    ]
+                },
+                {
+                    id_orationis: 'o5',
+                    textus_latinus: "Qua de causa Heluetii quoque reliquos Gallos uirtute praecedunt, quod fere cotidianis proeliis cum Germanis contendunt, cum aut suis finibus eos prohibent, aut ipsi in eorum finibus bellum gerunt.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Por esta causa también los helvecios superan en valor a los restantes galos, porque luchan con los germanos en batallas casi diarias, ya sea cuando los mantienen alejados de sus propias fronteras, o cuando ellos mismos hacen la guerra en las fronteras de aquellos.',
+                        en: '<strong>English</strong>: For this reason, the Helvetii also surpass the rest of the Gauls in courage, because they contend with the Germans in almost daily battles, when they either keep them out of their own territories, or they themselves wage war in their lands.',
+                        zh: '<strong>中文（繁體）</strong>: 為此，赫爾維蒂人也在勇氣上超越了其餘的高盧人，因為他們幾乎每天都與日耳曼人進行戰鬥，無論是將日耳曼人逐出自己的疆土，還是在對方的領土上發動戰爭。',
+                        ko: '<strong>한국어</strong>: 이러한 이유로 헬베티족 또한 용맹함에 있어 나머지 갈리아인들을 능가하는데, 이는 그들이 거의 매일 게르만족과 전투를 벌이기 때문입니다. 그들은 자신들의 영토에서 게르만족을 막아내거나, 혹은 직접 그들의 영토에 들어가 전쟁을 벌입니다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis:</strong> Heluetii quoque reliquos Gallos uirtute praecedunt</p><ul><li><strong>Subiectum:</strong> Heluetii.</li><li><strong>Praedicātum:</strong> praecedunt.</li><li><strong>Obiectum dīrēctum:</strong> reliquos Gallos.</li><li><strong>Complēmentum circumstantiāle respectūs (Ablātīvus):</strong> uirtute.</li><li><strong>Complēmentum circumstantiāle causae:</strong> Qua de causa.</li></ul><p class="mt-2"><strong>Claūsula subordināta causālis (introducta per <em>quod</em>):</strong> quod fere cotidianis proeliis cum Germanis contendunt</p><p class="mt-2"><strong>Claūsula subordināta temporālis/modālis (introducta per <em>cum</em>):</strong> cum aut suis finibus eos prohibent, aut ipsi in eorum finibus bellum gerunt</p>`,
+                    verba: [
+                        { id_verbi: 'v5_1', terminus: 'Qua', analysis_morphologicus: 'Pronomēn relātīvum, fēminīnum, singulāris, ablātīvus', significationes: { es: 'Por esta', en: 'For this', zh: '為此', ko: '이러한' } },
+                        { id_verbi: 'v5_2', terminus: 'de', analysis_morphologicus: 'Praepositiō (+ ablātīvum)', significationes: { es: 'de, por', en: 'from, about', zh: '關於', ko: '~에 관하여' } },
+                        { id_verbi: 'v5_3', terminus: 'causa', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, ablātīvus', significationes: { es: 'causa', en: 'reason', zh: '原因', ko: '이유' } },
+                        { id_verbi: 'v5_4', terminus: 'Heluetii', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, nōminātīvus', significationes: { es: 'los helvecios', en: 'the Helvetii', zh: '赫爾維蒂人', ko: '헬베티족' } },
+                        { id_verbi: 'v5_5', terminus: 'quoque', analysis_morphologicus: 'Adverbium', significationes: { es: 'también', en: 'also', zh: '也', ko: '또한' } },
+                        { id_verbi: 'v5_6', terminus: 'reliquos', analysis_morphologicus: 'Adiectīvum, masculīnum, plūrālis, accūsātīvus', significationes: { es: 'a los restantes', en: 'the remaining', zh: '其餘的', ko: '나머지' } },
+                        { id_verbi: 'v5_7', terminus: 'Gallos', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, accūsātīvus', significationes: { es: 'galos', en: 'Gauls', zh: '高盧人', ko: '갈리아인' } },
+                        { id_verbi: 'v5_8', terminus: 'uirtute', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, ablātīvus', significationes: { es: 'en valor', en: 'in courage', zh: '在勇氣方面', ko: '용맹함에 있어' } },
+                        { id_verbi: 'v5_9', terminus: 'praecedunt', analysis_morphologicus: 'Verbum, praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'superan', en: 'they surpass', zh: '他們超越', ko: '그들은 능가한다' } },
+                        { id_verbi: 'v5_10', terminus: 'quod', analysis_morphologicus: 'Coniūnctiō causālis', significationes: { es: 'porque', en: 'because', zh: '因為', ko: '왜냐하면' } },
+                        { id_verbi: 'v5_11', terminus: 'fere', analysis_morphologicus: 'Adverbium', significationes: { es: 'casi', en: 'almost', zh: '幾乎', ko: '거의' } },
+                        { id_verbi: 'v5_12', terminus: 'cotidianis', analysis_morphologicus: 'Adiectīvum, neutrum, plūrālis, ablātīvus', significationes: { es: 'en... diarias', en: 'in daily', zh: '每日的', ko: '매일의' } },
+                        { id_verbi: 'v5_13', terminus: 'proeliis', analysis_morphologicus: 'Nōmen, neutrum, plūrālis, ablātīvus', significationes: { es: 'en batallas', en: 'in battles', zh: '戰鬥中', ko: '전투에서' } },
+                        { id_verbi: 'v5_14', terminus: 'cum', analysis_morphologicus: 'Praepositiō (+ ablātīvum)', significationes: { es: 'con', en: 'with', zh: '與', ko: '~와 함께' } },
+                        { id_verbi: 'v5_15', terminus: 'Germanis', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, ablātīvus', significationes: { es: 'los germanos', en: 'the Germans', zh: '日耳曼人', ko: '게르만족' } },
+                        { id_verbi: 'v5_16', terminus: 'contendunt', analysis_morphologicus: 'Verbum, praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'luchan', en: 'they contend', zh: '他們戰鬥', ko: '그들은 싸운다' } },
+                        { id_verbi: 'v5_17', terminus: 'cum', analysis_morphologicus: 'Coniūnctiō temporālis', significationes: { es: 'cuando', en: 'when', zh: '當', ko: '~할 때' } },
+                        { id_verbi: 'v5_18', terminus: 'aut', analysis_morphologicus: 'Coniūnctiō disiūnctīva', significationes: { es: 'o', en: 'either', zh: '或者', ko: '또는' } },
+                        { id_verbi: 'v5_19', terminus: 'suis', analysis_morphologicus: 'Adiectīvum possessīvum, masculīnum, plūrālis, ablātīvus', significationes: { es: 'de sus propias', en: 'from their own', zh: '他們自己的', ko: '그들 자신의' } },
+                        { id_verbi: 'v5_20', terminus: 'finibus', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, ablātīvus', significationes: { es: 'de las fronteras', en: 'from the territories', zh: '疆界', ko: '영토에서' } },
+                        { id_verbi: 'v5_21', terminus: 'eos', analysis_morphologicus: 'Pronomēn persōnāle, masculīnum, plūrālis, accūsātīvus', significationes: { es: 'a ellos', en: 'them', zh: '他們', ko: '그들을' } },
+                        { id_verbi: 'v5_22', terminus: 'prohibent', analysis_morphologicus: 'Verbum, praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'los mantienen alejados', en: 'they keep off', zh: '他們阻止', ko: '그들은 막는다' } },
+                        { id_verbi: 'v5_23', terminus: 'ipsi', analysis_morphologicus: 'Pronomēn dēmōnstrātīvum, masculīnum, plūrālis, nōminātīvus', significationes: { es: 'ellos mismos', en: 'they themselves', zh: '他們自己', ko: '그들 자신이' } },
+                        { id_verbi: 'v5_24', terminus: 'in', analysis_morphologicus: 'Praepositiō (+ ablātīvum)', significationes: { es: 'en', en: 'in', zh: '在...之內', ko: '~안에' } },
+                        { id_verbi: 'v5_25', terminus: 'eorum', analysis_morphologicus: 'Pronomēn persōnāle, masculīnum, plūrālis, genitīvus', significationes: { es: 'de ellos', en: 'their', zh: '他們的', ko: '그들의' } },
+                        { id_verbi: 'v5_26', terminus: 'bellum', analysis_morphologicus: 'Nōmen, neutrum, singulāris, accūsātīvus', significationes: { es: 'la guerra', en: 'war', zh: '戰爭', ko: '전쟁' } },
+                        { id_verbi: 'v5_27', terminus: 'gerunt', analysis_morphologicus: 'Verbum, praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'hacen', en: 'they wage', zh: '他們進行', ko: '그들은 벌인다' } },
+                    ]
+                },
+                {
+                    id_orationis: 'o6',
+                    textus_latinus: "Eorum una pars, quam Gallos optinere dictum est, initium capit a flumine Rhodano, continetur Garumna flumine, Oceano, finibus Belgarum, attingit etiam ab Sequanis et Heluetiis flumen Rhenum, uergit ad septentriones.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Una parte del territorio de estos [los galos], la que se ha dicho que ocupan los galos, toma su inicio en el río Ródano; está delimitada por el río Garona, el Océano y las fronteras de los belgas; por el lado de los sécuanos y los helvecios toca también el río Rin y se orienta hacia el norte.',
+                        en: '<strong>English</strong>: One part of their territory, which it has been said the Gauls occupy, takes its beginning from the Rhone river; it is bordered by the Garonne river, the Ocean, and the territories of the Belgae; it also touches the Rhine river on the side of the Sequani and the Helvetii; it faces north.',
+                        zh: '<strong>中文（繁體）</strong>: 他們（高盧人）的一部分，也就是我們說過由高盧人佔據的那部分，始於羅納河，以加龍河、大西洋及比利時人的疆界為限，又從塞夸尼人和赫爾維蒂人那邊觸及萊茵河，朝向北方。',
+                        ko: '<strong>한국어</strong>: 갈리아인들이 차지하고 있다고 전해지는 그들의 한 지역은 론 강에서 시작하여, 가론 강, 대서양, 그리고 벨가이족의 국경으로 둘러싸여 있으며, 세콰니족과 헬베티족 쪽으로는 라인 강에까지 이르고, 북쪽을 향합니다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis:</strong> Eorum una pars... initium capit... continetur... attingit... uergit... (Series praedicātōrum ad idem subiectum <em>una pars</em> pertinentium).</p><ul><li><strong>Subiectum:</strong> una pars.</li><li><strong>Complēmentum nōminis (Genitīvus partitīvus):</strong> Eorum.</li><li><strong>Praedicāta:</strong> capit, continetur, attingit, uergit.</li></ul><p class="mt-2"><strong>Claūsula subordināta relātīva:</strong> quam Gallos optinere dictum est (modificat <em>pars</em>).</p>`,
+                    verba: [
+                        { id_verbi: 'v6_1', terminus: 'Eorum', analysis_morphologicus: 'Pronomēn persōnāle, masculīnum, plūrālis, genitīvus', significationes: { es: 'De ellos', en: 'Of them', zh: '他們的', ko: '그들의' } },
+                        { id_verbi: 'v6_2', terminus: 'una', analysis_morphologicus: 'Adiectīvum numerāle, fēminīnum, singulāris, nōminātīvus', significationes: { es: 'una', en: 'one', zh: '一個', ko: '하나' } },
+                        { id_verbi: 'v6_3', terminus: 'pars', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, nōminātīvus', significationes: { es: 'parte', en: 'part', zh: '部分', ko: '부분' } },
+                        { id_verbi: 'v6_4', terminus: 'quam', analysis_morphologicus: 'Pronomēn relātīvum, fēminīnum, singulāris, accūsātīvus', significationes: { es: 'la cual', en: 'which', zh: '那個', ko: '그것을' } },
+                        { id_verbi: 'v6_5', terminus: 'optinere', analysis_morphologicus: 'Verbum, praesēns, īnfīnītīvus, āctīvus', significationes: { es: 'ocupan', en: 'to hold', zh: '佔據', ko: '차지하다' } },
+                        { id_verbi: 'v6_6', terminus: 'dictum est', analysis_morphologicus: 'Verbum (dīcō), perfectum, indicātīvum, passīvum, tertia persōna, singulāris', significationes: { es: 'se ha dicho', en: 'it has been said', zh: '據說', ko: '~라고 전해졌다' } },
+                        { id_verbi: 'v6_7', terminus: 'initium', analysis_morphologicus: 'Nōmen, neutrum, singulāris, accūsātīvus', significationes: { es: 'el comienzo', en: 'a beginning', zh: '開始', ko: '시작' } },
+                        { id_verbi: 'v6_8', terminus: 'capit', analysis_morphologicus: 'Verbum (capiō), praesēns, indicātīvus, āctīvus, tertia persōna, singulāris', significationes: { es: 'toma', en: 'it takes', zh: '它取得', ko: '그것은 시작한다' } },
+                        { id_verbi: 'v6_9', terminus: 'a', analysis_morphologicus: 'Praepositiō (+ ablātīvum)', significationes: { es: 'desde', en: 'from', zh: '從', ko: '~로부터' } },
+                        { id_verbi: 'v6_10', terminus: 'flumine', analysis_morphologicus: 'Nōmen, neutrum, singulāris, ablātīvus', significationes: { es: 'del río', en: 'the river', zh: '河流', ko: '강' } },
+                        { id_verbi: 'v6_11', terminus: 'Rhodano', analysis_morphologicus: 'Nōmen proprium, masculīnum, singulāris, ablātīvus', significationes: { es: 'del Ródano', en: 'the Rhone', zh: '羅納河', ko: '론 강' } },
+                        { id_verbi: 'v6_12', terminus: 'continetur', analysis_morphologicus: 'Verbum (contineō), praesēns, indicātīvus, passīvus, tertia persōna, singulāris', significationes: { es: 'está delimitada', en: 'it is contained', zh: '它被包圍', ko: '그것은 둘러싸여 있다' } },
+                        { id_verbi: 'v6_13', terminus: 'Garumna', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, ablātīvus', significationes: { es: 'por el Garona', en: 'by the Garonne', zh: '加龍河', ko: '가론 강' } },
+                        { id_verbi: 'v6_14', terminus: 'Oceano', analysis_morphologicus: 'Nōmen, masculīnum, singulāris, ablātīvus', significationes: { es: 'por el Océano', en: 'by the Ocean', zh: '海洋', ko: '대서양' } },
+                        { id_verbi: 'v6_15', terminus: 'finibus', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, ablātīvus', significationes: { es: 'por las fronteras', en: 'by the territories', zh: '疆界', ko: '영토' } },
+                        { id_verbi: 'v6_16', terminus: 'Belgarum', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, genitīvus', significationes: { es: 'de los belgas', en: 'of the Belgae', zh: '比利時人的', ko: '벨가이족의' } },
+                        { id_verbi: 'v6_17', terminus: 'attingit', analysis_morphologicus: 'Verbum (attingō), praesēns, indicātīvus, āctīvus, tertia persōna, singulāris', significationes: { es: 'toca', en: 'it touches', zh: '它觸及', ko: '그것은 닿는다' } },
+                        { id_verbi: 'v6_18', terminus: 'etiam', analysis_morphologicus: 'Adverbium', significationes: { es: 'también', en: 'also', zh: '也', ko: '또한' } },
+                        { id_verbi: 'v6_19', terminus: 'ab', analysis_morphologicus: 'Praepositiō (+ ablātīvum)', significationes: { es: 'por el lado de', en: 'from', zh: '從', ko: '~쪽에서' } },
+                        { id_verbi: 'v6_20', terminus: 'Sequanis', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, ablātīvus', significationes: { es: 'los sécuanos', en: 'the Sequani', zh: '塞夸尼人', ko: '세콰니족' } },
+                        { id_verbi: 'v6_21', terminus: 'Heluetiis', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, ablātīvus', significationes: { es: 'los helvecios', en: 'the Helvetii', zh: '赫爾維蒂人', ko: '헬베티족' } },
+                        { id_verbi: 'v6_22', terminus: 'Rhenum', analysis_morphologicus: 'Nōmen proprium, masculīnum, singulāris, accūsātīvus', significationes: { es: 'el Rin', en: 'the Rhine', zh: '萊茵河', ko: '라인 강' } },
+                        { id_verbi: 'v6_23', terminus: 'uergit', analysis_morphologicus: 'Verbum (vergō), praesēns, indicātīvus, āctīvus, tertia persōna, singulāris', significationes: { es: 'se orienta', en: 'it faces', zh: '它朝向', ko: '그것은 향한다' } },
+                        { id_verbi: 'v6_24', terminus: 'ad', analysis_morphologicus: 'Praepositiō (+ accūsātīvum)', significationes: { es: 'hacia', en: 'towards', zh: '向', ko: '~를 향해' } },
+                        { id_verbi: 'v6_25', terminus: 'septentriones', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, accūsātīvus', significationes: { es: 'el norte', en: 'the north', zh: '北方', ko: '북쪽' } },
+                    ]
+                },
+                {
+                    id_orationis: 'o7',
+                    textus_latinus: "Belgae ab extremis Galliae finibus oriuntur, pertinent ad inferiorem partem fluminis Rheni, spectant in septentrionem et orientem solem.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Los belgas se originan en las fronteras más alejadas de la Galia, se extienden hasta la parte inferior del río Rin y miran hacia el norte y el sol naciente.',
+                        en: '<strong>English</strong>: The Belgae arise from the furthest territories of Gaul, extend to the lower part of the Rhine river, and look towards the north and the rising sun.',
+                        zh: '<strong>中文（繁體）</strong>: 比利時人源於高盧最遠的疆界，延伸至萊茵河下游，朝向北方與東方（日出之處）。',
+                        ko: '<strong>한국어</strong>: 벨가이족은 갈리아의 가장 먼 국경에서 시작하여 라인 강 하류까지 뻗어 있으며, 북쪽과 해가 뜨는 동쪽을 바라봅니다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis:</strong> Belgae... oriuntur, pertinent..., spectant...</p><ul><li><strong>Subiectum:</strong> Belgae.</li><li><strong>Praedicāta (coordināta asyndetō):</strong> oriuntur, pertinent, spectant.</li><li><strong>Complēmenta:</strong> ab extremis Galliae finibus (originis), ad inferiorem partem fluminis Rheni (loci quō), in septentrionem et orientem solem (loci quō).</li></ul>`,
+                    verba: [
+                        { id_verbi: 'v7_1', terminus: 'Belgae', analysis_morphologicus: 'Nōmen, masculīnum, plūrālis, nōminātīvus', significationes: { es: 'Los belgas', en: 'The Belgae', zh: '比利時人', ko: '벨가이족' } },
+                        { id_verbi: 'v7_2', terminus: 'extremis', analysis_morphologicus: 'Adiectīvum (superlātīvus), masculīnum, plūrālis, ablātīvus', significationes: { es: 'las más alejadas', en: 'the furthest', zh: '最遠的', ko: '가장 먼' } },
+                        { id_verbi: 'v7_3', terminus: 'Galliae', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, genitīvus', significationes: { es: 'de la Galia', en: 'of Gaul', zh: '高盧的', ko: '갈리아의' } },
+                        { id_verbi: 'v7_4', terminus: 'oriuntur', analysis_morphologicus: 'Verbum (orior), praesēns, indicātīvus, dēpōnēns, tertia persōna, plūrālis', significationes: { es: 'se originan', en: 'they arise', zh: '他們起源', ko: '그들은 시작된다' } },
+                        { id_verbi: 'v7_5', terminus: 'pertinent', analysis_morphologicus: 'Verbum (pertineō), praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'se extienden', en: 'they extend', zh: '他們延伸', ko: '그들은 뻗어 있다' } },
+                        { id_verbi: 'v7_6', terminus: 'inferiorem', analysis_morphologicus: 'Adiectīvum (comparātīvus), fēminīnum, singulāris, accūsātīvus', significationes: { es: 'la parte inferior', en: 'the lower', zh: '下部的', ko: '아래쪽' } },
+                        { id_verbi: 'v7_7', terminus: 'partem', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, accūsātīvus', significationes: { es: 'de la parte', en: 'part', zh: '部分', ko: '부분' } },
+                        { id_verbi: 'v7_8', terminus: 'fluminis', analysis_morphologicus: 'Nōmen, neutrum, singulāris, genitīvus', significationes: { es: 'del río', en: 'of the river', zh: '河流的', ko: '강의' } },
+                        { id_verbi: 'v7_9', terminus: 'Rheni', analysis_morphologicus: 'Nōmen proprium, masculīnum, singulāris, genitīvus', significationes: { es: 'del Rin', en: 'of the Rhine', zh: '萊茵河的', ko: '라인 강의' } },
+                        { id_verbi: 'v7_10', terminus: 'spectant', analysis_morphologicus: 'Verbum (spectō), praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis', significationes: { es: 'miran', en: 'they look', zh: '他們朝向', ko: '그들은 바라본다' } },
+                        { id_verbi: 'v7_11', terminus: 'septentrionem', analysis_morphologicus: 'Nōmen, masculīnum, singulāris, accūsātīvus', significationes: { es: 'el norte', en: 'the north', zh: '北方', ko: '북쪽' } },
+                        { id_verbi: 'v7_12', terminus: 'orientem', analysis_morphologicus: 'Participium praesentis āctīvī, masculīnum, singulāris, accūsātīvus', significationes: { es: 'el naciente', en: 'the rising', zh: '升起的', ko: '떠오르는' } },
+                        { id_verbi: 'v7_13', terminus: 'solem', analysis_morphologicus: 'Nōmen, masculīnum, singulāris, accūsātīvus', significationes: { es: 'sol', en: 'sun', zh: '太陽', ko: '태양' } },
+                    ]
+                },
+                {
+                    id_orationis: 'o8',
+                    textus_latinus: "Aquitania a Garumna flumine ad Pyrenaeos montes et eam partem Oceani quae est ad Hispaniam pertinet; spectat inter occasum solis et septentriones.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Aquitania se extiende desde el río Garona hasta los montes Pirineos y aquella parte del Océano que está junto a Hispania; mira entre el ocaso y el norte.',
+                        en: '<strong>English</strong>: Aquitania extends from the Garonne river to the Pyrenees mountains and to that part of the Ocean which is near Spain; it looks between the setting of the sun and the north.',
+                        zh: '<strong>中文（繁體）</strong>: 阿基坦尼亞從加龍河延伸至庇里牛斯山脈以及朝向西班牙的那部分海洋；它位於西方（日落之處）與北方之間。',
+                        ko: '<strong>한국어</strong>: 아퀴타니아는 가론 강에서 피레네 산맥과 히스파니아에 인접한 대서양의 일부까지 뻗어 있으며, 해가 지는 서쪽과 북쪽 사이를 바라봅니다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis:</strong> Aquitania... pertinet; spectat...</p><ul><li><strong>Subiectum:</strong> Aquitania.</li><li><strong>Praedicāta:</strong> pertinet, spectat.</li><li><strong>Complēmenta:</strong> a Garumna flumine ad Pyrenaeos montes et eam partem Oceani (loci), inter occasum solis et septentriones (loci).</li></ul><p class="mt-2"><strong>Claūsula subordināta relātīva:</strong> quae est ad Hispaniam (modificat <em>partem Oceani</em>).</p>`,
+                    verba: [
+                        { id_verbi: 'v8_1', terminus: 'Aquitania', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, nōminātīvus', significationes: { es: 'Aquitania', en: 'Aquitania', zh: '阿基坦尼亞', ko: '아퀴타니아' } },
+                        { id_verbi: 'v8_2', terminus: 'Pyrenaeos', analysis_morphologicus: 'Nōmen proprium, masc., pl., acc.', significationes: { es: 'los Pirineos', en: 'the Pyrenees', zh: '庇里牛斯', ko: '피레네' } },
+                        { id_verbi: 'v8_3', terminus: 'montes', analysis_morphologicus: 'Nōmen, masc., pl., acc.', significationes: { es: 'montes', en: 'mountains', zh: '山脈', ko: '산맥' } },
+                        { id_verbi: 'v8_4', terminus: 'eam', analysis_morphologicus: 'Pronomēn dēmōnstrātīvum, fēm., sg., acc.', significationes: { es: 'aquella', en: 'that', zh: '那', ko: '그' } },
+                        { id_verbi: 'v8_5', terminus: 'Hispaniam', analysis_morphologicus: 'Nōmen proprium, fēm., sg., acc.', significationes: { es: 'Hispania', en: 'Hispania', zh: '西班牙', ko: '히스파니아' } },
+                        { id_verbi: 'v8_6', terminus: 'pertinet', analysis_morphologicus: 'Verbum (pertineō), praesēns, indicātīvus, āctīvus, tertia persōna, singulāris', significationes: { es: 'se extiende', en: 'extends', zh: '它延伸', ko: '그것은 뻗어 있다' } },
+                        { id_verbi: 'v8_7', terminus: 'spectat', analysis_morphologicus: 'Verbum (spectō), praesēns, indicātīvus, āctīvus, tertia persōna, singulāris', significationes: { es: 'mira', en: 'it looks', zh: '它朝向', ko: '그것은 바라본다' } },
+                        { id_verbi: 'v8_8', terminus: 'inter', analysis_morphologicus: 'Praepositiō (+ accūsātīvum)', significationes: { es: 'entre', en: 'between', zh: '在...之間', ko: '~사이에' } },
+                        { id_verbi: 'v8_9', terminus: 'occasum', analysis_morphologicus: 'Nōmen, masculīnum, singulāris, accūsātīvus', significationes: { es: 'la puesta', en: 'the setting', zh: '日落', ko: '지는 것' } },
+                        { id_verbi: 'v8_10', terminus: 'solis', analysis_morphologicus: 'Nōmen, masculīnum, singulāris, genitīvus', significationes: { es: 'del sol', en: 'of the sun', zh: '太陽的', ko: '태양의' } },
+                    ]
+                }
+            ]
+        };
+
+        // --- DOM ELEMENTS & STATE ---
+        const paragrafusContentus = document.getElementById('paragrafus-contentus');
+        const marginalia = document.getElementById('marginalia-sinistra');
+        const marginaliaContentus = document.getElementById('marginalia-contentus');
+        const claudereMarginaliaBtn = document.getElementById('claudere-marginalia');
+        
+        const visusParagrafi = document.getElementById('visus-paragrafi');
+        const visusOrationis = document.getElementById('visus-orationis');
+        const buttonRedire = document.getElementById('button-redire');
+
+        const oratioLatinaTextus = document.getElementById('oratio-latina-textus');
+        const translatioES = document.getElementById('translatio-es');
+        const translatioEN = document.getElementById('translatio-en');
+        const translatioZH = document.getElementById('translatio-zh');
+        const translatioKO = document.getElementById('translatio-ko');
+        const analysisSyntacticaContentus = document.getElementById('analysis-syntactica-contentus');
+        
+        const linguaSelector = document.getElementById('lingua-selector');
+        const tooltip = document.getElementById('translatio-tooltip');
+        
+        let linguaPraefecta = 'es'; // Default language
+
+        // --- FUNCTIONS ---
+
+        function reddeParagrafum() {
+            paragrafusContentus.innerHTML = '';
+            paragrafus.orationes.forEach(oratio => {
+                const oratioSpan = document.createElement('span');
+                oratioSpan.className = 'oratio';
+                oratioSpan.dataset.oratioId = oratio.id_orationis;
+
+                let textusTemporarius = oratio.textus_latinus;
+                const verbaSorted = [...oratio.verba].sort((a,b) => b.terminus.length - a.terminus.length);
+
+                verbaSorted.forEach(verbum => {
+                    const regex = new RegExp(`\\b${verbum.terminus}\\b`, 'g');
+                    const replacement = `<span class="verbum" data-verbum-id="${verbum.id_verbi}">${verbum.terminus}</span>`;
+                    textusTemporarius = textusTemporarius.replace(regex, replacement);
+                });
+
+                oratioSpan.innerHTML = textusTemporarius + ' ';
+                oratioSpan.addEventListener('mouseenter', monstraTooltip);
+                oratioSpan.addEventListener('mouseleave', occultaTooltip);
+                oratioSpan.addEventListener('mousemove', moveTooltip);
+                paragrafusContentus.appendChild(oratioSpan);
+            });
+        }
+
+        function monstraAnalyseonVerbi(verbumId) {
+            let verbumData = null;
+            for (const oratio of paragrafus.orationes) {
+                verbumData = oratio.verba.find(v => v.id_verbi === verbumId);
+                if (verbumData) break;
+            }
+            if (!verbumData) return;
+
+            marginaliaContentus.innerHTML = `
+                <h3 class="text-2xl textum-classicum text-gray-800 mb-4">${verbumData.terminus}</h3>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-bold text-sm uppercase text-gray-500 tracking-wider">Analysis Morphologica</h4>
+                        <p class="text-gray-700 mt-1">${verbumData.analysis_morphologicus}</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm uppercase text-gray-500 tracking-wider">Significationes</h4>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-700">
+                            <li><strong>ES:</strong> ${verbumData.significationes.es}</li>
+                            <li><strong>EN:</strong> ${verbumData.significationes.en}</li>
+                            <li><strong>中文:</strong> ${verbumData.significationes.zh}</li>
+                            <li><strong>KO:</strong> ${verbumData.significationes.ko}</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            marginalia.classList.remove('-translate-x-full');
+            visusParagrafi.classList.add('sidebar-aperta');
+        }
+        
+        function monstraAnalyseonOrationis(oratioId) {
+            const oratioData = paragrafus.orationes.find(o => o.id_orationis === oratioId);
+            if (!oratioData) return;
+
+            oratioLatinaTextus.textContent = oratioData.textus_latinus;
+            translatioES.innerHTML = oratioData.translationes.es;
+            translatioEN.innerHTML = oratioData.translationes.en;
+            translatioZH.innerHTML = oratioData.translationes.zh;
+            translatioKO.innerHTML = oratioData.translationes.ko;
+            analysisSyntacticaContentus.innerHTML = oratioData.analysis_syntactica;
+            
+            visusParagrafi.classList.add('occultus');
+            visusOrationis.classList.remove('occultus');
+            window.scrollTo(0, 0);
+        }
+
+        function initialisareLinguam() {
+            const linguaServata = localStorage.getItem('linguaPraefecta') || 'es';
+            linguaPraefecta = linguaServata;
+            const radioInput = document.querySelector(`#lingua-selector input[value="${linguaServata}"]`);
+            if (radioInput) {
+                radioInput.checked = true;
+            }
+        }
+
+        function mutareLinguam(event) {
+            linguaPraefecta = event.target.value;
+            localStorage.setItem('linguaPraefecta', linguaPraefecta);
+        }
+        
+        function monstraTooltip(event) {
+            const oratioId = event.target.dataset.oratioId;
+            const oratioData = paragrafus.orationes.find(o => o.id_orationis === oratioId);
+            if (oratioData && oratioData.translationes[linguaPraefecta]) {
+                const translatioTextus = oratioData.translationes[linguaPraefecta].replace(/<strong>.*?<\/strong>:\s*/, '');
+                tooltip.textContent = translatioTextus;
+                tooltip.style.display = 'block';
+            }
+        }
+
+        function occultaTooltip() {
+            tooltip.style.display = 'none';
+        }
+
+        function moveTooltip(event) {
+            tooltip.style.left = `${event.pageX + 15}px`;
+            tooltip.style.top = `${event.pageY + 15}px`;
+        }
+
+        // --- EVENT HANDLERS ---
+        paragrafusContentus.addEventListener('click', (e) => {
+            const verbumTarget = e.target.closest('.verbum');
+            const oratioTarget = e.target.closest('.oratio');
+
+            if (verbumTarget) {
+                e.stopPropagation();
+                document.querySelectorAll('.activus').forEach(el => el.classList.remove('activus'));
+                monstraAnalyseonVerbi(verbumTarget.dataset.verbumId);
+                verbumTarget.classList.add('activus');
+            } else if (oratioTarget) {
+                monstraAnalyseonOrationis(oratioTarget.dataset.oratioId);
+            }
+        });
+
+        claudereMarginaliaBtn.addEventListener('click', () => {
+            marginalia.classList.add('-translate-x-full');
+            visusParagrafi.classList.remove('sidebar-aperta');
+            document.querySelectorAll('.activus').forEach(el => el.classList.remove('activus'));
+        });
+
+        buttonRedire.addEventListener('click', () => {
+            visusOrationis.classList.add('occultus');
+            visusParagrafi.classList.remove('occultus');
+            visusParagrafi.classList.remove('sidebar-aperta');
+        });
+
+        linguaSelector.addEventListener('change', mutareLinguam);
+
+        // --- INITIALISATIO ---
+        initialisareLinguam();
+        reddeParagrafum();
+    });
+    </script>
+</body>
+</html>

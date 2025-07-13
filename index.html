@@ -45,7 +45,9 @@
       .verbum,.oratio{cursor:pointer;transition:background-color .2s ease-in-out}
       .oratio:hover{background-color:#d8cbad}.verbum:hover{background-color:#eaddc5}
       .activus{background-color:#cbbca7!important;font-weight:700}
-      #visus-paragrafi{transition:margin-left .4s ease-in-out}
+      #visus-paragrafi{position: relative; /* Añadir esta línea */
+    z-index: 10;        /* Añadir esta línea */
+    transition: margin-left .4s ease-in-out;}
       #marginalia-sinistra{transition:transform .4s ease-in-out}
       #visus-orationis{transition:opacity .3s ease-in-out,transform .3s ease-in-out}
       .sidebar-aperta{margin-left:20rem}

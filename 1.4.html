@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="la">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página -->
+    <title>De Bello Gallico - Liber I, Caput IV</title>
+    
+    <style type="text/css">
+        /* --- Tailwind CSS Pre-compilado (Preflight & Utilitarios Usados) --- */
+        *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::before,::after{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,[type='button'],[type='reset'],[type='submit']{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type='search']{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}button, [role="button"]{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}
+        .container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}
+        .fixed{position:fixed}.absolute{position:absolute}.sticky{position:sticky}.inset-0{top:0;right:0;bottom:0;left:0}.z-30{z-index:30}.z-50{z-index:50}
+        .mx-auto{margin-left:auto;margin-right:auto}.mb-8{margin-bottom:2rem}.mb-10{margin-bottom:2.5rem}.mt-2{margin-top:0.5rem}.mr-2{margin-right:0.5rem}.mt-6{margin-top:1.5rem}
+        .block{display:block}.inline-flex{display:inline-flex}.flex{display:flex}.h-4{height:1rem}.w-4{width:1rem}.h-5{height:1.25rem}.w-5{width:1.25rem}.h-screen{height:100vh}.w-80{width:20rem}
+        .transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+        .gap-x-1{column-gap:0.25rem}.gap-x-4{column-gap:1rem}.gap-x-6{column-gap:1.5rem}.gap-8{gap:2rem}.gap-12{gap:3rem}
+        .overflow-y-auto{overflow-y:auto}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}
+        .border-b-2{border-bottom-width:2px}.border-stone-300{--tw-border-opacity:1;border-color:rgb(214 211 209 / var(--tw-border-opacity))}
+        .bg-stone-50{--tw-bg-opacity:1;background-color:rgb(250 250 249 / var(--tw-bg-opacity))}
+        .bg-stone-100{--tw-bg-opacity:1;background-color:rgb(245 245 244 / var(--tw-bg-opacity))}
+        .bg-stone-200{--tw-bg-opacity:1;background-color:rgb(231 229 228 / var(--tw-bg-opacity))}
+        .bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}
+        .bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity))}
+        .hover\:bg-gray-800:hover{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity))}
+        .p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.pb-4{padding-bottom:1rem}.pb-5{padding-bottom:1.25rem}
+        .text-center{text-align:center}.text-justify{text-align:justify}
+        .text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}
+        .text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}
+        .font-bold{font-weight:700}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}
+        .text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}
+        .text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}
+        .text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}
+        .text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity))}
+        .text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}
+        .shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}
+        .transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;-webkit-backdrop-filter:backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+        .ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}
+        .grid{display:grid}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
+        .space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}
+        .space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}
+        @media (min-width:1024px){.lg\:p-12{padding:3rem}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+        
+        /* --- Estilos Personalizados --- */
+        body{background-color:#f3f0e9;font-family:'Helvetica Neue',Arial,sans-serif;color:#4a4a4a}
+        .textum-classicum{font-family:'Georgia','Times New Roman',serif}
+        .verbum,.oratio{cursor:pointer;transition:background-color .2s ease-in-out}
+        .oratio:hover{background-color:#d8cbad}.verbum:hover{background-color:#eaddc5}
+        .activus{background-color:#cbbca7!important;font-weight:700}
+        
+        /* --- LAYOUT ESTÁTICO --- */
+        .main-layout { display: grid; grid-template-columns: 20rem 1fr; gap: 2rem; padding: 2rem; }
+        #marginalia-sinistra { position: sticky; top: 2rem; height: calc(100vh - 4rem); }
+        #visus-orationis{transition:opacity .3s ease-in-out,transform .3s ease-in-out}
+        .occultus{display:none}
+        #translatio-tooltip{position:absolute;display:none;padding:.5rem 1rem;background-color:#2d3748;color:#fff;border-radius:.375rem;font-size:.875rem;line-height:1.25rem;max-width:320px;z-index:50;pointer-events:none}
+    </style>
+</head>
+<body class="bg-stone-100">
+
+    <div class="main-layout">
+        <!-- Panel de Análisis (siempre visible) -->
+        <aside id="marginalia-sinistra" class="bg-white shadow-xl p-6 rounded-lg overflow-y-auto">
+            <div id="marginalia-contentus">
+                <!-- Contenido por defecto o de análisis se insertará aquí -->
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <div id="visus-paragrafi">
+            <main>
+                <header class="text-center mb-10 border-b-2 border-stone-300 pb-5">
+                    <!-- Título y subtítulo principal -->
+                    <h1 class="text-5xl textum-classicum text-gray-800">De Bello Gallico</h1>
+                    <h2 class="text-2xl text-gray-600 mt-2">Liber I, Caput IV</h2>
+                </header>
+                
+                <section id="lingua-selector" class="mb-8 p-4 bg-stone-200 rounded-lg flex items-center justify-center gap-x-6">
+                    <h3 class="font-bold text-gray-700">Lingua Translationis:</h3>
+                    <div class="flex items-center gap-x-4">
+                        <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="es" class="h-4 w-4"> Español</label>
+                        <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="en" class="h-4 w-4"> English</label>
+                        <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="zh" class="h-4 w-4"> 中文</label>
+                        <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="ko" class="h-4 w-4"> 한국어</label>
+                    </div>
+                </section>
+
+                <div id="paragrafus-contentus" class="textum-classicum text-xl leading-relaxed text-justify bg-white p-8 lg:p-12 rounded-lg shadow-lg">
+                    <!-- El parágrafo interactivo se generará aquí a partir de los datos de JavaScript -->
+                </div>
+                
+                <footer class="text-center mt-6 text-sm text-gray-500">
+                    <p><i>Preme verbum singulum pro analysi. Preme sententiam totam pro analysi completa. Suspende murem super sententiam pro translatione rapida.</i></p>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <!-- Vista de Análisis de Oración (oculta por defecto) -->
+    <div id="visus-orationis" class="occultus fixed inset-0 bg-stone-50 z-30 p-8 lg:p-16 overflow-y-auto">
+        <header class="flex justify-between items-center border-b-2 border-stone-300 pb-4 mb-8">
+            <h2 class="text-3xl textum-classicum text-gray-800">Analysis Orationis</h2>
+            <button id="button-redire" class="inline-flex items-center px-6 py-2 bg-gray-700 text-white font-bold rounded-md hover:bg-gray-800 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Redire ad Textum
+            </button>
+        </header>
+        
+        <div id="oratio-analysis-contentus" class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+                <section class="mb-8">
+                    <h3 class="text-xl font-bold text-gray-700 mb-2">Oratio Latina</h3>
+                    <p id="oratio-latina-textus" class="textum-classicum text-2xl leading-relaxed bg-white p-4 rounded-md shadow"></p>
+                </section>
+                <section>
+                    <h3 class="text-xl font-bold text-gray-700 mb-3">Translationes</h3>
+                    <div class="space-y-3">
+                        <div id="translatio-es"></div>
+                        <div id="translatio-en"></div>
+                        <div id="translatio-zh"></div>
+                        <div id="translatio-ko"></div>
+                    </div>
+                </section>
+            </div>
+            <div>
+                <section>
+                    <h3 class="text-xl font-bold text-gray-700 mb-3">Analysis Syntactica</h3>
+                    <div id="analysis-syntactica-contentus" class="bg-white p-4 rounded-md shadow space-y-3 text-gray-700"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <div id="translatio-tooltip"></div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // =========================================================================================
+        // === INICIO DE LA ZONA DE DATOS ===
+        // =========================================================================================
+        const paragrafus = {
+            id: 4, // ID del capítulo
+            orationes: [
+                {
+                    id_orationis: 'o1_c4',
+                    textus_latinus: "Ea res ut est Heluetiis per indicium enuntiata, moribus suis Orgetorigem ex uinculis causam dicere coegerunt.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Tan pronto como este asunto fue denunciado a los helvecios por una delación, según sus costumbres, obligaron a Orgetórix a defender su causa encadenado.',
+                        en: '<strong>English</strong>: As soon as this matter was disclosed to the Helvetii through informers, according to their customs, they compelled Orgetorix to plead his case in chains.',
+                        zh: '<strong>中文（繁體）</strong>: 這件事一經告密者向赫爾維蒂人揭露，他們便依照習俗，強迫奧格托里克斯戴著鎖鏈為自己申辯。',
+                        ko: '<strong>한국어</strong>: 이 사건이 밀고를 통해 헬베티족에게 알려지자, 그들은 관습에 따라 오르게토릭스가 쇠사슬에 묶인 채로 자신의 소송을 변론하도록 강요했다.'
+                    },
+                    analysis_syntactica: `<p><strong>Claūsula subordināta temporālis (introducta per ut):</strong> Ea res ut est Heluetiis per indicium enuntiata.</p><p><strong>Propositio Principalis:</strong> moribus suis Orgetorigem ex uinculis causam dicere coegerunt.</p><ul><li><strong>Subiectum (subaudītum):</strong> Heluetii.</li><li><strong>Praedicātum:</strong> coegerunt.</li><li><strong>Oratio īnfīnītīva (obiectum dīrēctum):</strong> Orgetorigem ex uinculis causam dicere.</li></ul>`,
+                    verba: [
+                        { id_verbi: 'v1_c4_1', terminus: 'Ea', analysis_morphologicus: 'Nōmen + Pronomēn, fem., sing., nom.', significationes: { es: 'Este', en: 'This', zh: '這件', ko: '그' } },
+                        { id_verbi: 'v1_c4_2', terminus: 'res', analysis_morphologicus: 'Nōmen + Pronomēn, fem., sing., nom.', significationes: { es: 'asunto', en: 'matter', zh: '事', ko: '사건' } },
+                        { id_verbi: 'v1_c4_3', terminus: 'ut', analysis_morphologicus: 'Coniūnctiō temporālis', significationes: { es: 'tan pronto como', en: 'as', zh: '一...就...', ko: '~하자마자' } },
+                        { id_verbi: 'v1_c4_4', terminus: 'est', analysis_morphologicus: 'Verbum (ēnuntiō), perf., ind., pass., 3a, sing.', significationes: { es: 'fue', en: 'was', zh: '被', ko: '되었다' } },
+                        { id_verbi: 'v1_c4_5', terminus: 'Heluetiis', analysis_morphologicus: 'Nōmen, masc., pl., dat.', significationes: { es: 'a los helvecios', en: 'to the Helvetii', zh: '向赫爾維蒂人', ko: '헬베티족에게' } },
+                        { id_verbi: 'v1_c4_6', terminus: 'per', analysis_morphologicus: 'Syntagma praep. (acc.)', significationes: { es: 'por', en: 'through', zh: '通過', ko: '을 통해' } },
+                        { id_verbi: 'v1_c4_7', terminus: 'indicium', analysis_morphologicus: 'Syntagma praep. (acc.)', significationes: { es: 'una delación', en: 'informers', zh: '告密', ko: '밀고를' } },
+                        { id_verbi: 'v1_c4_8', terminus: 'enuntiata', analysis_morphologicus: 'Verbum (ēnuntiō), perf., ind., pass., 3a, sing.', significationes: { es: 'denunciado', en: 'disclosed', zh: '揭露', ko: '알려졌다' } },
+                        { id_verbi: 'v1_c4_9', terminus: 'moribus', analysis_morphologicus: 'Ablātīvus modī', significationes: { es: 'según sus costumbres', en: 'according to their customs', zh: '依照他們的習俗', ko: '그들의 관습에 따라' } },
+                        { id_verbi: 'v1_c4_10', terminus: 'suis', analysis_morphologicus: 'Ablātīvus modī', significationes: { es: 'sus', en: 'their', zh: '他們的', ko: '그들의' } },
+                        { id_verbi: 'v1_c4_11', terminus: 'Orgetorigem', analysis_morphologicus: 'Nōmen, masc., sing., acc.', significationes: { es: 'a Orgetórix', en: 'Orgetorix', zh: '奧格托里克斯', ko: '오르게토릭스가' } },
+                        { id_verbi: 'v1_c4_12', terminus: 'ex', analysis_morphologicus: 'Syntagma praep. (abl.)', significationes: { es: 'encadenado', en: 'in chains', zh: '被鎖鏈捆綁', ko: '쇠사슬에 묶인 채' } },
+                        { id_verbi: 'v1_c4_13', terminus: 'uinculis', analysis_morphologicus: 'Syntagma praep. (abl.)', significationes: { es: 'cadenas', en: 'chains', zh: '鎖鏈', ko: '쇠사슬' } },
+                        { id_verbi: 'v1_c4_14', terminus: 'causam', analysis_morphologicus: 'Locutiō verbālis', significationes: { es: 'su causa', en: 'his case', zh: '申辯', ko: '변론하도록' } },
+                        { id_verbi: 'v1_c4_15', terminus: 'dicere', analysis_morphologicus: 'Locutiō verbālis', significationes: { es: 'a defender', en: 'to plead', zh: '申辯', ko: '변론하도록' } },
+                        { id_verbi: 'v1_c4_16', terminus: 'coegerunt', analysis_morphologicus: 'Verbum (cōgō), perf., ind., act., 3a, pl.', significationes: { es: 'obligaron', en: 'they compelled', zh: '他們強迫', ko: '그들은 강요했다' } }
+                    ]
+                },
+                {
+                    id_orationis: 'o2_c4',
+                    textus_latinus: "Damnatum poenam sequi oportebat, ut igni cremaretur.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Si era condenado, era necesario que le siguiera la pena de ser quemado en el fuego.',
+                        en: '<strong>English</strong>: If he were condemned, it was necessary for the penalty to follow that he be burned by fire.',
+                        zh: '<strong>中文（繁體）</strong>: 如果他被判有罪，隨之而來的刑罰理應是將他用火燒死。',
+                        ko: '<strong>한국어</strong>: 만약 그가 유죄 판결을 받는다면, 불에 타 죽는 형벌이 뒤따라야만 했다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis:</strong> oportebat.</p><ul><li><strong>Subiectum (logīcum):</strong> poenam sequi Damnatum. (Oratio īnfīnītīva).</li><li><strong>Claūsula subordināta consecutīva (introducta per ut):</strong> ut igni cremaretur. (Explicat poenam).</li></ul>`,
+                    verba: [
+                        { id_verbi: 'v2_c4_1', terminus: 'Damnatum', analysis_morphologicus: 'Participium perf. pass., masc., sing., acc.', significationes: { es: 'a que, si era condenado,', en: 'him, if condemned,', zh: '被判有罪的他', ko: '유죄 판결을 받은 그를' } },
+                        { id_verbi: 'v2_c4_2', terminus: 'poenam', analysis_morphologicus: 'Nōmen, fem., sing., acc.', significationes: { es: 'la pena', en: 'the penalty', zh: '刑罰', ko: '형벌이' } },
+                        { id_verbi: 'v2_c4_3', terminus: 'sequi', analysis_morphologicus: 'Verbum (sequor), praes., īnfīn., dēp.', significationes: { es: 'le siguiera', en: 'to follow', zh: '跟隨', ko: '따르는 것을' } },
+                        { id_verbi: 'v2_c4_4', terminus: 'oportebat', analysis_morphologicus: 'Verbum (oportet), imperf., ind., act., 3a, sing.', significationes: { es: 'era necesario', en: 'it was necessary', zh: '應該', ko: '~해야만 했다' } },
+                        { id_verbi: 'v2_c4_5', terminus: 'ut', analysis_morphologicus: 'Claūsula consecutīva', significationes: { es: 'de', en: 'that', zh: '被', ko: '것' } },
+                        { id_verbi: 'v2_c4_6', terminus: 'igni', analysis_morphologicus: 'Nōmen, masc., sing., abl.', significationes: { es: 'en el fuego', en: 'by fire', zh: '火', ko: '불에' } },
+                        { id_verbi: 'v2_c4_7', terminus: 'cremaretur', analysis_morphologicus: 'Verbum (cremō), imperf., coniūnct., pass., 3a, sing.', significationes: { es: 'ser quemado', en: 'he be burned', zh: '燒死', ko: '타 죽는' } }
+                    ]
+                },
+                {
+                    id_orationis: 'o3_c4',
+                    textus_latinus: "Die constituta causae dictionis, Orgetorix ad iudicium omnem suam familiam, ad hominum milia X undique coegit, et omnes clientes, obaeratosque suos, quorum magnum numerum habebat, eodem conduxit: per eos, ne causam diceret, se eripuit.",
+                    translationes: {
+                        es: '<strong>Español</strong>: En el día fijado para la defensa de la causa, Orgetórix reunió de todas partes para el juicio a toda su familia, hasta unos diez mil hombres, y condujo al mismo lugar a todos sus clientes y a sus deudores, de los cuales tenía un gran número: por medio de ellos, se libró de defender su causa.',
+                        en: '<strong>English</strong>: On the day appointed for the pleading of the case, Orgetorix gathered his entire household, to about 10,000 men, from all sides to the trial, and he brought to the same place all his clients and his debtors, of whom he had a great number: through them, he rescued himself from pleading his case.',
+                        zh: '<strong>中文（繁體）</strong>: 在指定的案件辯護日，奧格托里克斯從四面八方召集了他所有的家族，約一萬人，到審判地點，並將他所有的門客和債務人（他擁有大量這樣的人）也帶到同一個地方：通過他們，他使自己免於申辯。',
+                        ko: '<strong>한국어</strong>: 소송 변론을 위해 지정된 날, 오르게토릭스는 재판에 자신의 모든 가족, 약 만 명에 이르는 사람들을 사방에서 모았고, 그가 많이 거느리고 있던 모든 부하들과 빚진 자들도 같은 곳으로 이끌었다. 그들을 통해 그는 소송을 변론하지 않고 자신을 빼냈다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis:</strong> Orgetorix... coegit, et... conduxit: per eos... se eripuit.</p><ul><li><strong>Subiectum:</strong> Orgetorix.</li><li><strong>Ablātīvus absolūtus (temporālis):</strong> Die constituta causae dictionis.</li><li><strong>Praedicāta (coordināta):</strong> coegit, conduxit, eripuit.</li><li><strong>Claūsula relātīva:</strong> quorum magnum numerum habebat.</li><li><strong>Claūsula fīnālis negātīva:</strong> ne causam diceret.</li></ul>`,
+                    verba: [
+                        { id_verbi: 'v3_c4_1', terminus: 'Die', analysis_morphologicus: 'Ablātīvus absolūtus', significationes: { es: 'En el día', en: 'On the day', zh: '在指定的日子', ko: '정해진 날에' } },
+                        { id_verbi: 'v3_c4_2', terminus: 'constituta', analysis_morphologicus: 'Ablātīvus absolūtus', significationes: { es: 'fijado', en: 'appointed', zh: '指定', ko: '정해진' } },
+                        { id_verbi: 'v3_c4_3', terminus: 'causae', analysis_morphologicus: 'Nōmen + Nōmen, gen.', significationes: { es: 'de la causa', en: 'of the case', zh: '為案件的', ko: '변론을 위한' } },
+                        { id_verbi: 'v3_c4_4', terminus: 'dictionis', analysis_morphologicus: 'Nōmen + Nōmen, gen.', significationes: { es: 'para la defensa', en: 'for the pleading', zh: '辯護', ko: '변론을 위한' } },
+                        { id_verbi: 'v3_c4_5', terminus: 'Orgetorix', analysis_morphologicus: 'Nōmen, masc., sing., nom.', significationes: { es: 'Orgetórix', en: 'Orgetorix', zh: '奧格托里克斯', ko: '오르게토릭스는' } },
+                        { id_verbi: 'v3_c4_6', terminus: 'ad', analysis_morphologicus: 'Syntagma praep. (acc.)', significationes: { es: 'para el', en: 'to the', zh: '到', ko: '에' } },
+                        { id_verbi: 'v3_c4_7', terminus: 'iudicium', analysis_morphologicus: 'Syntagma praep. (acc.)', significationes: { es: 'juicio', en: 'trial', zh: '審判地點', ko: '재판' } },
+                        { id_verbi: 'v3_c4_8', terminus: 'omnem', analysis_morphologicus: 'Syntagma nom. (acc.)', significationes: { es: 'a toda', en: 'his entire', zh: '他所有的', ko: '그의 모든' } },
+                        { id_verbi: 'v3_c4_9', terminus: 'suam', analysis_morphologicus: 'Syntagma nom. (acc.)', significationes: { es: 'su', en: 'his', zh: '他的', ko: '그의' } },
+                        { id_verbi: 'v3_c4_10', terminus: 'familiam', analysis_morphologicus: 'Syntagma nom. (acc.)', significationes: { es: 'familia', en: 'household', zh: '家族', ko: '가족을' } },
+                        { id_verbi: 'v3_c4_11', terminus: 'ad', analysis_morphologicus: 'Locutiō (numerus)', significationes: { es: 'hasta', en: 'to about', zh: '約', ko: '약' } },
+                        { id_verbi: 'v3_c4_12', terminus: 'hominum', analysis_morphologicus: 'Locutiō (numerus)', significationes: { es: 'hombres', en: 'men', zh: '人', ko: '명의 사람' } },
+                        { id_verbi: 'v3_c4_13', terminus: 'milia', analysis_morphologicus: 'Locutiō (numerus)', significationes: { es: 'diez mil', en: '10,000', zh: '一萬', ko: '만' } },
+                        { id_verbi: 'v3_c4_14', terminus: 'X', analysis_morphologicus: 'Locutiō (numerus)', significationes: { es: 'diez', en: 'ten', zh: '十', ko: '십' } },
+                        { id_verbi: 'v3_c4_15', terminus: 'undique', analysis_morphologicus: 'Adverbium', significationes: { es: 'de todas partes', en: 'from all sides', zh: '從四面八方', ko: '사방에서' } },
+                        { id_verbi: 'v3_c4_16', terminus: 'coegit', analysis_morphologicus: 'Verbum (cōgō), perf., ind., act., 3a, sing.', significationes: { es: 'reunió', en: 'he gathered', zh: '他聚集', ko: '그는 모았다' } },
+                        { id_verbi: 'v3_c4_17', terminus: 'et', analysis_morphologicus: 'Coniūnctiō', significationes: { es: 'y', en: 'and', zh: '和', ko: '그리고' } },
+                        { id_verbi: 'v3_c4_18', terminus: 'omnes', analysis_morphologicus: 'Syntagma nom. (acc.)', significationes: { es: 'a todos', en: 'all', zh: '所有的', ko: '모든' } },
+                        { id_verbi: 'v3_c4_19', terminus: 'clientes', analysis_morphologicus: 'Syntagma nom. (acc.)', significationes: { es: 'sus clientes', en: 'his clients', zh: '門客', ko: '부하들과' } },
+                        { id_verbi: 'v3_c4_20', terminus: 'obaeratosque', analysis_morphologicus: 'Nōmen, masc., pl., acc.', significationes: { es: 'y deudores', en: 'and debtors', zh: '和債務人', ko: '빚진 자들을' } },
+                        { id_verbi: 'v3_c4_21', terminus: 'suos', analysis_morphologicus: 'Adiectivum, masc., pl., acc.', significationes: { es: 'sus', en: 'his', zh: '他的', ko: '그의' } },
+                        { id_verbi: 'v3_c4_22', terminus: 'quorum', analysis_morphologicus: 'Pronomēn rel., masc., pl., gen.', significationes: { es: 'de los cuales', en: 'of whom', zh: '他們的', ko: '그들의' } },
+                        { id_verbi: 'v3_c4_23', terminus: 'magnum', analysis_morphologicus: 'Syntagma nom. (acc.)', significationes: { es: 'un gran', en: 'a great', zh: '大量', ko: '많은' } },
+                        { id_verbi: 'v3_c4_24', terminus: 'numerum', analysis_morphologicus: 'Syntagma nom. (acc.)', significationes: { es: 'número', en: 'number', zh: '數量', ko: '수를' } },
+                        { id_verbi: 'v3_c4_25', terminus: 'habebat', analysis_morphologicus: 'Verbum (habeō), imperf., ind., act., 3a, sing.', significationes: { es: 'tenía', en: 'he had', zh: '他擁有', ko: '그는 가지고 있었다' } },
+                        { id_verbi: 'v3_c4_26', terminus: 'eodem', analysis_morphologicus: 'Adverbium', significationes: { es: 'al mismo lugar', en: 'to the same place', zh: '到同一個地方', ko: '같은 곳으로' } },
+                        { id_verbi: 'v3_c4_27', terminus: 'conduxit', analysis_morphologicus: 'Verbum (condūcō), perf., ind., act., 3a, sing.', significationes: { es: 'condujo', en: 'he brought', zh: '他引領', ko: '그는 이끌었다' } },
+                        { id_verbi: 'v3_c4_28', terminus: 'per', analysis_morphologicus: 'Syntagma praep. (acc.)', significationes: { es: 'por medio de', en: 'through', zh: '通過', ko: '을 통해' } },
+                        { id_verbi: 'v3_c4_29', terminus: 'eos', analysis_morphologicus: 'Syntagma praep. (acc.)', significationes: { es: 'ellos', en: 'them', zh: '他們', ko: '그들을' } },
+                        { id_verbi: 'v3_c4_30', terminus: 'ne', analysis_morphologicus: 'Claūsula fīnālis negātīva', significationes: { es: 'para no', en: 'that he might not', zh: '為了不', ko: '않도록' } },
+                        { id_verbi: 'v3_c4_31', terminus: 'causam', analysis_morphologicus: 'Nōmen, fem., sing., acc.', significationes: { es: 'su causa', en: 'his case', zh: '申辯', ko: '변론' } },
+                        { id_verbi: 'v3_c4_32', terminus: 'diceret', analysis_morphologicus: 'Verbum (dīcō), imperf., coniūnct., act., 3a, sing.', significationes: { es: 'defender', en: 'plead', zh: '申辯', ko: '하지' } },
+                        { id_verbi: 'v3_c4_33', terminus: 'se', analysis_morphologicus: 'Verbum reflexīvum', significationes: { es: 'se', en: 'himself', zh: '他使自己', ko: '그는 자신을' } },
+                        { id_verbi: 'v3_c4_34', terminus: 'eripuit', analysis_morphologicus: 'Verbum reflexīvum', significationes: { es: 'libró', en: 'he rescued', zh: '脫身', ko: '빼냈다' } }
+                    ]
+                },
+                {
+                    id_orationis: 'o4_c4',
+                    textus_latinus: "Cum ciuitas, ob eam rem incitata, armis ius suum exsequi conaretur, multitudinemque hominum ex agris magistratus cogerent, Orgetorix mortuus est.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Como la ciudadanía, excitada por este motivo, intentara hacer cumplir su derecho por las armas y los magistrados reunieran una multitud de hombres de los campos, Orgetórix murió.',
+                        en: '<strong>English</strong>: While the state, aroused on account of this matter, was trying to enforce its right with arms, and the magistrates were gathering a multitude of men from the fields, Orgetorix died.',
+                        zh: '<strong>中文（繁體）</strong>: 當城邦因這件事被激怒，試圖用武力執行其權利，且長官們正從田野裡召集大批人馬時，奧格托里克斯死了。',
+                        ko: '<strong>한국어</strong>: 국가가 이 일로 인해 격분하여 무력으로 자신들의 권리를 집행하려 하고, 관리들이 들판에서 많은 사람들을 모으고 있을 때, 오르게토릭스는 죽었다.'
+                    },
+                    analysis_syntactica: `<p><strong>Claūsula subordināta cum historicum:</strong> Cum ciuitas... conaretur, multitudinemque... cogerent.</p><ul><li><strong>Subiecta:</strong> ciuitas incitata et magistratus.</li><li><strong>Praedicāta (in coniūnctīvō):</strong> conaretur et cogerent.</li></ul><p><strong>Propositio Principalis:</strong> Orgetorix mortuus est.</p>`,
+                    verba: [
+                        { id_verbi: 'v4_c4_1', terminus: 'Cum', analysis_morphologicus: 'Coniūnctiō + Nōmen', significationes: { es: 'Como', en: 'When', zh: '當', ko: '때' } },
+                        { id_verbi: 'v4_c4_2', terminus: 'ciuitas', analysis_morphologicus: 'Coniūnctiō + Nōmen', significationes: { es: 'la ciudadanía', en: 'the state', zh: '城邦', ko: '국가가' } },
+                        { id_verbi: 'v4_c4_3', terminus: 'ob', analysis_morphologicus: 'Syntagma praep. (acc.)', significationes: { es: 'por', en: 'on account of', zh: '因為', ko: '때문에' } },
+                        { id_verbi: 'v4_c4_4', terminus: 'eam', analysis_morphologicus: 'Syntagma praep. (acc.)', significationes: { es: 'este', en: 'that', zh: '那件', ko: '그' } },
+                        { id_verbi: 'v4_c4_5', terminus: 'rem', analysis_morphologicus: 'Syntagma praep. (acc.)', significationes: { es: 'motivo', en: 'matter', zh: '事', ko: '일' } },
+                        { id_verbi: 'v4_c4_6', terminus: 'incitata', analysis_morphologicus: 'Participium perf. pass.', significationes: { es: 'excitada', en: 'aroused', zh: '被激怒', ko: '격분하여' } },
+                        { id_verbi: 'v4_c4_7', terminus: 'armis', analysis_morphologicus: 'Nōmen, neut., pl., abl.', significationes: { es: 'por las armas', en: 'with arms', zh: '用武力', ko: '무력으로' } },
+                        { id_verbi: 'v4_c4_8', terminus: 'ius', analysis_morphologicus: 'Syntagma nom. (acc.)', significationes: { es: 'su derecho', en: 'its right', zh: '自己的權利', ko: '자신들의 권리를' } },
+                        { id_verbi: 'v4_c4_9', terminus: 'suum', analysis_morphologicus: 'Syntagma nom. (acc.)', significationes: { es: 'su', en: 'its', zh: '自己的', ko: '자신들의' } },
+                        { id_verbi: 'v4_c4_10', terminus: 'exsequi', analysis_morphologicus: 'Verbum, praes., īnfīn., dēp.', significationes: { es: 'a hacer cumplir', en: 'to enforce', zh: '執行', ko: '집행하려고' } },
+                        { id_verbi: 'v4_c4_11', terminus: 'conaretur', analysis_morphologicus: 'Verbum, imperf., coniūnct., dēp., 3a, sing.', significationes: { es: 'intentara', en: 'was trying', zh: '試圖', ko: '시도했을 때' } },
+                        { id_verbi: 'v4_c4_12', terminus: 'multitudinemque', analysis_morphologicus: 'Nōmen, fem., sing., acc.', significationes: { es: 'y una multitud de hombres', en: 'and a multitude of men', zh: '大批人', ko: '많은 사람들을' } },
+                        { id_verbi: 'v4_c4_13', terminus: 'hominum', analysis_morphologicus: 'Nōmen, masc., pl., gen.', significationes: { es: 'de hombres', en: 'of men', zh: '人', ko: '사람들을' } },
+                        { id_verbi: 'v4_c4_14', terminus: 'ex', analysis_morphologicus: 'Syntagma praep. (abl.)', significationes: { es: 'de los', en: 'from the', zh: '從', ko: '에서' } },
+                        { id_verbi: 'v4_c4_15', terminus: 'agris', analysis_morphologicus: 'Syntagma praep. (abl.)', significationes: { es: 'campos', en: 'fields', zh: '田野裡', ko: '들판' } },
+                        { id_verbi: 'v4_c4_16', terminus: 'magistratus', analysis_morphologicus: 'Nōmen, masc., pl., nom.', significationes: { es: 'los magistrados', en: 'the magistrates', zh: '長官們', ko: '관리들이' } },
+                        { id_verbi: 'v4_c4_17', terminus: 'cogerent', analysis_morphologicus: 'Verbum, imperf., coniūnct., act., 3a, pl.', significationes: { es: 'reunieran', en: 'were gathering', zh: '召集', ko: '모으고 있을 때' } },
+                        { id_verbi: 'v4_c4_18', terminus: 'Orgetorix', analysis_morphologicus: 'Nōmen, masc., sing., nom.', significationes: { es: 'Orgetórix', en: 'Orgetorix', zh: '奧格托里克斯', ko: '오르게토릭스' } },
+                        { id_verbi: 'v4_c4_19', terminus: 'mortuus', analysis_morphologicus: 'Verbum (morior), perf., ind., dēp., 3a, sing.', significationes: { es: 'murió', en: 'died', zh: '死了', ko: '죽었다' } },
+                        { id_verbi: 'v4_c4_20', terminus: 'est', analysis_morphologicus: 'Verbum (sum), praes., ind., act., 3a, sing.', significationes: { es: 'está', en: 'is', zh: '是', ko: '이다' } }
+                    ]
+                },
+                {
+                    id_orationis: 'o5_c4',
+                    textus_latinus: "neque abest suspicio, ut Heluetii arbitrabantur, quin ipse sibi mortem consciuerit.",
+                    translationes: {
+                        es: '<strong>Español</strong>: y no falta la sospecha, como opinaban los helvecios, de que él mismo se dio la muerte.',
+                        en: '<strong>English</strong>: nor is the suspicion absent, as the Helvetii thought, that he inflicted death upon himself.',
+                        zh: '<strong>中文（繁體）</strong>: 並且不乏這樣的懷疑，正如赫爾維蒂人所認為的，即他自己結束了自己的生命。',
+                        ko: '<strong>한국어</strong>: 그리고 헬베티족이 생각했던 것처럼, 그가 스스로 목숨을 끊었다는 의심도 없지 않다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis:</strong> neque abest suspicio.</p><ul><li><strong>Claūsula modālis/parenthetica:</strong> ut Heluetii arbitrabantur.</li><li><strong>Claūsula subordināta completīva (introducta per quin):</strong> quin ipse sibi mortem consciuerit.</li></ul>`,
+                    verba: [
+                        { id_verbi: 'v5_c4_1', terminus: 'neque', analysis_morphologicus: 'Coniūnctiō + Verbum', significationes: { es: 'y no', en: 'nor is', zh: '並且不乏', ko: '그리고 ~이 없다' } },
+                        { id_verbi: 'v5_c4_2', terminus: 'abest', analysis_morphologicus: 'Coniūnctiō + Verbum', significationes: { es: 'falta', en: 'is absent', zh: '乏', ko: '없다' } },
+                        { id_verbi: 'v5_c4_3', terminus: 'suspicio', analysis_morphologicus: 'Nōmen, fem., sing., nom.', significationes: { es: 'la sospecha', en: 'the suspicion', zh: '懷疑', ko: '의심이' } },
+                        { id_verbi: 'v5_c4_4', terminus: 'ut', analysis_morphologicus: 'Claūsula modālis', significationes: { es: 'como', en: 'as', zh: '正如', ko: '~라고' } },
+                        { id_verbi: 'v5_c4_5', terminus: 'Heluetii', analysis_morphologicus: 'Nōmen, masc., pl., nom.', significationes: { es: 'los helvecios', en: 'the Helvetii', zh: '赫爾維蒂人', ko: '헬베티족이' } },
+                        { id_verbi: 'v5_c4_6', terminus: 'arbitrabantur', analysis_morphologicus: 'Verbum (arbitror), imperf., ind., dēp., 3a, pl.', significationes: { es: 'opinaban', en: 'thought', zh: '所認為的', ko: '생각하듯이' } },
+                        { id_verbi: 'v5_c4_7', terminus: 'quin', analysis_morphologicus: 'Claūsula dubitatīva', significationes: { es: 'de que', en: 'that', zh: '他', ko: '그가...했다는' } },
+                        { id_verbi: 'v5_c4_8', terminus: 'ipse', analysis_morphologicus: 'Locutiō', significationes: { es: 'él mismo', en: 'himself', zh: '他自己', ko: '그 자신이' } },
+                        { id_verbi: 'v5_c4_9', terminus: 'sibi', analysis_morphologicus: 'Locutiō', significationes: { es: 'se', en: 'upon himself', zh: '給自己', ko: '자신에게' } },
+                        { id_verbi: 'v5_c4_10', terminus: 'mortem', analysis_morphologicus: 'Locutiō', significationes: { es: 'la muerte', en: 'death', zh: '死亡', ko: '죽음을' } },
+                        { id_verbi: 'v5_c4_11', terminus: 'consciuerit', analysis_morphologicus: 'Verbum (cōnscīscō), perf., coniūnct., act., 3a, sing.', significationes: { es: 'se dio', en: 'inflicted', zh: '結束了生命', ko: '했다는' } }
+                    ]
+                }
+            ]
+        };
+        // =========================================================================================
+        // === FIN DE LA ZONA DE DATOS ===
+        // === No es necesario modificar el código debajo de esta línea. ===
+        // =========================================================================================
+
+        const paragrafusContentus = document.getElementById('paragrafus-contentus');
+        const marginaliaContentus = document.getElementById('marginalia-contentus');
+        const visusParagrafi = document.getElementById('visus-paragrafi');
+        const visusOrationis = document.getElementById('visus-orationis');
+        const buttonRedire = document.getElementById('button-redire');
+        const oratioLatinaTextus = document.getElementById('oratio-latina-textus');
+        const translatioES = document.getElementById('translatio-es');
+        const translatioEN = document.getElementById('translatio-en');
+        const translatioZH = document.getElementById('translatio-zh');
+        const translatioKO = document.getElementById('translatio-ko');
+        const analysisSyntacticaContentus = document.getElementById('analysis-syntactica-contentus');
+        const linguaSelector = document.getElementById('lingua-selector');
+        const tooltip = document.getElementById('translatio-tooltip');
+        let linguaPraefecta = 'es';
+
+        function monstraContentusDefectu() {
+            marginaliaContentus.innerHTML = `
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Analysis Morphologica</h3>
+                <div class="space-y-2 text-gray-600">
+                    <p><strong>ES:</strong> Selecciona una palabra para ver su análisis.</p>
+                    <p><strong>EN:</strong> Select a word to see its analysis.</p>
+                    <p><strong>中文:</strong> 選擇一個詞以查看其分析。</p>
+                    <p><strong>KO:</strong> 단어를 선택하여 분석을 확인하세요。</p>
+                </div>
+            `;
+        }
+
+        function reddeParagrafum() {
+            paragrafusContentus.innerHTML = '';
+            paragrafus.orationes.forEach(oratio => {
+                const oratioSpan = document.createElement('span');
+                oratioSpan.className = 'oratio';
+                oratioSpan.dataset.oratioId = oratio.id_orationis;
+
+                let textusTemporarius = oratio.textus_latinus;
+                const verbaSorted = [...oratio.verba].sort((a,b) => b.terminus.length - a.terminus.length);
+
+                verbaSorted.forEach(verbum => {
+                    const regex = new RegExp(`\\b${verbum.terminus.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b(?![^<]*?>)`, 'g');
+                    const replacement = `<span class="verbum" data-verbum-id="${verbum.id_verbi}">${verbum.terminus}</span>`;
+                    textusTemporarius = textusTemporarius.replace(regex, replacement);
+                });
+
+                oratioSpan.innerHTML = textusTemporarius + ' ';
+                oratioSpan.addEventListener('mouseenter', monstraTooltip);
+                oratioSpan.addEventListener('mouseleave', occultaTooltip);
+                oratioSpan.addEventListener('mousemove', moveTooltip);
+                paragrafusContentus.appendChild(oratioSpan);
+            });
+        }
+
+        function monstraAnalyseonVerbi(verbumId) {
+            let verbumData = null;
+            for (const oratio of paragrafus.orationes) {
+                verbumData = oratio.verba.find(v => v.id_verbi === verbumId);
+                if (verbumData) break;
+            }
+            if (!verbumData) return;
+
+            marginaliaContentus.innerHTML = `
+                <h3 class="text-2xl textum-classicum text-gray-800 mb-4">${verbumData.terminus}</h3>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-bold text-sm uppercase text-gray-500 tracking-wider">Analysis Morphologica</h4>
+                        <p class="text-gray-700 mt-1">${verbumData.analysis_morphologicus}</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm uppercase text-gray-500 tracking-wider">Significationes</h4>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-700">
+                            <li><strong>ES:</strong> ${verbumData.significationes.es}</li>
+                            <li><strong>EN:</strong> ${verbumData.significationes.en}</li>
+                            <li><strong>中文:</strong> ${verbumData.significationes.zh}</li>
+                            <li><strong>KO:</strong> ${verbumData.significationes.ko}</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function monstraAnalyseonOrationis(oratioId) {
+            const oratioData = paragrafus.orationes.find(o => o.id_orationis === oratioId);
+            if (!oratioData) return;
+
+            oratioLatinaTextus.textContent = oratioData.textus_latinus;
+            translatioES.innerHTML = oratioData.translationes.es;
+            translatioEN.innerHTML = oratioData.translationes.en;
+            translatioZH.innerHTML = oratioData.translationes.zh;
+            translatioKO.innerHTML = oratioData.translationes.ko;
+            analysisSyntacticaContentus.innerHTML = oratioData.analysis_syntactica;
+            
+            document.querySelector('.main-layout').classList.add('occultus');
+            visusOrationis.classList.remove('occultus');
+            window.scrollTo(0, 0);
+        }
+
+        function initialisareLinguam() {
+            const linguaServata = localStorage.getItem('linguaPraefecta') || 'es';
+            linguaPraefecta = linguaServata;
+            const radioInput = document.querySelector(`#lingua-selector input[value="${linguaServata}"]`);
+            if (radioInput) {
+                radioInput.checked = true;
+            }
+        }
+
+        function mutareLinguam(event) {
+            linguaPraefecta = event.target.value;
+            localStorage.setItem('linguaPraefecta', linguaPraefecta);
+        }
+        
+        function monstraTooltip(event) {
+            const oratioId = event.currentTarget.dataset.oratioId;
+            const oratioData = paragrafus.orationes.find(o => o.id_orationis === oratioId);
+            if (oratioData && oratioData.translationes[linguaPraefecta]) {
+                const translatioTextus = oratioData.translationes[linguaPraefecta].replace(/<strong>.*?<\/strong>:\s*/, '');
+                tooltip.textContent = translatioTextus;
+                tooltip.style.display = 'block';
+            }
+        }
+
+        function occultaTooltip() {
+            tooltip.style.display = 'none';
+        }
+
+        function moveTooltip(event) {
+            tooltip.style.left = `${event.pageX + 15}px`;
+            tooltip.style.top = `${event.pageY + 15}px`;
+        }
+
+        paragrafusContentus.addEventListener('click', (e) => {
+            const verbumTarget = e.target.closest('.verbum');
+            const oratioTarget = e.target.closest('.oratio');
+
+            if (verbumTarget) {
+                e.stopPropagation();
+                document.querySelectorAll('.activus').forEach(el => el.classList.remove('activus'));
+                monstraAnalyseonVerbi(verbumTarget.dataset.verbumId);
+                verbumTarget.classList.add('activus');
+            } else if (oratioTarget) {
+                monstraAnalyseonOrationis(oratioTarget.dataset.oratioId);
+            }
+        });
+
+        buttonRedire.addEventListener('click', () => {
+            visusOrationis.classList.add('occultus');
+            document.querySelector('.main-layout').classList.remove('occultus');
+        });
+
+        linguaSelector.addEventListener('change', mutareLinguam);
+
+        initialisareLinguam();
+        reddeParagrafum();
+        monstraContentusDefectu();
+    });
+    </script>
+</body>
+</html>

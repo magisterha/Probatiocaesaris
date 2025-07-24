@@ -5,28 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index: De Bello Gallico</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <style type="text/css">
         body {
-            background-color: #f5f4f0;
-            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #f5f4f0; /* Un color hueso/pergamino claro */
+            font-family: 'Inter', sans-serif;
             color: #3a3a3a;
         }
         .textum-classicum {
-            font-family: 'Georgia', 'Times New Roman', serif;
+            font-family: 'Lora', serif; /* Una fuente serif elegante para los títulos */
         }
     </style>
 </head>
 <body class="bg-stone-100">
 
-    <div class="container mx-auto p-4 sm:p-8">
+    <div class="container mx-auto p-4 sm:p-8 max-w-5xl">
+        <!-- Encabezado de la página -->
         <header class="text-center mb-10 border-b-2 border-stone-300 pb-5">
-            <h1 class="text-5xl textum-classicum text-gray-800">Commentarii de Bello Gallico</h1>
-            <p class="text-xl text-gray-500 mt-2">Gaius Iulius Caesar</p>
+            <h1 class="text-4xl md:text-5xl textum-classicum text-gray-800">Commentarii de Bello Gallico</h1>
+            <p class="text-lg md:text-xl text-gray-500 mt-2">Gaius Iulius Caesar</p>
         </header>
 
+        <!-- Contenedor principal para el índice -->
         <main id="opus-index-contentus" class="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
-            </main>
+            <!-- El contenido del índice se generará aquí con JavaScript -->
+        </main>
 
+        <!-- Pie de página -->
         <footer class="text-center mt-8 text-sm text-gray-500">
             <p>Seleccione un capítulo para comenzar el análisis.</p>
         </footer>
@@ -34,46 +41,56 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // --- CONFIGURACIÓN DE GITHUB ---
+        // !!! IMPORTANTE: Reemplaza estos valores con los de tu repositorio y rama.
+        const GITHUB_USER = 'magisterha'; // Tu usuario de GitHub (ej. magisterha)
+        const GITHUB_REPO = 'Probatiocaesaris'; // El nombre de tu repositorio
+        const GITHUB_BRANCH = 'nombre-de-la-rama'; // La rama donde están los archivos
+
         // --- ESTRUCTURA DEL ÍNDICE ---
-        // Define cuántos capítulos tiene cada libro.
         const deBelloGallicoIndex = {
-            'I': 54,  // Liber I tiene 54 capítulos
-            'II': 35, // Liber II tiene 35 capítulos
-            'III': 29,
-            'IV': 38,
-            'V': 58,
-            'VI': 44,
-            'VII': 90,
-            'VIII': 55 // Aunque es de Aulo Hircio, se incluye.
+            'I': 54, 'II': 35, 'III': 29, 'IV': 38, 
+            'V': 58, 'VI': 44, 'VII': 90, 'VIII': 55
         };
 
         const indexContainer = document.getElementById('opus-index-contentus');
 
-        // --- FUNCIÓN PARA RENDERIZAR EL ÍNDICE ---
         function reddeOpusIndex() {
-            indexContainer.innerHTML = '<h2 class="text-3xl font-semibold mb-6 textum-classicum text-center">Index Librorum et Capitum</h2>';
+            indexContainer.innerHTML = '<h2 class="text-3xl font-semibold mb-8 textum-classicum text-center text-gray-700">Index Librorum et Capitum</h2>';
 
             for (const liberNum in deBelloGallicoIndex) {
                 const totalCapita = deBelloGallicoIndex[liberNum];
-
                 const liberDiv = document.createElement('div');
                 liberDiv.className = 'mb-8';
-                // Título del Libro (ej. Liber I)
-                liberDiv.innerHTML = `<h3 class="text-2xl font-bold text-stone-700 border-b border-stone-300 pb-2 mb-4">Liber ${liberNum}</h3>`;
+                liberDiv.innerHTML = `<h3 class="text-2xl font-bold text-stone-700 border-b border-stone-200 pb-2 mb-4 textum-classicum">Liber ${liberNum}</h3>`;
 
                 const capitumList = document.createElement('div');
-                // Cuadrícula para los botones de los capítulos
-                capitumList.className = 'grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2';
+                capitumList.className = 'grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-2';
 
                 for (let caputNum = 1; caputNum <= totalCapita; caputNum++) {
                     const caputLink = document.createElement('a');
                     
-                    // --- ENLACE A PÁGINA INDEPENDIENTE ---
-                    // Asumimos una estructura de carpetas: /capitulos/liber-1-caput-1.html
-                    caputLink.href = `capitulos/liber-${liberNum}-caput-${caputNum}.html`;
-
-                    caputLink.className = 'block text-center p-3 bg-stone-100 rounded-md hover:bg-stone-300 transition-colors duration-200';
-                    caputLink.textContent = `${caputNum}`; // Solo el número para un look más limpio
+                    let filePath;
+                    // --- CONSTRUCCIÓN DEL ENLACE A GITHUB ---
+                    // Condición especial para los capítulos 1 y 2 del Liber I según las imágenes.
+                    if (liberNum === 'I' && caputNum === 1) {
+                        filePath = `Probatiocaesaris/1.1.html`;
+                    } else if (liberNum === 'I' && caputNum === 2) {
+                        filePath = `Probatiocaesaris/1.2.html`;
+                    } else {
+                        // Lógica genérica para los demás capítulos.
+                        // Puedes ajustar esta ruta si tienes otros archivos específicos.
+                        filePath = `capitulos/liber-${liberNum}-caput-${caputNum}.html`;
+                    }
+                    
+                    caputLink.href = `https://github.com/${GITHUB_USER}/${GITHUB_REPO}/blob/${GITHUB_BRANCH}/${filePath}`;
+                    
+                    // Abrir en una nueva pestaña
+                    caputLink.setAttribute('target', '_blank');
+                    caputLink.setAttribute('rel', 'noopener noreferrer'); // Buena práctica de seguridad
+                    caputLink.setAttribute('title', `Ver Liber ${liberNum}, Caput ${caputNum}`);
+                    caputLink.className = 'flex items-center justify-center text-center p-2 bg-stone-100 rounded-md hover:bg-stone-300 hover:shadow-md transition-all duration-200 ease-in-out';
+                    caputLink.textContent = `${caputNum}`;
                     
                     capitumList.appendChild(caputLink);
                 }
@@ -83,7 +100,6 @@
             }
         }
 
-        // --- INICIALIZACIÓN ---
         reddeOpusIndex();
     });
     </script>

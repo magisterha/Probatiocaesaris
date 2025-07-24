@@ -1,414 +1,90 @@
 <!DOCTYPE html>
-<html lang="la">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bibliotheca Generalis</title>
+    <title>Index: De Bello Gallico</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/css">
-      body {
-        background-color: #f5f4f0; /* Un tono pergamino más sutil */
-        font-family: 'Georgia', 'Times New Roman', serif;
-        color: #3a3a3a;
-      }
-      .textum-classicum {
-        font-family: 'Georgia', 'Times New Roman', serif;
-      }
-      .card-bibliothecae {
-        background-color: #ffffff;
-        border: 1px solid #e0dccc;
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-      }
-      .card-bibliothecae:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-      }
-      .verbum, .oratio {
-        cursor: pointer;
-        transition: background-color .2s ease-in-out;
-      }
-      .oratio:hover {
-        background-color: #eaddc5;
-      }
-      .verbum:hover {
-        background-color: #d8cbad;
-      }
-      .activus {
-        background-color: #cbbca7 !important;
-        font-weight: 700;
-      }
-      .occultus {
-        display: none;
-      }
-      #translatio-tooltip {
-        position: absolute;
-        display: none;
-        padding: .5rem 1rem;
-        background-color: #2d3748;
-        color: #fff;
-        border-radius: .375rem;
-        font-size: .875rem;
-        line-height: 1.25rem;
-        max-width: 320px;
-        z-index: 50;
-        pointer-events: none;
-      }
-      /* Estilos para el panel sticky */
-      @media (min-width: 1024px) {
-          #marginalia-sinistra-wrapper {
-              position: sticky;
-              top: 2rem;
-              height: calc(100vh - 4rem);
-          }
-      }
+        body {
+            background-color: #f5f4f0;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #3a3a3a;
+        }
+        .textum-classicum {
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
     </style>
 </head>
 <body class="bg-stone-100">
 
-    <!-- 1. Vista de la Biblioteca General -->
-    <div id="bibliotheca-visus">
-        <div class="container mx-auto p-4 sm:p-8">
-            <header class="text-center mb-10 border-b-2 border-stone-300 pb-5">
-                <h1 class="text-5xl textum-classicum text-gray-800">Bibliotheca Generalis</h1>
-                <p class="text-xl text-gray-500 mt-2">Selectio operum et auctorum</p>
-            </header>
-            <div id="bibliotheca-contentus" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Las obras se insertarán aquí dinámicamente -->
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. Vista del Índice de la Obra -->
-    <div id="opus-index-visus" class="occultus">
-        <div class="container mx-auto p-4 sm:p-8">
-            <header id="opus-header" class="flex justify-between items-center mb-10 border-b-2 border-stone-300 pb-5">
-                 <!-- Título del libro se inserta aquí -->
-                 <button id="button-redire-ad-bibliothecam" class="inline-flex items-center px-4 py-2 bg-gray-700 text-white font-bold rounded-md hover:bg-gray-800 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
-                    Redire ad Bibliothecam
-                </button>
-            </header>
-            <div id="opus-index-contentus" class="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
-                <!-- El índice de libros y capítulos se insertará aquí -->
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. Vista de Análisis de Texto (el layout original) -->
-    <div id="analysis-visus" class="occultus">
-         <div class="container mx-auto p-4 sm:p-8">
-            <header class="flex flex-col sm:flex-row justify-between items-center mb-8 border-b-2 border-stone-300 pb-4 gap-4">
-                <div id="caput-titulus-header">
-                    <!-- Título del capítulo se inserta aquí -->
-                </div>
-                <button id="button-redire-ad-indicem" class="inline-flex items-center px-4 py-2 bg-gray-700 text-white font-bold rounded-md hover:bg-gray-800 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
-                    Redire ad Indicem
-                </button>
-            </header>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Contenido principal y panel de análisis -->
-                <div class="lg:col-span-2">
-                    <section id="lingua-selector" class="mb-8 p-4 bg-stone-200 rounded-lg flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-2">
-                        <h3 class="font-bold text-gray-700">Lingua Translationis:</h3>
-                        <div class="flex items-center flex-wrap justify-center gap-x-4 gap-y-2">
-                            <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="es" class="h-4 w-4"> Español</label>
-                            <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="en" class="h-4 w-4"> English</label>
-                            <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="zh" class="h-4 w-4"> 中文</label>
-                            <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="ko" class="h-4 w-4"> 한국어</label>
-                        </div>
-                    </section>
-                    <div id="paragrafus-contentus" class="textum-classicum text-xl leading-relaxed text-justify bg-white p-6 sm:p-8 lg:p-12 rounded-lg shadow-lg">
-                        <!-- El parágrafo interactivo se generará aquí -->
-                    </div>
-                    <footer class="text-center mt-6 text-sm text-gray-500">
-                        <p><i>Preme verbum singulum pro analysi. Preme sententiam totam pro analysi completa. Suspende murem super sententiam pro translatione rapida.</i></p>
-                    </footer>
-                </div>
-
-                <div id="marginalia-sinistra-wrapper">
-                    <aside id="marginalia-sinistra" class="bg-white shadow-xl p-6 rounded-lg overflow-y-auto">
-                        <div id="marginalia-contentus">
-                            <!-- Contenido de análisis se insertará aquí -->
-                        </div>
-                    </aside>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4. Vista de Análisis de Oración (oculta por defecto) -->
-    <div id="visus-orationis" class="occultus fixed inset-0 bg-stone-50 z-30 p-4 sm:p-8 lg:p-16 overflow-y-auto">
-        <header class="flex justify-between items-center border-b-2 border-stone-300 pb-4 mb-8">
-            <h2 class="text-2xl sm:text-3xl textum-classicum text-gray-800">Analysis Orationis</h2>
-            <button id="button-redire-ad-textum" class="inline-flex items-center px-4 py-2 sm:px-6 bg-gray-700 text-white font-bold rounded-md hover:bg-gray-800 transition text-sm sm:text-base">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
-                Redire ad Textum
-            </button>
+    <div class="container mx-auto p-4 sm:p-8">
+        <header class="text-center mb-10 border-b-2 border-stone-300 pb-5">
+            <h1 class="text-5xl textum-classicum text-gray-800">Commentarii de Bello Gallico</h1>
+            <p class="text-xl text-gray-500 mt-2">Gaius Iulius Caesar</p>
         </header>
-        <div id="oratio-analysis-contentus" class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            <div>
-                <section class="mb-8"><h3 class="text-xl font-bold text-gray-700 mb-2">Oratio Latina</h3><p id="oratio-latina-textus" class="textum-classicum text-2xl leading-relaxed bg-white p-4 rounded-md shadow"></p></section>
-                <section><h3 class="text-xl font-bold text-gray-700 mb-3">Translationes</h3><div class="space-y-3"><div id="translatio-es"></div><div id="translatio-en"></div><div id="translatio-zh"></div><div id="translatio-ko"></div></div></section>
-            </div>
-            <div><section><h3 class="text-xl font-bold text-gray-700 mb-3">Analysis Syntactica</h3><div id="analysis-syntactica-contentus" class="bg-white p-4 rounded-md shadow space-y-3 text-gray-700"></div></section></div>
-        </div>
+
+        <main id="opus-index-contentus" class="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+            </main>
+
+        <footer class="text-center mt-8 text-sm text-gray-500">
+            <p>Seleccione un capítulo para comenzar el análisis.</p>
+        </footer>
     </div>
-    
-    <div id="translatio-tooltip"></div>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-
-        // --- ESTRUCTURA DE DATOS DE LA BIBLIOTECA ---
-        const bibliotheca = {
-            'de-bello-gallico': {
-                auctor: 'Gaius Iulius Caesar',
-                titulus: 'Commentarii de Bello Gallico',
-                libri: {
-                    '1': { // Liber I
-                        capita: {
-                            '1': { // Caput I
-                                orationes: [
-                                    { id_orationis: 'o1', textus_latinus: "Gallia est omnis diuisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur.", translationes: { es: '<strong>Español</strong>: Toda la Galia está dividida en tres partes...', en: '<strong>English</strong>: All Gaul is divided into three parts...', zh: '<strong>中文</strong>: 高盧全境分為三個部分...', ko: '<strong>한국어</strong>: 모든 갈리아는 세 부분으로...' }, analysis_syntactica: `<p><strong>Propositio Principalis:</strong> Gallia est omnis diuisa in partes tres.</p>...`, verba: [ { id_verbi: 'v1_1', terminus: 'Gallia', analysis_morphologicus: 'Nōmen, fēminīnum, singulāris, nōminātīvus', significationes: { es: 'La Galia', en: 'Gaul', zh: '高盧', ko: '갈리아' } }, { id_verbi: 'v1_2', terminus: 'est', analysis_morphologicus: 'Verbum (sum, esse, fuī), praesēns, indicātīvus, āctīvus, tertia persōna, singulāris', significationes: { es: 'es, está', en: 'is', zh: '是', ko: '이다, 있다' } }, /* ... más palabras ... */ ] },
-                                    { id_orationis: 'o2', textus_latinus: "Hi omnes lingua, institutis, legibus inter se differunt.", translationes: { es: '<strong>Español</strong>: Todos estos se diferencian entre sí...', en: '<strong>English</strong>: All these differ from each other...', zh: '<strong>中文</strong>: 這所有民族在語言...', ko: '<strong>한국어</strong>: 이들은 모두 언어...' }, analysis_syntactica: `...`, verba: [ /* ... */ ] },
-                                    // ... El resto de las oraciones como en el código original
-                                ]
-                            }
-                            // En el futuro: '2': { ... caput 2 data ... }
-                        }
-                    }
-                    // En el futuro: '2': { ... liber 2 data ... }
-                }
-            }
-            // En el futuro: 'aeneis': { ... }
+        // --- ESTRUCTURA DEL ÍNDICE ---
+        // Define cuántos capítulos tiene cada libro.
+        const deBelloGallicoIndex = {
+            'I': 54,  // Liber I tiene 54 capítulos
+            'II': 35, // Liber II tiene 35 capítulos
+            'III': 29,
+            'IV': 38,
+            'V': 58,
+            'VI': 44,
+            'VII': 90,
+            'VIII': 55 // Aunque es de Aulo Hircio, se incluye.
         };
-        // Para acortar, copio los datos del capítulo 1 del código anterior.
-        // En una implementación real, todos los datos estarían aquí.
-        const caputUnusData = {"orationes":[{"id_orationis":"o1","textus_latinus":"Gallia est omnis diuisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur.","translationes":{"es":"<strong>Español</strong>: Toda la Galia está dividida en tres partes, una de las cuales la habitan los belgas, otra los aquitanos y la tercera la habitan aquellos que en su propia lengua se llaman celtas y en la nuestra, galos.","en":"<strong>English</strong>: All Gaul is divided into three parts, one of which the Belgae inhabit, another the Aquitani, and the third, those who in their own language are called Celts, in ours, Gauls.","zh":"<strong>中文（繁體）</strong>: 高盧全境分為三個部分，其中一部分由貝爾蓋人居住，另一部分由阿基坦人居住，第三部分則由那些用他們自己的語言稱為凱爾特人、用我們的語言稱為高盧人的人居住。","ko":"<strong>한국어</strong>: 모든 갈리아는 세 부분으로 나뉘는데, 그 중 하나는 벨가이족이, 다른 하나는 아퀴타니족이, 그리고 세 번째는 자신들의 언어로는 켈트족, 우리의 언어로는 갈리아인이라 불리는 사람들이 살고 있다."},"analysis_syntactica":"<p><strong>Propositio Principalis:</strong> Gallia est omnis diuisa in partes tres.</p><ul><li><strong>Subiectum:</strong> Gallia</li><li><strong>Praedicātum nōmināle:</strong> est omnis diuisa (<em>est</em> = copula; <em>diuisa</em> = nōmen praedicātīvum; <em>omnis</em> = adiectīvum praedicātīvum)</li><li><strong>Complēmentum circumstantiāle loci (quō):</strong> in partes tres</li></ul><p class=\"mt-2\"><strong>Claūsula relātīva complexa:</strong> ...quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur.</p><ul><li><strong>Complēmentum nōminis (Genitīvus partitīvus):</strong> quarum</li><li><strong>1. Prima propositio coordinata:</strong> unam [partem] incolunt Belgae</li><li><strong>2. Secunda propositio coordinata (elliptica):</strong> aliam [partem incolunt] Aquitani</li><li><strong>3. Tertia propositio coordinata (elliptica):</strong> tertiam [partem incolunt ii] qui...appellantur</li><li><strong>Claūsula relātīva (subordināta ad <em>ii</em> subaudītum):</strong> qui ipsorum lingua Celtae, nostra Galli appellantur</li></ul>","verba":[{"id_verbi":"v1_1","terminus":"Gallia","analysis_morphologicus":"Nōmen, fēminīnum, singulāris, nōminātīvus","significationes":{"es":"La Galia","en":"Gaul","zh":"高盧","ko":"갈리아"}},{"id_verbi":"v1_2","terminus":"est","analysis_morphologicus":"Verbum (sum, esse, fuī), praesēns, indicātīvus, āctīvus, tertia persōna, singulāris","significationes":{"es":"es, está","en":"is","zh":"是","ko":"이다, 있다"}},{"id_verbi":"v1_3","terminus":"omnis","analysis_morphologicus":"Adiectīvum, fēminīnum, singulāris, nōminātīvus","significationes":{"es":"toda","en":"all, whole","zh":"全部的","ko":"모든"}},{"id_verbi":"v1_4","terminus":"diuisa","analysis_morphologicus":"Participium perfectum passīvum (dīvidō), fēminīnum, singulāris, nōminātīvus","significationes":{"es":"dividida","en":"divided","zh":"被分開的","ko":"나뉜"}},{"id_verbi":"v1_5","terminus":"in","analysis_morphologicus":"Praepositiō (+ accūsātīvum)","significationes":{"es":"en","en":"into, in","zh":"進入，在...之中","ko":"~에, ~안에"}},{"id_verbi":"v1_6","terminus":"partes","analysis_morphologicus":"Nōmen, fēminīnum, plūrālis, accūsātīvus","significationes":{"es":"partes","en":"parts","zh":"部分","ko":"부분들"}},{"id_verbi":"v1_7","terminus":"tres","analysis_morphologicus":"Adiectīvum numerāle, fēminīnum, plūrālis, accūsātīvus","significationes":{"es":"tres","en":"three","zh":"三","ko":"셋"}},{"id_verbi":"v1_8","terminus":"quarum","analysis_morphologicus":"Pronomēn relātīvum, fēminīnum, plūrālis, genitīvus","significationes":{"es":"de las cuales","en":"of which","zh":"其中","ko":"그것들 중"}},{"id_verbi":"v1_9","terminus":"unam","analysis_morphologicus":"Adiectīvum numerāle, fēminīnum, singulāris, accūsātīvus","significationes":{"es":"una","en":"one","zh":"一","ko":"하나"}},{"id_verbi":"v1_10","terminus":"incolunt","analysis_morphologicus":"Verbum (incolō), praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis","significationes":{"es":"habitan","en":"inhabit","zh":"居住","ko":"거주하다"}},{"id_verbi":"v1_11","terminus":"Belgae","analysis_morphologicus":"Nōmen, masculīnum, plūrālis, nōminātīvus","significationes":{"es":"los belgas","en":"the Belgae","zh":"比利時人","ko":"벨가이족"}},{"id_verbi":"v1_12","terminus":"aliam","analysis_morphologicus":"Adiectīvum, fēminīnum, singulāris, accūsātīvus","significationes":{"es":"otra","en":"another","zh":"另一個","ko":"다른"}},{"id_verbi":"v1_13","terminus":"Aquitani","analysis_morphologicus":"Nōmen, masculīnum, plūrālis, nōminātīvus","significationes":{"es":"los aquitanos","en":"the Aquitani","zh":"阿基坦人","ko":"아퀴타니족"}},{"id_verbi":"v1_14","terminus":"tertiam","analysis_morphologicus":"Adiectīvum numerāle, fēminīnum, singulāris, accūsātīvus","significationes":{"es":"la tercera","en":"a third","zh":"第三","ko":"세 번째"}},{"id_verbi":"v1_15","terminus":"qui","analysis_morphologicus":"Pronomēn relātīvum, masculīnum, plūrālis, nōminātīvus","significationes":{"es":"los que","en":"who","zh":"那些人","ko":"그들"}},{"id_verbi":"v1_16","terminus":"ipsorum","analysis_morphologicus":"Pronomēn dēmonstrātīvum, masculīnum, plūrālis, genitīvus","significationes":{"es":"de ellos mismos","en":"of themselves, their own","zh":"他們自己的","ko":"그들 자신의"}},{"id_verbi":"v1_17","terminus":"lingua","analysis_morphologicus":"Nōmen, fēminīnum, singulāris, ablātīvus","significationes":{"es":"en (su) lengua","en":"in language, tongue","zh":"語言","ko":"언어로"}},{"id_verbi":"v1_18","terminus":"Celtae","analysis_morphologicus":"Nōmen, masculīnum, plūrālis, nōminātīvus","significationes":{"es":"celtas","en":"the Celts","zh":"凱爾特人","ko":"켈트족"}},{"id_verbi":"v1_19","terminus":"nostra","analysis_morphologicus":"Adiectīvum possessīvum, fēminīnum, singulāris, ablātīvus","significationes":{"es":"en nuestra","en":"in our","zh":"我們的","ko":"우리의"}},{"id_verbi":"v1_20","terminus":"Galli","analysis_morphologicus":"Nōmen, masculīnum, plūrālis, nōminātīvus","significationes":{"es":"galos","en":"the Gauls","zh":"高盧人","ko":"갈리아인"}},{"id_verbi":"v1_21","terminus":"appellantur","analysis_morphologicus":"Verbum (appellō), praesēns, indicātīvus, passīvus, tertia persōna, plūrālis","significationes":{"es":"son llamados","en":"are called","zh":"被稱為","ko":"불리다"}}]},{"id_orationis":"o2","textus_latinus":"Hi omnes lingua, institutis, legibus inter se differunt.","translationes":{"es":"<strong>Español</strong>: Todos estos se diferencian entre sí en lengua, instituciones y leyes.","en":"<strong>English</strong>: All these differ from each other in language, institutions, and laws.","zh":"<strong>中文（繁體）</strong>: 這所有民族在語言、制度和法律上彼此不同。","ko":"<strong>한국어</strong>: 이들은 모두 언어, 제도, 법률에서 서로 다르다."},"analysis_syntactica":"<ul><li><strong>Subiectum:</strong> Hī (+ <em>omnes</em> in appositiōne)</li><li><strong>Praedicātum:</strong> differunt</li><li><strong>Complēmentum circumstantiāle respectūs (Ablātīvus respectūs):</strong> lingua, institutis, legibus</li><li><strong>Complēmentum reciprocum:</strong> inter se</li></ul>","verba":[{"id_verbi":"v2_1","terminus":"Hi","analysis_morphologicus":"Pronomēn dēmonstrātīvum, masculīnum, plūrālis, nōminātīvus","significationes":{"es":"estos","en":"these","zh":"這些人","ko":"이들"}},{"id_verbi":"v2_2","terminus":"omnes","analysis_morphologicus":"Adiectīvum, masculīnum, plūrālis, nōminātīvus","significationes":{"es":"todos","en":"all","zh":"全部的","ko":"모두"}},{"id_verbi":"v2_3","terminus":"lingua","analysis_morphologicus":"Nōmen, fēminīnum, singulāris, ablātīvus","significationes":{"es":"en la lengua","en":"in language","zh":"語言","ko":"언어에서"}},{"id_verbi":"v2_4","terminus":"institutis","analysis_morphologicus":"Nōmen, neutrum, plūrālis, ablātīvus","significationes":{"es":"en las instituciones","en":"in institutions","zh":"制度","ko":"제도에서"}},{"id_verbi":"v2_5","terminus":"legibus","analysis_morphologicus":"Nōmen, fēminīnum, plūrālis, ablātīvus","significationes":{"es":"en las leyes","en":"in laws","zh":"法律","ko":"법률에서"}},{"id_verbi":"v2_6","terminus":"inter","analysis_morphologicus":"Praepositiō (+ accūsātīvum)","significationes":{"es":"entre","en":"between, among","zh":"在...之間","ko":"사이에"}},{"id_verbi":"v2_7","terminus":"se","analysis_morphologicus":"Pronomēn reflexīvum, accūsātīvus","significationes":{"es":"sí","en":"themselves","zh":"他們自己","ko":"서로"}},{"id_verbi":"v2_8","terminus":"differunt","analysis_morphologicus":"Verbum (differō), praesēns, indicātīvus, āctīvus, tertia persōna, plūrālis","significationes":{"es":"se diferencian","en":"they differ","zh":"不同","ko":"다르다"}}]},{"id_orationis":"o3","textus_latinus":"Gallos ab Aquitanis Garumna flumen, a Belgis Matrona et Sequana diuidit.","translationes":{"es":"<strong>Español</strong>: A los galos los separa de los aquitanos el río Garona, y de los belgas, los ríos Marne y Sena.","en":"<strong>English</strong>: The Garonne River separates the Gauls from the Aquitani; the Marne and the Seine separate them from the Belgae.","zh":"<strong>中文（繁體）</strong>: 高盧人與阿基坦人以加龍河為界，與貝爾蓋人則以馬恩河和塞納河為界。","ko":"<strong>한국어</strong>: 가론 강은 갈리아인들을 아퀴타니인들과 나누고, 마른 강과 센 강은 그들을 벨가이인들과 나눈다."},"analysis_syntactica":"<ul><li><strong>Praedicātum:</strong> diuidit</li><li><strong>Subiectum (duplex):</strong> Garumna flumen <em>et</em> Matrona et Sequana</li><li><strong>Obiectum dīrēctum:</strong> Gallos</li><li><strong>Complēmentum circumstantiāle separātiōnis:</strong> ab Aquitanis <em>et</em> a Belgis</li></ul>","verba":[{"id_verbi":"v3_1","terminus":"Gallos","analysis_morphologicus":"Nōmen, masculīnum, plūrālis, accūsātīvus","significationes":{"es":"a los galos","en":"the Gauls","zh":"高盧人","ko":"갈리아인들을"}},{"id_verbi":"v3_2","terminus":"ab","analysis_morphologicus":"Praepositiō (+ ablātīvum)","significationes":{"es":"de","en":"from, by","zh":"從","ko":"~로부터"}},{"id_verbi":"v3_3","terminus":"Aquitanis","analysis_morphologicus":"Nōmen, masculīnum, plūrālis, ablātīvus","significationes":{"es":"los aquitanos","en":"the Aquitani","zh":"阿基坦人","ko":"아퀴타니인들"}},{"id_verbi":"v3_4","terminus":"Garumna","analysis_morphologicus":"Nōmen, fēminīnum, singulāris, nōminātīvus","significationes":{"es":"el Garona","en":"the Garonne","zh":"加龍河","ko":"가론 강"}},{"id_verbi":"v3_5","terminus":"flumen","analysis_morphologicus":"Nōmen, neutrum, singulāris, nōminātīvus","significationes":{"es":"río","en":"river","zh":"河流","ko":"강"}},{"id_verbi":"v3_6","terminus":"a","analysis_morphologicus":"Praepositiō (+ ablātīvum)","significationes":{"es":"de","en":"from, by","zh":"從","ko":"~로부터"}},{"id_verbi":"v3_7","terminus":"Belgis","analysis_morphologicus":"Nōmen, masculīnum, plūrālis, ablātīvus","significationes":{"es":"los belgas","en":"the Belgae","zh":"比利時人","ko":"벨가이인들"}},{"id_verbi":"v3_8","terminus":"Matrona","analysis_morphologicus":"Nōmen, fēminīnum, singulāris, nōminātīvus","significationes":{"es":"el Marne","en":"the Marne","zh":"馬恩河","ko":"마른 강"}},{"id_verbi":"v3_9","terminus":"et","analysis_morphologicus":"Coniunctiō","significationes":{"es":"y","en":"and","zh":"和","ko":"그리고"}},{"id_verbi":"v3_10","terminus":"Sequana","analysis_morphologicus":"Nōmen, fēminīnum, singulāris, nōminātīvus","significationes":{"es":"el Sena","en":"the Seine","zh":"塞納河","ko":"센 강"}},{"id_verbi":"v3_11","terminus":"diuidit","analysis_morphologicus":"Verbum (dīvidō), praesēns, indicātīvus, āctīvus, tertia persōna, singulāris","significationes":{"es":"divide","en":"divides, separates","zh":"分開","ko":"나누다"}}]},{"id_orationis":"o4","textus_latinus":"Horum omnium fortissimi sunt Belgae, propterea quod a cultu atque humanitate prouinciae longissime absunt, minimeque ad eos mercatores saepe commeant atque ea quae ad effeminandos animos pertinent inportant, proximique sunt Germanis, qui trans Rhenum incolunt, quibuscum continenter bellum gerunt.","translationes":{"es":"<strong>Español</strong>: De todos estos, los más valientes son los belgas...","en":"<strong>English</strong>: Of all these, the bravest are the Belgae...","zh":"<strong>中文（繁體）</strong>: 在所有這些民族中，最勇敢的是比利時人...","ko":"<strong>한국어</strong>: 이 모든 이들 중에서 가장 용감한 자들은 벨가이인들인데..."},"analysis_syntactica":"...","verba":[/*...*/]},{"id_orationis":"o5","textus_latinus":"Qua de causa Heluetii quoque reliquos Gallos uirtute praecedunt...","translationes":{/*...*/},"analysis_syntactica":"...","verba":[/*...*/]},{"id_orationis":"o6","textus_latinus":"Eorum una pars, quam Gallos optinere dictum est...","translationes":{/*...*/},"analysis_syntactica":"...","verba":[/*...*/]},{"id_orationis":"o7","textus_latinus":"Belgae ab extremis Galliae finibus oriuntur...","translationes":{/*...*/},"analysis_syntactica":"...","verba":[/*...*/]},{"id_orationis":"o8","textus_latinus":"Aquitania a Garumna flumine ad Pyrenaeos montes...","translationes":{/*...*/},"analysis_syntactica":"...","verba":[/*...*/]}]};
-        bibliotheca['de-bello-gallico'].libri['1'].capita['1'] = caputUnusData;
 
+        const indexContainer = document.getElementById('opus-index-contentus');
 
-        // --- ELEMENTOS DEL DOM ---
-        const bibliothecaVisus = document.getElementById('bibliotheca-visus');
-        const bibliothecaContentus = document.getElementById('bibliotheca-contentus');
-        const opusIndexVisus = document.getElementById('opus-index-visus');
-        const opusHeader = document.getElementById('opus-header');
-        const opusIndexContentus = document.getElementById('opus-index-contentus');
-        const analysisVisus = document.getElementById('analysis-visus');
-        const caputTitulusHeader = document.getElementById('caput-titulus-header');
-        const paragrafusContentus = document.getElementById('paragrafus-contentus');
-        const marginaliaContentus = document.getElementById('marginalia-contentus');
-        const visusOrationis = document.getElementById('visus-orationis');
-        const linguaSelector = document.getElementById('lingua-selector');
-        const tooltip = document.getElementById('translatio-tooltip');
+        // --- FUNCIÓN PARA RENDERIZAR EL ÍNDICE ---
+        function reddeOpusIndex() {
+            indexContainer.innerHTML = '<h2 class="text-3xl font-semibold mb-6 textum-classicum text-center">Index Librorum et Capitum</h2>';
 
-        // --- ESTADO DE LA APP ---
-        let caputActivum = null;
-        let linguaPraefecta = 'es';
-        let opusActivumId = null;
+            for (const liberNum in deBelloGallicoIndex) {
+                const totalCapita = deBelloGallicoIndex[liberNum];
 
-        // --- FUNCIONES DE RENDERIZADO DE VISTAS ---
-
-        function reddeBibliothecam() {
-            bibliothecaContentus.innerHTML = '';
-            for (const opusId in bibliotheca) {
-                const opus = bibliotheca[opusId];
-                const card = document.createElement('div');
-                card.className = 'card-bibliothecae p-6 rounded-lg shadow-md cursor-pointer';
-                card.dataset.opusId = opusId;
-                card.innerHTML = `
-                    <h2 class="text-2xl font-bold text-gray-800 textum-classicum">${opus.titulus}</h2>
-                    <p class="text-gray-600">${opus.auctor}</p>
-                `;
-                bibliothecaContentus.appendChild(card);
-            }
-            mutareVisum('bibliotheca');
-        }
-
-        function reddeOpusIndex(opusId) {
-            opusActivumId = opusId;
-            const opus = bibliotheca[opusId];
-            opusHeader.innerHTML = `
-                <div>
-                    <h1 class="text-4xl textum-classicum text-gray-800">${opus.titulus}</h1>
-                    <h2 class="text-xl text-gray-600">${opus.auctor}</h2>
-                </div>
-                <button id="button-redire-ad-bibliothecam" class="inline-flex items-center px-4 py-2 bg-gray-700 text-white font-bold rounded-md hover:bg-gray-800 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
-                    Redire ad Bibliothecam
-                </button>
-            `;
-            
-            opusIndexContentus.innerHTML = '<h3 class="text-2xl font-semibold mb-4 textum-classicum">Index Librorum et Capitum</h3>';
-            const libri = opus.libri;
-            for (const liberNum in libri) {
                 const liberDiv = document.createElement('div');
-                liberDiv.className = 'mb-6';
-                liberDiv.innerHTML = `<h4 class="text-xl font-bold text-stone-700 border-b border-stone-300 pb-2 mb-3">Liber ${liberNum}</h4>`;
+                liberDiv.className = 'mb-8';
+                // Título del Libro (ej. Liber I)
+                liberDiv.innerHTML = `<h3 class="text-2xl font-bold text-stone-700 border-b border-stone-300 pb-2 mb-4">Liber ${liberNum}</h3>`;
+
                 const capitumList = document.createElement('div');
-                capitumList.className = 'grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2';
-                const capita = libri[liberNum].capita;
-                for (const caputNum in capita) {
+                // Cuadrícula para los botones de los capítulos
+                capitumList.className = 'grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2';
+
+                for (let caputNum = 1; caputNum <= totalCapita; caputNum++) {
                     const caputLink = document.createElement('a');
-                    caputLink.href = '#';
-                    caputLink.className = 'caput-link block text-center p-3 bg-stone-100 rounded-md hover:bg-stone-200 transition';
-                    caputLink.textContent = `Caput ${caputNum}`;
-                    caputLink.dataset.opusId = opusId;
-                    caputLink.dataset.liberNum = liberNum;
-                    caputLink.dataset.caputNum = caputNum;
+                    
+                    // --- ENLACE A PÁGINA INDEPENDIENTE ---
+                    // Asumimos una estructura de carpetas: /capitulos/liber-1-caput-1.html
+                    caputLink.href = `capitulos/liber-${liberNum}-caput-${caputNum}.html`;
+
+                    caputLink.className = 'block text-center p-3 bg-stone-100 rounded-md hover:bg-stone-300 transition-colors duration-200';
+                    caputLink.textContent = `${caputNum}`; // Solo el número para un look más limpio
+                    
                     capitumList.appendChild(caputLink);
                 }
+
                 liberDiv.appendChild(capitumList);
-                opusIndexContentus.appendChild(liberDiv);
-            }
-            mutareVisum('opus-index');
-        }
-
-        function reddeCaput(opusId, liberNum, caputNum) {
-            caputActivum = bibliotheca[opusId].libri[liberNum].capita[caputNum];
-            const opus = bibliotheca[opusId];
-            caputTitulusHeader.innerHTML = `
-                <h1 class="text-3xl sm:text-4xl textum-classicum text-gray-800">${opus.titulus}</h1>
-                <h2 class="text-lg sm:text-xl text-gray-600">Liber ${liberNum}, Caput ${caputNum}</h2>
-            `;
-            
-            reddeParagrafum();
-            monstraContentusDefectu();
-            mutareVisum('analysis');
-        }
-
-        function mutareVisum(visusId) {
-            [bibliothecaVisus, opusIndexVisus, analysisVisus, visusOrationis].forEach(v => v.classList.add('occultus'));
-            if (visusId === 'bibliotheca') bibliothecaVisus.classList.remove('occultus');
-            else if (visusId === 'opus-index') opusIndexVisus.classList.remove('occultus');
-            else if (visusId === 'analysis') analysisVisus.classList.remove('occultus');
-            else if (visusId === 'oratio') visusOrationis.classList.remove('occultus');
-            window.scrollTo(0, 0);
-        }
-
-        // --- LÓGICA DE ANÁLISIS (adaptada del código original) ---
-
-        function reddeParagrafum() {
-            if (!caputActivum) return;
-            paragrafusContentus.innerHTML = '';
-            caputActivum.orationes.forEach(oratio => {
-                const oratioSpan = document.createElement('span');
-                oratioSpan.className = 'oratio';
-                oratioSpan.dataset.oratioId = oratio.id_orationis;
-                let textusTemporarius = oratio.textus_latinus;
-                const verbaSorted = [...oratio.verba].sort((a,b) => b.terminus.length - a.terminus.length);
-                verbaSorted.forEach(verbum => {
-                    const regex = new RegExp(`\\b${verbum.terminus.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b(?![^<]*?>)`, 'g');
-                    textusTemporarius = textusTemporarius.replace(regex, `<span class="verbum" data-verbum-id="${verbum.id_verbi}">${verbum.terminus}</span>`);
-                });
-                oratioSpan.innerHTML = textusTemporarius + ' ';
-                oratioSpan.addEventListener('mouseenter', monstraTooltip);
-                oratioSpan.addEventListener('mouseleave', occultaTooltip);
-                oratioSpan.addEventListener('mousemove', moveTooltip);
-                paragrafusContentus.appendChild(oratioSpan);
-            });
-        }
-
-        function monstraAnalyseonVerbi(verbumId) {
-            if (!caputActivum) return;
-            let verbumData = null;
-            for (const oratio of caputActivum.orationes) {
-                verbumData = oratio.verba.find(v => v.id_verbi === verbumId);
-                if (verbumData) break;
-            }
-            if (!verbumData) return;
-            marginaliaContentus.innerHTML = `<h3 class="text-2xl textum-classicum text-gray-800 mb-4">${verbumData.terminus}</h3><div class="space-y-4"><div><h4 class="font-bold text-sm uppercase text-gray-500 tracking-wider">Analysis Morphologica</h4><p class="text-gray-700 mt-1">${verbumData.analysis_morphologicus}</p></div><div><h4 class="font-bold text-sm uppercase text-gray-500 tracking-wider">Significationes</h4><ul class="list-disc list-inside mt-2 space-y-1 text-gray-700"><li><strong>ES:</strong> ${verbumData.significationes.es}</li><li><strong>EN:</strong> ${verbumData.significationes.en}</li><li><strong>中文:</strong> ${verbumData.significationes.zh}</li><li><strong>KO:</strong> ${verbumData.significationes.ko}</li></ul></div></div>`;
-        }
-
-        function monstraAnalyseonOrationis(oratioId) {
-            if (!caputActivum) return;
-            const oratioData = caputActivum.orationes.find(o => o.id_orationis === oratioId);
-            if (!oratioData) return;
-            document.getElementById('oratio-latina-textus').textContent = oratioData.textus_latinus;
-            document.getElementById('translatio-es').innerHTML = oratioData.translationes.es;
-            document.getElementById('translatio-en').innerHTML = oratioData.translationes.en;
-            document.getElementById('translatio-zh').innerHTML = oratioData.translationes.zh;
-            document.getElementById('translatio-ko').innerHTML = oratioData.translationes.ko;
-            document.getElementById('analysis-syntactica-contentus').innerHTML = oratioData.analysis_syntactica;
-            analysisVisus.classList.add('occultus');
-            mutareVisum('oratio');
-        }
-        
-        function monstraContentusDefectu() {
-            marginaliaContentus.innerHTML = `<h3 class="text-xl font-semibold text-gray-800 mb-4">Analysis Morphologica</h3><div class="space-y-2 text-gray-600"><p><strong>ES:</strong> Selecciona una palabra para ver su análisis.</p><p><strong>EN:</strong> Select a word to see its analysis.</p><p><strong>中文:</strong> 選擇一個詞以查看其分析。</p><p><strong>KO:</strong> 단어를 선택하여 분석을 확인하세요.</p></div>`;
-        }
-
-        function initialisareLinguam() {
-            linguaPraefecta = localStorage.getItem('linguaPraefecta') || 'es';
-            const radioInput = document.querySelector(`#lingua-selector input[value="${linguaPraefecta}"]`);
-            if (radioInput) radioInput.checked = true;
-        }
-
-        function monstraTooltip(event) {
-            const oratioId = event.currentTarget.dataset.oratioId;
-            const oratioData = caputActivum.orationes.find(o => o.id_orationis === oratioId);
-            if (oratioData && oratioData.translationes[linguaPraefecta]) {
-                tooltip.textContent = oratioData.translationes[linguaPraefecta].replace(/<strong>.*?<\/strong>:\s*/, '');
-                tooltip.style.display = 'block';
+                indexContainer.appendChild(liberDiv);
             }
         }
-        function occultaTooltip() { tooltip.style.display = 'none'; }
-        function moveTooltip(event) { tooltip.style.left = `${event.pageX + 15}px`; tooltip.style.top = `${event.pageY + 15}px`; }
-
-
-        // --- EVENT LISTENERS PARA NAVEGACIÓN ---
-
-        bibliothecaContentus.addEventListener('click', (e) => {
-            const card = e.target.closest('.card-bibliothecae');
-            if (card) {
-                reddeOpusIndex(card.dataset.opusId);
-            }
-        });
-
-        opusIndexContentus.addEventListener('click', (e) => {
-            e.preventDefault();
-            const link = e.target.closest('.caput-link');
-            if (link) {
-                reddeCaput(link.dataset.opusId, link.dataset.liberNum, link.dataset.caputNum);
-            }
-        });
-
-        document.body.addEventListener('click', (e) => {
-            if (e.target.closest('#button-redire-ad-bibliothecam')) {
-                reddeBibliothecam();
-            }
-            if (e.target.closest('#button-redire-ad-indicem')) {
-                reddeOpusIndex(opusActivumId);
-            }
-            if (e.target.closest('#button-redire-ad-textum')) {
-                visusOrationis.classList.add('occultus');
-                analysisVisus.classList.remove('occultus');
-            }
-        });
-
-        paragrafusContentus.addEventListener('click', (e) => {
-            const verbumTarget = e.target.closest('.verbum');
-            const oratioTarget = e.target.closest('.oratio');
-            if (verbumTarget) {
-                e.stopPropagation();
-                document.querySelectorAll('.activus').forEach(el => el.classList.remove('activus'));
-                monstraAnalyseonVerbi(verbumTarget.dataset.verbumId);
-                verbumTarget.classList.add('activus');
-            } else if (oratioTarget) {
-                monstraAnalyseonOrationis(oratioTarget.dataset.oratioId);
-            }
-        });
-        
-        linguaSelector.addEventListener('change', (e) => {
-            linguaPraefecta = e.target.value;
-            localStorage.setItem('linguaPraefecta', linguaPraefecta);
-        });
 
         // --- INICIALIZACIÓN ---
-        initialisareLinguam();
-        reddeBibliothecam();
+        reddeOpusIndex();
     });
     </script>
 </body>

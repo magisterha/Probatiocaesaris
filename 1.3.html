@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="la">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página -->
+    <title>De Bello Gallico - Liber I, Caput III</title>
+    
+    <style type="text/css">
+        /* --- Tailwind CSS Pre-compilado (Preflight & Utilitarios Usados) --- */
+        *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::before,::after{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,[type='button'],[type='reset'],[type='submit']{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type='search']{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}button, [role="button"]{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}
+        .container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}
+        .fixed{position:fixed}.absolute{position:absolute}.sticky{position:sticky}.inset-0{top:0;right:0;bottom:0;left:0}.z-30{z-index:30}.z-50{z-index:50}
+        .mx-auto{margin-left:auto;margin-right:auto}.mb-8{margin-bottom:2rem}.mb-10{margin-bottom:2.5rem}.mt-2{margin-top:0.5rem}.mr-2{margin-right:0.5rem}.mt-6{margin-top:1.5rem}
+        .block{display:block}.inline-flex{display:inline-flex}.flex{display:flex}.h-4{height:1rem}.w-4{width:1rem}.h-5{height:1.25rem}.w-5{width:1.25rem}.h-screen{height:100vh}.w-80{width:20rem}
+        .transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+        .gap-x-1{column-gap:0.25rem}.gap-x-4{column-gap:1rem}.gap-x-6{column-gap:1.5rem}.gap-8{gap:2rem}.gap-12{gap:3rem}
+        .overflow-y-auto{overflow-y:auto}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}
+        .border-b-2{border-bottom-width:2px}.border-stone-300{--tw-border-opacity:1;border-color:rgb(214 211 209 / var(--tw-border-opacity))}
+        .bg-stone-50{--tw-bg-opacity:1;background-color:rgb(250 250 249 / var(--tw-bg-opacity))}
+        .bg-stone-100{--tw-bg-opacity:1;background-color:rgb(245 245 244 / var(--tw-bg-opacity))}
+        .bg-stone-200{--tw-bg-opacity:1;background-color:rgb(231 229 228 / var(--tw-bg-opacity))}
+        .bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}
+        .bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity))}
+        .hover\:bg-gray-800:hover{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity))}
+        .p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.pb-4{padding-bottom:1rem}.pb-5{padding-bottom:1.25rem}
+        .text-center{text-align:center}.text-justify{text-align:justify}
+        .text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}
+        .text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}
+        .font-bold{font-weight:700}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}
+        .text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}
+        .text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}
+        .text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}
+        .text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity))}
+        .text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}
+        .shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}
+        .transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;-webkit-backdrop-filter:backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+        .ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}
+        .grid{display:grid}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
+        .space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}
+        .space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}
+        @media (min-width:1024px){.lg\:p-12{padding:3rem}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+        
+        /* --- Estilos Personalizados --- */
+        body{background-color:#f3f0e9;font-family:'Helvetica Neue',Arial,sans-serif;color:#4a4a4a}
+        .textum-classicum{font-family:'Georgia','Times New Roman',serif}
+        .verbum,.oratio{cursor:pointer;transition:background-color .2s ease-in-out}
+        .oratio:hover{background-color:#d8cbad}.verbum:hover{background-color:#eaddc5}
+        .activus{background-color:#cbbca7!important;font-weight:700}
+        
+        /* --- LAYOUT ESTÁTICO --- */
+        .main-layout { display: grid; grid-template-columns: 20rem 1fr; gap: 2rem; padding: 2rem; }
+        #marginalia-sinistra { position: sticky; top: 2rem; height: calc(100vh - 4rem); }
+        #visus-orationis{transition:opacity .3s ease-in-out,transform .3s ease-in-out}
+        .occultus{display:none}
+        #translatio-tooltip{position:absolute;display:none;padding:.5rem 1rem;background-color:#2d3748;color:#fff;border-radius:.375rem;font-size:.875rem;line-height:1.25rem;max-width:320px;z-index:50;pointer-events:none}
+    </style>
+</head>
+<body class="bg-stone-100">
+
+    <div class="main-layout">
+        <!-- Panel de Análisis (siempre visible) -->
+        <aside id="marginalia-sinistra" class="bg-white shadow-xl p-6 rounded-lg overflow-y-auto">
+            <div id="marginalia-contentus">
+                <!-- Contenido por defecto o de análisis se insertará aquí -->
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <div id="visus-paragrafi">
+            <main>
+                <header class="text-center mb-10 border-b-2 border-stone-300 pb-5">
+                    <!-- Título y subtítulo principal -->
+                    <h1 class="text-5xl textum-classicum text-gray-800">De Bello Gallico</h1>
+                    <h2 class="text-2xl text-gray-600 mt-2">Liber I, Caput III</h2>
+                </header>
+                
+                <section id="lingua-selector" class="mb-8 p-4 bg-stone-200 rounded-lg flex items-center justify-center gap-x-6">
+                    <h3 class="font-bold text-gray-700">Lingua Translationis:</h3>
+                    <div class="flex items-center gap-x-4">
+                        <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="es" class="h-4 w-4"> Español</label>
+                        <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="en" class="h-4 w-4"> English</label>
+                        <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="zh" class="h-4 w-4"> 中文</label>
+                        <label class="flex items-center gap-x-1 cursor-pointer"><input type="radio" name="lingua" value="ko" class="h-4 w-4"> 한국어</label>
+                    </div>
+                </section>
+
+                <div id="paragrafus-contentus" class="textum-classicum text-xl leading-relaxed text-justify bg-white p-8 lg:p-12 rounded-lg shadow-lg">
+                    <!-- El parágrafo interactivo se generará aquí a partir de los datos de JavaScript -->
+                </div>
+                
+                <footer class="text-center mt-6 text-sm text-gray-500">
+                    <p><i>Preme verbum singulum pro analysi. Preme sententiam totam pro analysi completa. Suspende murem super sententiam pro translatione rapida.</i></p>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <!-- Vista de Análisis de Oración (oculta por defecto) -->
+    <div id="visus-orationis" class="occultus fixed inset-0 bg-stone-50 z-30 p-8 lg:p-16 overflow-y-auto">
+        <header class="flex justify-between items-center border-b-2 border-stone-300 pb-4 mb-8">
+            <h2 class="text-3xl textum-classicum text-gray-800">Analysis Orationis</h2>
+            <button id="button-redire" class="inline-flex items-center px-6 py-2 bg-gray-700 text-white font-bold rounded-md hover:bg-gray-800 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Redire ad Textum
+            </button>
+        </header>
+        
+        <div id="oratio-analysis-contentus" class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+                <section class="mb-8">
+                    <h3 class="text-xl font-bold text-gray-700 mb-2">Oratio Latina</h3>
+                    <p id="oratio-latina-textus" class="textum-classicum text-2xl leading-relaxed bg-white p-4 rounded-md shadow"></p>
+                </section>
+                <section>
+                    <h3 class="text-xl font-bold text-gray-700 mb-3">Translationes</h3>
+                    <div class="space-y-3">
+                        <div id="translatio-es"></div>
+                        <div id="translatio-en"></div>
+                        <div id="translatio-zh"></div>
+                        <div id="translatio-ko"></div>
+                    </div>
+                </section>
+            </div>
+            <div>
+                <section>
+                    <h3 class="text-xl font-bold text-gray-700 mb-3">Analysis Syntactica</h3>
+                    <div id="analysis-syntactica-contentus" class="bg-white p-4 rounded-md shadow space-y-3 text-gray-700"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <div id="translatio-tooltip"></div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // =========================================================================================
+        // === INICIO DE LA ZONA DE DATOS ===
+        // =========================================================================================
+        const paragrafus = {
+            id: 3, // ID del capítulo
+            orationes: [
+                {
+                    id_orationis: 'o1_c3',
+                    textus_latinus: "His rebus adducti et auctoritate Orgetorigis permoti constituerunt ea quae ad proficiscendum pertinerent comparare, iumentorum et carrorum quam maximum numerum coemere, sementes quam maximas facere, ut in itinere copia frumenti suppeteret, cum proximis ciuitatibus pacem et amicitiam confirmare.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Inducidos por estas razones y conmovidos por la autoridad de Orgetórix, decidieron preparar aquellas cosas que eran necesarias para partir, comprar el mayor número posible de animales de tiro y de carros, hacer las mayores siembras posibles para que en el camino hubiera disponible provisión de grano, y establecer la paz y la amistad con las ciudades más próximas.',
+                        en: '<strong>English</strong>: Influenced by these things and moved by the authority of Orgetorix, they decided to prepare those things which pertained to their departure, to buy up as great a number as possible of beasts of burden and wagons, to make the greatest possible sowings so that a supply of grain might be available on the journey, and to establish peace and friendship with the nearest states.',
+                        zh: '<strong>中文（繁體）</strong>: 受這些事由的引誘和奧格托里克斯權威的打動，他們決定準備出發所需的一切，購買盡可能多的牲畜和車輛，進行盡可能多的播種，以便在旅途中有充足的糧食供應，並與最近的城邦確立和平與友誼。',
+                        ko: '<strong>한국어</strong>: 이러한 일들에 이끌리고 오르게토릭스의 권위에 감동하여, 그들은 출발에 필요한 것들을 준비하고, 가능한 한 많은 가축과 수레를 사들이며, 가능한 한 많은 씨앗을 뿌려 여정 중에 곡물 공급이 충분하도록 하고, 가장 가까운 국가들과 평화와 우호를 확립하기로 결정했다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis:</strong> constituerunt.</p><ul><li><strong>Subiectum (subaudītum):</strong> Heluetii.</li><li><strong>Participia coniūncta (causālia):</strong> adducti et permoti.</li><li><strong>Obiectum dīrēctum:</strong> Series īnfīnītīvōrum (comparare, coemere, facere, confirmare).</li><li><strong>Claūsula relātīva (ad ea referēns):</strong> quae ad proficiscendum pertinerent.</li><li><strong>Claūsula fīnālis (introducta per ut):</strong> ut in itinere copia frumenti suppeteret.</li></ul>`,
+                    verba: [
+                        { id_verbi: 'v1_c3_1', terminus: 'His', analysis_morphologicus: 'Ablātīvus causae', significationes: { es: 'Por estas', en: 'By these', zh: '由於這些', ko: '이러한' } },
+                        { id_verbi: 'v1_c3_2', terminus: 'rebus', analysis_morphologicus: 'Ablātīvus causae', significationes: { es: 'cosas', en: 'things', zh: '事', ko: '일들 때문에' } },
+                        { id_verbi: 'v1_c3_3', terminus: 'adducti', analysis_morphologicus: 'Participium perf. pass., masc., pl., nom.', significationes: { es: 'Inducidos', en: 'Influenced', zh: '被引誘', ko: '이끌려서' } },
+                        { id_verbi: 'v1_c3_4', terminus: 'et', analysis_morphologicus: 'Coniūnctiō', significationes: { es: 'y', en: 'and', zh: '和', ko: '그리고' } },
+                        { id_verbi: 'v1_c3_5', terminus: 'auctoritate', analysis_morphologicus: 'Nōmen, fem., sing., abl.', significationes: { es: 'por la autoridad', en: 'by the authority', zh: '因權威', ko: '권위로' } },
+                        { id_verbi: 'v1_c3_6', terminus: 'Orgetorigis', analysis_morphologicus: 'Nōmen, masc., sing., gen.', significationes: { es: 'de Orgetórix', en: 'of Orgetorix', zh: '奧格托里克斯的', ko: '오르게토릭스의' } },
+                        { id_verbi: 'v1_c3_7', terminus: 'permoti', analysis_morphologicus: 'Participium perf. pass., masc., pl., nom.', significationes: { es: 'conmovidos', en: 'moved', zh: '被打動', ko: '동요하여' } },
+                        { id_verbi: 'v1_c3_8', terminus: 'constituerunt', analysis_morphologicus: 'Verbum (constituō), perf., ind., act., 3a, pl.', significationes: { es: 'decidieron', en: 'they decided', zh: '他們決定', ko: '그들은 결정했다' } },
+                        { id_verbi: 'v1_c3_9', terminus: 'ea', analysis_morphologicus: 'Pronomēn dēmōnstr., neut., pl., acc.', significationes: { es: 'aquellas cosas', en: 'those things', zh: '那些事', ko: '그것들을' } },
+                        { id_verbi: 'v1_c3_10', terminus: 'quae', analysis_morphologicus: 'Pronomēn relātīvum, neut., pl., nom.', significationes: { es: 'que', en: 'which', zh: '它們', ko: '그것들은' } },
+                        { id_verbi: 'v1_c3_11', terminus: 'ad', analysis_morphologicus: 'Syntagma fīnāle', significationes: { es: 'para', en: 'for', zh: '為了', ko: '위해' } },
+                        { id_verbi: 'v1_c3_12', terminus: 'proficiscendum', analysis_morphologicus: 'Syntagma fīnāle', significationes: { es: 'partir', en: 'setting out', zh: '出發', ko: '출발을' } },
+                        { id_verbi: 'v1_c3_13', terminus: 'pertinerent', analysis_morphologicus: 'Verbum (pertineō), imperf., coniūnct., act., 3a, pl.', significationes: { es: 'eran necesarias', en: 'pertained', zh: '有關', ko: '관련이 있었다' } },
+                        { id_verbi: 'v1_c3_14', terminus: 'comparare', analysis_morphologicus: 'Verbum, praes., īnfīn., act.', significationes: { es: 'preparar', en: 'to prepare', zh: '準備', ko: '준비하는 것을' } },
+                        { id_verbi: 'v1_c3_15', terminus: 'iumentorum', analysis_morphologicus: 'Nōmen, neut., pl., gen.', significationes: { es: 'de animales de tiro', en: 'of beasts of burden', zh: '牲畜的', ko: '가축의' } },
+                        { id_verbi: 'v1_c3_16', terminus: 'et', analysis_morphologicus: 'Coniūnctiō', significationes: { es: 'y', en: 'and', zh: '和', ko: '그리고' } },
+                        { id_verbi: 'v1_c3_17', terminus: 'carrorum', analysis_morphologicus: 'Nōmen, masc., pl., gen.', significationes: { es: 'de carros', en: 'of wagons', zh: '車輛的', ko: '수레의' } },
+                        { id_verbi: 'v1_c3_18', terminus: 'quam', analysis_morphologicus: 'Locutiō superlātīva', significationes: { es: 'el ... posible', en: 'as ... as possible', zh: '盡可能', ko: '가능한 한' } },
+                        { id_verbi: 'v1_c3_19', terminus: 'maximum', analysis_morphologicus: 'Locutiō superlātīva', significationes: { es: 'mayor', en: 'great', zh: '多的', ko: '많은' } },
+                        { id_verbi: 'v1_c3_20', terminus: 'numerum', analysis_morphologicus: 'Nōmen, masc., sing., acc.', significationes: { es: 'número', en: 'number', zh: '數量', ko: '수를' } },
+                        { id_verbi: 'v1_c3_21', terminus: 'coemere', analysis_morphologicus: 'Verbum, praes., īnfīn., act.', significationes: { es: 'comprar', en: 'to buy up', zh: '購買', ko: '사 모으는 것을' } },
+                        { id_verbi: 'v1_c3_22', terminus: 'sementes', analysis_morphologicus: 'Nōmen, fem., pl., acc.', significationes: { es: 'siembras', en: 'sowings', zh: '播種', ko: '파종을' } },
+                        { id_verbi: 'v1_c3_23', terminus: 'maximas', analysis_morphologicus: 'Locutiō superlātīva', significationes: { es: 'las mayores posibles', en: 'as great as possible', zh: '盡可能多的', ko: '가능한 한 많이' } },
+                        { id_verbi: 'v1_c3_24', terminus: 'facere', analysis_morphologicus: 'Verbum, praes., īnfīn., act.', significationes: { es: 'hacer', en: 'to make', zh: '進行', ko: '하는 것을' } },
+                        { id_verbi: 'v1_c3_25', terminus: 'ut', analysis_morphologicus: 'Coniūnctiō fīnālis', significationes: { es: 'para que', en: 'so that', zh: '以便', ko: '~하도록' } },
+                        { id_verbi: 'v1_c3_26', terminus: 'in', analysis_morphologicus: 'Syntagma praep. (abl.)', significationes: { es: 'en', en: 'on', zh: '在', ko: '중에' } },
+                        { id_verbi: 'v1_c3_27', terminus: 'itinere', analysis_morphologicus: 'Syntagma praep. (abl.)', significationes: { es: 'el camino', en: 'the journey', zh: '旅途中', ko: '여정' } },
+                        { id_verbi: 'v1_c3_28', terminus: 'copia', analysis_morphologicus: 'Nōmen, fem., sing., nom.', significationes: { es: 'la provisión', en: 'a supply', zh: '供應', ko: '공급이' } },
+                        { id_verbi: 'v1_c3_29', terminus: 'frumenti', analysis_morphologicus: 'Nōmen, neut., sing., gen.', significationes: { es: 'de grano', en: 'of grain', zh: '穀物的', ko: '곡물의' } },
+                        { id_verbi: 'v1_c3_30', terminus: 'suppeteret', analysis_morphologicus: 'Verbum (suppetō), imperf., coniūnct., act., 3a, sing.', significationes: { es: 'estuviera disponible', en: 'might be available', zh: '充足', ko: '충분하도록' } },
+                        { id_verbi: 'v1_c3_31', terminus: 'cum', analysis_morphologicus: 'Syntagma praep. (abl.)', significationes: { es: 'con', en: 'with', zh: '與', ko: '과' } },
+                        { id_verbi: 'v1_c3_32', terminus: 'proximis', analysis_morphologicus: 'Syntagma praep. (abl.)', significationes: { es: 'las más próximas', en: 'the nearest', zh: '最近的', ko: '가장 가까운' } },
+                        { id_verbi: 'v1_c3_33', terminus: 'ciuitatibus', analysis_morphologicus: 'Nōmen, fem., pl., abl.', significationes: { es: 'ciudades', en: 'states', zh: '城邦', ko: '국가들과' } },
+                        { id_verbi: 'v1_c3_34', terminus: 'pacem', analysis_morphologicus: 'Nōmen, fem., sing., acc.', significationes: { es: 'la paz', en: 'peace', zh: '和平', ko: '평화를' } },
+                        { id_verbi: 'v1_c3_35', terminus: 'amicitiam', analysis_morphologicus: 'Nōmen, fem., sing., acc.', significationes: { es: 'y la amistad', en: 'and friendship', zh: '友誼', ko: '우정을' } },
+                        { id_verbi: 'v1_c3_36', terminus: 'confirmare', analysis_morphologicus: 'Verbum, praes., īnfīn., act.', significationes: { es: 'establecer', en: 'to establish', zh: '確認', ko: '확립하는 것을' } }
+                    ]
+                },
+                {
+                    id_orationis: 'o2_c3',
+                    textus_latinus: "Ad eas res conficiendas biennium sibi satis esse duxerunt; in tertium annum profectionem lege confirmant.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Consideraron que un bienio era suficiente para ellos para llevar a cabo estas cosas; para el tercer año establecen por ley la partida.',
+                        en: '<strong>English</strong>: They considered that a period of two years was enough for them to accomplish these things; for the third year, they established the departure by law.',
+                        zh: '<strong>中文（繁體）</strong>: 他們認為兩年時間足以讓他們完成這些事；他們以法律規定第三年出發。',
+                        ko: '<strong>한국어</strong>: 그들은 이 일들을 완수하는 데 2년이면 충분하다고 여겼고, 3년째 되는 해에 법으로 출발을 확정했다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis (duplex):</strong> duxerunt et confirmant.</p><ul><li><strong>Subiectum (subaudītum):</strong> Heluetii.</li><li><strong>Praedicāta:</strong> duxerunt et confirmant.</li><li><strong>Oratio īnfīnītīva (obiectum verbī duxerunt):</strong> biennium sibi satis esse.</li><li><strong>Complēmentum fīnāle (cum gerundīvō):</strong> Ad eas res conficiendas.</li><li><strong>Obiectum dīrēctum (verbī confirmant):</strong> profectionem.</li></ul>`,
+                    verba: [
+                        { id_verbi: 'v2_c3_1', terminus: 'Ad', analysis_morphologicus: 'Syntagma fīnāle', significationes: { es: 'Para', en: 'For', zh: '為了', ko: '위해' } },
+                        { id_verbi: 'v2_c3_2', terminus: 'eas', analysis_morphologicus: 'Syntagma fīnāle', significationes: { es: 'estas', en: 'these', zh: '這些', ko: '이' } },
+                        { id_verbi: 'v2_c3_3', terminus: 'res', analysis_morphologicus: 'Syntagma fīnāle', significationes: { es: 'cosas', en: 'things', zh: '事', ko: '일들을' } },
+                        { id_verbi: 'v2_c3_4', terminus: 'conficiendas', analysis_morphologicus: 'Gerundīvum, fem., pl., acc.', significationes: { es: 'para llevar a cabo', en: 'to be accomplished', zh: '完成', ko: '완수하기 위해' } },
+                        { id_verbi: 'v2_c3_5', terminus: 'biennium', analysis_morphologicus: 'Nōmen, neut., sing., acc.', significationes: { es: 'un bienio (dos años)', en: 'two years', zh: '兩年', ko: '2년이' } },
+                        { id_verbi: 'v2_c3_6', terminus: 'sibi', analysis_morphologicus: 'Pronomēn reflexīvum, dat.', significationes: { es: 'para ellos', en: 'for themselves', zh: '對他們自己', ko: '자신들에게' } },
+                        { id_verbi: 'v2_c3_7', terminus: 'satis', analysis_morphologicus: 'Adverbium', significationes: { es: 'suficiente', en: 'enough', zh: '足夠', ko: '충분하다고' } },
+                        { id_verbi: 'v2_c3_8', terminus: 'esse', analysis_morphologicus: 'Verbum, praes., īnfīn., act.', significationes: { es: 'ser', en: 'to be', zh: '是', ko: '~이라고' } },
+                        { id_verbi: 'v2_c3_9', terminus: 'duxerunt', analysis_morphologicus: 'Verbum (dūcō), perf., ind., act., 3a, pl.', significationes: { es: 'consideraron', en: 'they considered', zh: '他們認為', ko: '그들은 생각했다' } },
+                        { id_verbi: 'v2_c3_10', terminus: 'in', analysis_morphologicus: 'Syntagma praep. (acc.)', significationes: { es: 'para', en: 'for', zh: '在', ko: '에' } },
+                        { id_verbi: 'v2_c3_11', terminus: 'tertium', analysis_morphologicus: 'Syntagma praep. (acc.)', significationes: { es: 'el tercer', en: 'the third', zh: '第三', ko: '3년째' } },
+                        { id_verbi: 'v2_c3_12', terminus: 'annum', analysis_morphologicus: 'Syntagma praep. (acc.)', significationes: { es: 'año', en: 'year', zh: '年', ko: '해' } },
+                        { id_verbi: 'v2_c3_13', terminus: 'profectionem', analysis_morphologicus: 'Nōmen, fem., sing., acc.', significationes: { es: 'la partida', en: 'the departure', zh: '出發', ko: '출발을' } },
+                        { id_verbi: 'v2_c3_14', terminus: 'lege', analysis_morphologicus: 'Nōmen, fem., sing., abl.', significationes: { es: 'por ley', en: 'by law', zh: '以法律', ko: '법으로' } },
+                        { id_verbi: 'v2_c3_15', terminus: 'confirmant', analysis_morphologicus: 'Verbum, praes., ind., act., 3a, pl.', significationes: { es: 'establecen', en: 'they establish', zh: '他們確立', ko: '그들은 확정한다' } }
+                    ]
+                },
+                {
+                    id_orationis: 'o3_c3',
+                    textus_latinus: "Ad eas res conficiendas Orgetorix deligitur.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Para llevar a cabo estas cosas, Orgetórix es elegido.',
+                        en: '<strong>English</strong>: To accomplish these things, Orgetorix is chosen.',
+                        zh: '<strong>中文（繁體）</strong>: 為完成這些事，奧格托里克斯被選中。',
+                        ko: '<strong>한국어</strong>: 이 일들을 완수하기 위해 오르게토릭스가 선출되었다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis:</strong> Orgetorix deligitur.</p>`,
+                    verba: [
+                        { id_verbi: 'v3_c3_1', terminus: 'Ad', analysis_morphologicus: 'Syntagma fīnāle', significationes: { es: 'Para', en: 'For', zh: '為了', ko: '위해' } },
+                        { id_verbi: 'v3_c3_2', terminus: 'eas', analysis_morphologicus: 'Syntagma fīnāle', significationes: { es: 'estas', en: 'these', zh: '這些', ko: '이' } },
+                        { id_verbi: 'v3_c3_3', terminus: 'res', analysis_morphologicus: 'Syntagma fīnāle', significationes: { es: 'cosas', en: 'things', zh: '事', ko: '일들을' } },
+                        { id_verbi: 'v3_c3_4', terminus: 'conficiendas', analysis_morphologicus: 'Gerundīvum, fem., pl., acc.', significationes: { es: 'para llevar a cabo', en: 'to be accomplished', zh: '完成', ko: '완수하기 위해' } },
+                        { id_verbi: 'v3_c3_5', terminus: 'Orgetorix', analysis_morphologicus: 'Nōmen, masc., sing., nom.', significationes: { es: 'Orgetórix', en: 'Orgetorix', zh: '奧格托里克斯', ko: '오르게토릭스' } },
+                        { id_verbi: 'v3_c3_6', terminus: 'deligitur', analysis_morphologicus: 'Verbum (dēligō), praes., ind., pass., 3a, sing.', significationes: { es: 'es elegido', en: 'is chosen', zh: '他被選中', ko: '그는 선택된다' } }
+                    ]
+                },
+                {
+                    id_orationis: 'o4_c3',
+                    textus_latinus: "Is sibi legationem ad ciuitates suscepit.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Él emprende para sí una embajada a las ciudades.',
+                        en: '<strong>English</strong>: He undertook for himself an embassy to the states.',
+                        zh: '<strong>中文（繁體）</strong>: 他為自己承擔了出使各城邦的任務。',
+                        ko: '<strong>한국어</strong>: 그는 스스로 여러 국가에 사절로 가는 임무를 맡았다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio coordināta (asyndetō):</strong> Is sibi legationem ad ciuitates suscepit.</p>`,
+                    verba: [
+                        { id_verbi: 'v4_c3_1', terminus: 'Is', analysis_morphologicus: 'Pronomēn + Pronomēn', significationes: { es: 'Él', en: 'He', zh: '他', ko: '그는' } },
+                        { id_verbi: 'v4_c3_2', terminus: 'sibi', analysis_morphologicus: 'Pronomēn + Pronomēn', significationes: { es: 'para sí', en: 'for himself', zh: '為自己', ko: '자신을 위해' } },
+                        { id_verbi: 'v4_c3_3', terminus: 'legationem', analysis_morphologicus: 'Nōmen, fem., sing., acc.', significationes: { es: 'una embajada', en: 'an embassy', zh: '使團', ko: '사절단을' } },
+                        { id_verbi: 'v4_c3_4', terminus: 'ad', analysis_morphologicus: 'Praepositio + acc.', significationes: { es: 'a', en: 'to', zh: '向', ko: '에게' } },
+                        { id_verbi: 'v4_c3_5', terminus: 'ciuitates', analysis_morphologicus: 'Nōmen, fem., pl., acc.', significationes: { es: 'las ciudades', en: 'the states', zh: '城邦', ko: '국가들' } },
+                        { id_verbi: 'v4_c3_6', terminus: 'suscipit', analysis_morphologicus: 'Verbum (suscipiō), praes., ind., act., 3a, sing.', significationes: { es: 'emprende', en: 'he undertook', zh: '他承擔', ko: '그는 맡는다' } }
+                    ]
+                },
+                {
+                    id_orationis: 'o5_c3',
+                    textus_latinus: "In eo itinere persuadet Castico, Catamantaloedis filio, Sequano, cuius pater regnum in Sequanis multos annos obtinuerat et a senatu populi Romani amicus appellatus erat, ut regnum in ciuitate sua occuparet quod pater ante habuerat; itemque Dumnorigi Haeduo, fratri Diuiciaci, qui eo tempore principatum in ciuitate optinebat ac maxime plebi acceptus erat, ut idem conaretur persuadet eique filiam suam in matrimonium dat.",
+                    translationes: {
+                        es: '<strong>Español</strong>: En ese viaje, persuade a Cástico, hijo de Catamantaledes, sécuano, cuyo padre había ostentado el reino entre los sécuanos durante muchos años y había sido llamado "amigo" por el senado del pueblo romano, para que ocupara en su ciudad el reino que su padre había tenido antes; e igualmente persuade a Dumnórige, eduo, hermano de Diviciaco, que en ese tiempo ostentaba el principado en la ciudad y era muy aceptado por la plebe, para que intentara lo mismo, y le da a su propia hija en matrimonio.',
+                        en: '<strong>English</strong>: On that journey, he persuades Casticus, the son of Catamantaloedes, a Sequanian, whose father had held the kingship among the Sequani for many years and had been called a "friend" by the senate of the Roman people, to seize the kingship in his own state, which his father had held before; and likewise he persuades Dumnorix, an Aeduan, the brother of Diviciacus, who at that time was holding the chief power in the state and was very popular with the common people, to attempt the same thing, and he gives him his own daughter in marriage.',
+                        zh: '<strong>中文（繁體）</strong>: 在那次旅程中，他說服了塞夸尼人卡斯提古（其父卡塔曼塔洛迪斯曾在塞夸尼人中統治多年，並被羅馬人民的元老院稱為「朋友」），讓他在自己的城邦中奪取其父曾擁有的王權；同樣地，他也說服了埃杜伊人杜姆諾里格斯（迪維基亞庫斯的兄弟，當時在城邦中擔任首領，深受平民愛戴）嘗試同樣的事，並將自己的女兒嫁給他。',
+                        ko: '<strong>한국어</strong>: 그 여정에서 그는 세콰니족인 카스티쿠스(그의 아버지 카타만탈로에데스는 여러 해 동안 세콰니족 사이에서 왕권을 차지했었고 로마 민족의 원로원으로부터 \'친구\'라 불렸었다)에게 그의 아버지가 전에 가졌던 왕권을 그의 나라에서 차지하도록 설득했다. 또한 그는 해두이족인 둠노릭스(디비키아쿠스의 형제로, 당시 국가에서 수장직을 맡고 있었고 평민들에게 매우 인기가 있었다)에게도 같은 것을 시도하도록 설득하고, 그에게 자신의 딸을 아내로 주었다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis (duplex et coordināta):</strong> persuadet et dat.</p><ul><li><strong>Subiectum:</strong> Is (Orgetorix).</li><li><strong>Praedicāta:</strong> persuadet (repetītum) et dat.</li><li><strong>Complēmenta indirecta (verbī persuadet):</strong> Castico et Dumnorigi.</li><li><strong>Claūsulae completīvae (introductae per ut):</strong><ul><li>ut regnum... occuparet.</li><li>ut idem conaretur.</li></ul></li><li><strong>Claūsulae relātīvae:</strong><ul><li>cuius pater... obtinuerat et... appellatus erat (modificat Castico).</li><li>qui eo tempore... acceptus erat (modificat Dumnorigi).</li></ul></li></ul>`,
+                    verba: [
+                        { id_verbi: 'v5_c3_1', terminus: 'In', analysis_morphologicus: 'Syntagma praep. (abl.)', significationes: { es: 'En', en: 'On', zh: '在', ko: '에서' } },
+                        { id_verbi: 'v5_c3_2', terminus: 'eo', analysis_morphologicus: 'Syntagma praep. (abl.)', significationes: { es: 'ese', en: 'that', zh: '那次', ko: '그' } },
+                        { id_verbi: 'v5_c3_3', terminus: 'itinere', analysis_morphologicus: 'Syntagma praep. (abl.)', significationes: { es: 'viaje', en: 'journey', zh: '旅程中', ko: '여정' } },
+                        { id_verbi: 'v5_c3_4', terminus: 'persuadet', analysis_morphologicus: 'Verbum, praes., ind., act., 3a, sing.', significationes: { es: 'persuade', en: 'he persuades', zh: '他說服', ko: '그는 설득한다' } },
+                        { id_verbi: 'v5_c3_5', terminus: 'Castico', analysis_morphologicus: 'Nōmen, masc., sing., dat.', significationes: { es: 'a Cástico', en: 'Casticus', zh: '對卡斯提古', ko: '카스티쿠스에게' } },
+                        { id_verbi: 'v5_c3_6', terminus: 'Catamantaloedis', analysis_morphologicus: 'Nōmen, masc., sing., gen.', significationes: { es: 'de Catamantaledes', en: 'of Catamantaloedes', zh: '卡塔曼塔洛迪斯', ko: '카타만탈로에데스' } },
+                        { id_verbi: 'v5_c3_7', terminus: 'filio', analysis_morphologicus: 'Nōmen, masc., sing., dat.', significationes: { es: 'al hijo', en: 'the son', zh: '兒子', ko: '아들에게' } },
+                        { id_verbi: 'v5_c3_8', terminus: 'Sequano', analysis_morphologicus: 'Nōmen, masc., sing., dat.', significationes: { es: 'sécuano', en: 'a Sequanian', zh: '塞夸尼人', ko: '세콰니족 사람' } },
+                        { id_verbi: 'v5_c3_9', terminus: 'cuius', analysis_morphologicus: 'Pronomēn rel. + Nōmen', significationes: { es: 'cuyo', en: 'whose', zh: '他的', ko: '그의' } },
+                        { id_verbi: 'v5_c3_10', terminus: 'pater', analysis_morphologicus: 'Pronomēn rel. + Nōmen', significationes: { es: 'padre', en: 'father', zh: '父親', ko: '아버지는' } },
+                        { id_verbi: 'v5_c3_11', terminus: 'regnum', analysis_morphologicus: 'Nōmen, neut., sing., acc.', significationes: { es: 'el reino', en: 'the kingship', zh: '王國', ko: '왕국을' } },
+                        { id_verbi: 'v5_c3_12', terminus: 'in', analysis_morphologicus: 'Praepositio + abl.', significationes: { es: 'entre', en: 'among', zh: '在...中', ko: '에서' } },
+                        { id_verbi: 'v5_c3_13', terminus: 'Sequanis', analysis_morphologicus: 'Nōmen, masc., pl., abl.', significationes: { es: 'los sécuanos', en: 'the Sequani', zh: '塞夸尼人', ko: '세콰니족' } },
+                        { id_verbi: 'v5_c3_14', terminus: 'multos', analysis_morphologicus: 'Adiectivum, masc., pl., acc.', significationes: { es: 'muchos', en: 'many', zh: '多年', ko: '여러' } },
+                        { id_verbi: 'v5_c3_15', terminus: 'annos', analysis_morphologicus: 'Nōmen, masc., pl., acc.', significationes: { es: 'años', en: 'years', zh: '年', ko: '해' } },
+                        { id_verbi: 'v5_c3_16', terminus: 'obtinuerat', analysis_morphologicus: 'Verbum, pluperf., ind., act., 3a, sing.', significationes: { es: 'había ostentado', en: 'had held', zh: '曾佔有', ko: '차지했었다' } },
+                        { id_verbi: 'v5_c3_17', terminus: 'et', analysis_morphologicus: 'Coniūnctiō', significationes: { es: 'y', en: 'and', zh: '和', ko: '그리고' } },
+                        { id_verbi: 'v5_c3_18', terminus: 'a', analysis_morphologicus: 'Praepositio + abl.', significationes: { es: 'por', en: 'by', zh: '被', ko: '로부터' } },
+                        { id_verbi: 'v5_c3_19', terminus: 'senatu', analysis_morphologicus: 'Nōmen, masc., sing., abl.', significationes: { es: 'el senado', en: 'the senate', zh: '元老院', ko: '원로원' } },
+                        { id_verbi: 'v5_c3_20', terminus: 'populi', analysis_morphologicus: 'Nōmen, masc., sing., gen.', significationes: { es: 'del pueblo', en: 'of the people', zh: '人民', ko: '민족' } },
+                        { id_verbi: 'v5_c3_21', terminus: 'Romani', analysis_morphologicus: 'Adiectivum, masc., sing., gen.', significationes: { es: 'romano', en: 'Roman', zh: '羅馬', ko: '로마' } },
+                        { id_verbi: 'v5_c3_22', terminus: 'amicus', analysis_morphologicus: 'Nōmen, masc., sing., nom.', significationes: { es: 'amigo', en: 'as a friend', zh: '朋友', ko: '친구라고' } },
+                        { id_verbi: 'v5_c3_23', terminus: 'appellatus', analysis_morphologicus: 'Verbum, pluperf., ind., pass., 3a, sing.', significationes: { es: 'había sido llamado', en: 'had been called', zh: '被稱為', ko: '불렸었다' } },
+                        { id_verbi: 'v5_c3_24', terminus: 'erat', analysis_morphologicus: 'Verbum, pluperf., ind., pass., 3a, sing.', significationes: { es: 'había sido', en: 'had been', zh: '是', ko: '이었다' } },
+                        { id_verbi: 'v5_c3_25', terminus: 'ut', analysis_morphologicus: 'Coniūnctiō + coniūnct.', significationes: { es: 'para que', en: 'to', zh: '讓', ko: '하도록' } },
+                        { id_verbi: 'v5_c3_26', terminus: 'regnum', analysis_morphologicus: 'Nōmen, neut., sing., acc.', significationes: { es: 'el reino', en: 'the kingship', zh: '王權', ko: '왕권' } },
+                        { id_verbi: 'v5_c3_27', terminus: 'in', analysis_morphologicus: 'Praepositio + abl.', significationes: { es: 'en', en: 'in', zh: '在', ko: '에서' } },
+                        { id_verbi: 'v5_c3_28', terminus: 'ciuitate', analysis_morphologicus: 'Nōmen, fem., sing., abl.', significationes: { es: 'ciudad', en: 'state', zh: '城邦', ko: '나라' } },
+                        { id_verbi: 'v5_c3_29', terminus: 'sua', analysis_morphologicus: 'Adiectivum, fem., sing., abl.', significationes: { es: 'su', en: 'his own', zh: '他自己的', ko: '그의' } },
+                        { id_verbi: 'v5_c3_30', terminus: 'occuparet', analysis_morphologicus: 'Verbum, imperf., coniūnct., act., 3a, sing.', significationes: { es: 'que ocupara', en: 'he should seize', zh: '他佔據', ko: '그가 차지하도록' } },
+                        { id_verbi: 'v5_c3_31', terminus: 'quod', analysis_morphologicus: 'Pronomēn rel., neut., sing., acc.', significationes: { es: 'que', en: 'which', zh: '它', ko: '그것' } },
+                        { id_verbi: 'v5_c3_32', terminus: 'pater', analysis_morphologicus: 'Nōmen, masc., sing., nom.', significationes: { es: 'su padre', en: 'his father', zh: '其父', ko: '그의 아버지' } },
+                        { id_verbi: 'v5_c3_33', terminus: 'ante', analysis_morphologicus: 'Adverbium', significationes: { es: 'antes', en: 'before', zh: '曾', ko: '전에' } },
+                        { id_verbi: 'v5_c3_34', terminus: 'habuerat', analysis_morphologicus: 'Verbum, pluperf., ind., act., 3a, sing.', significationes: { es: 'había tenido', en: 'had held', zh: '擁有', ko: '가졌었다' } },
+                        { id_verbi: 'v5_c3_35', terminus: 'itemque', analysis_morphologicus: 'Adverbium + -que', significationes: { es: 'e igualmente', en: 'and likewise', zh: '同樣地', ko: '그리고 마찬가지로' } },
+                        { id_verbi: 'v5_c3_36', terminus: 'Dumnorigi', analysis_morphologicus: 'Nōmen, masc., sing., dat.', significationes: { es: 'a Dumnórige', en: 'Dumnorix', zh: '對杜姆諾里格斯', ko: '둠노릭스에게' } },
+                        { id_verbi: 'v5_c3_37', terminus: 'Haeduo', analysis_morphologicus: 'Nōmen, masc., sing., dat.', significationes: { es: 'eduo', en: 'an Aeduan', zh: '埃杜伊人', ko: '해두이족 사람' } },
+                        { id_verbi: 'v5_c3_38', terminus: 'fratri', analysis_morphologicus: 'Nōmen, masc., sing., dat.', significationes: { es: 'al hermano', en: 'to the brother', zh: '兄弟', ko: '형제에게' } },
+                        { id_verbi: 'v5_c3_39', terminus: 'Diuiciaci', analysis_morphologicus: 'Nōmen, masc., sing., gen.', significationes: { es: 'de Diviciaco', en: 'of Diviciacus', zh: '迪維基亞庫斯', ko: '디비키아쿠스' } },
+                        { id_verbi: 'v5_c3_40', terminus: 'qui', analysis_morphologicus: 'Claūsula relātīva', significationes: { es: 'que', en: 'who', zh: '他', ko: '그는' } },
+                        { id_verbi: 'v5_c3_41', terminus: 'eo', analysis_morphologicus: 'Adverbium temporis', significationes: { es: 'en ese', en: 'at that', zh: '當時', ko: '그' } },
+                        { id_verbi: 'v5_c3_42', terminus: 'tempore', analysis_morphologicus: 'Nōmen, neut., sing., abl.', significationes: { es: 'tiempo', en: 'time', zh: '時候', ko: '때' } },
+                        { id_verbi: 'v5_c3_43', terminus: 'principatum', analysis_morphologicus: 'Nōmen, masc., sing., acc.', significationes: { es: 'el principado', en: 'the chief power', zh: '首領', ko: '수장직' } },
+                        { id_verbi: 'v5_c3_44', terminus: 'in', analysis_morphologicus: 'Praepositio + abl.', significationes: { es: 'en', en: 'in', zh: '在', ko: '에서' } },
+                        { id_verbi: 'v5_c3_45', terminus: 'ciuitate', analysis_morphologicus: 'Nōmen, fem., sing., abl.', significationes: { es: 'la ciudad', en: 'the state', zh: '城邦', ko: '국가' } },
+                        { id_verbi: 'v5_c3_46', terminus: 'optinebat', analysis_morphologicus: 'Claūsula relātīva', significationes: { es: 'ostentaba', en: 'was holding', zh: '佔據著', ko: '차지하고 있었다' } },
+                        { id_verbi: 'v5_c3_47', terminus: 'ac', analysis_morphologicus: 'Coniūnctiō', significationes: { es: 'y', en: 'and', zh: '並', ko: '그리고' } },
+                        { id_verbi: 'v5_c3_48', terminus: 'maxime', analysis_morphologicus: 'Adverbium', significationes: { es: 'muy', en: 'very', zh: '深受', ko: '매우' } },
+                        { id_verbi: 'v5_c3_49', terminus: 'plebi', analysis_morphologicus: 'Nōmen, fem., sing., dat.', significationes: { es: 'a la plebe', en: 'with the common people', zh: '平民', ko: '평민들에게' } },
+                        { id_verbi: 'v5_c3_50', terminus: 'acceptus', analysis_morphologicus: 'Adiectivum, masc., sing., nom.', significationes: { es: 'aceptado', en: 'popular', zh: '愛戴', ko: '인기가 있었다' } },
+                        { id_verbi: 'v5_c3_51', terminus: 'erat', analysis_morphologicus: 'Verbum (sum), imperf., ind., act., 3a, sing.', significationes: { es: 'era', en: 'was', zh: '是', ko: '이었다' } },
+                        { id_verbi: 'v5_c3_52', terminus: 'ut', analysis_morphologicus: 'Claūsula completīva', significationes: { es: 'que', en: 'to', zh: '嘗試', ko: '하도록' } },
+                        { id_verbi: 'v5_c3_53', terminus: 'idem', analysis_morphologicus: 'Claūsula completīva', significationes: { es: 'lo mismo', en: 'the same', zh: '同樣的事', ko: '같은 것을' } },
+                        { id_verbi: 'v5_c3_54', terminus: 'conaretur', analysis_morphologicus: 'Claūsula completīva', significationes: { es: 'intentara', en: 'attempt', zh: '他', ko: '시도' } },
+                        { id_verbi: 'v5_c3_55', terminus: 'persuadet', analysis_morphologicus: 'Verbum, praes., ind., act., 3a, sing.', significationes: { es: 'persuade', en: 'he persuades', zh: '他說服', ko: '설득한다' } },
+                        { id_verbi: 'v5_c3_56', terminus: 'eique', analysis_morphologicus: 'Syntagma', significationes: { es: 'y a él', en: 'and to him', zh: '並把他', ko: '그리고 그에게' } },
+                        { id_verbi: 'v5_c3_57', terminus: 'filiam', analysis_morphologicus: 'Syntagma', significationes: { es: 'su hija', en: 'his daughter', zh: '的女兒', ko: '그의 딸을' } },
+                        { id_verbi: 'v5_c3_58', terminus: 'suam', analysis_morphologicus: 'Syntagma', significationes: { es: 'su propia', en: 'his own', zh: '自己的', ko: '자신의' } },
+                        { id_verbi: 'v5_c3_59', terminus: 'in', analysis_morphologicus: 'Locutiō verbālis', significationes: { es: 'en', en: 'in', zh: '嫁給他', ko: '으로' } },
+                        { id_verbi: 'v5_c3_60', terminus: 'matrimonium', analysis_morphologicus: 'Locutiō verbālis', significationes: { es: 'matrimonio', en: 'marriage', zh: '婚姻', ko: '결혼' } },
+                        { id_verbi: 'v5_c3_61', terminus: 'dat', analysis_morphologicus: 'Locutiō verbālis', significationes: { es: 'le da', en: 'he gives', zh: '給', ko: '주다' } }
+                    ]
+                },
+                {
+                    id_orationis: 'o6_c3',
+                    textus_latinus: "Perfacile factu esse illis probat conata perficere, propterea quod ipse suae ciuitatis imperium obtenturus esset: non esse dubium quin totius Galliae plurimum Heluetii possent; se suis copiis suoque exercitu illis regna conciliaturum confirmat.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Les demuestra que llevar a cabo lo intentado es muy fácil de hacer, porque él mismo estaba a punto de obtener el poder de su propia ciudad; afirma que no había duda de que los helvecios eran los que más poder tenían en toda la Galia, y que él, con sus propias tropas y su ejército, les conseguiría los reinos.',
+                        en: '<strong>English</strong>: He proves to them that to accomplish their attempts was very easy to do, because he himself was about to obtain the power of his own state; he affirms that there was no doubt that the Helvetii were the most powerful of all Gaul, and that he, with his own troops and his army, would win over the kingdoms for them.',
+                        zh: '<strong>中文（繁體）</strong>: 他向他們證明，完成他們的企圖是輕而易舉的事，因為他自己即將獲得他本邦的政權；他斷言，赫爾維蒂人無疑是全高盧最強大的，他會用自己的軍隊和兵力為他們贏得王國。',
+                        ko: '<strong>한국어</strong>: 그는 그들의 시도를 완수하는 것이 매우 쉬운 일임을 그들에게 증명했는데, 왜냐하면 그 자신이 자기 국가의 지배권을 막 차지하려 했기 때문이다. 그는 헬베티족이 전 갈리아에서 가장 강력하다는 데 의심의 여지가 없으며, 자신이 그의 군대와 병력으로 그들을 위해 왕국들을 얻어줄 것이라고 확언했다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis:</strong> probat et confirmat.</p><ul><li><strong>Subiectum (subaudītum):</strong> Orgetorix.</li><li><strong>Oratio īnfīnītīva (obiectum verbī probat):</strong> Perfacile factu esse conata perficere.</li><li><strong>Claūsula causālis (introducta per propterea quod):</strong> propterea quod ipse suae ciuitatis imperium obtenturus esset.</li><li><strong>Oratiōnēs īnfīnītīvae (obiectum verbī confirmat):</strong><ul><li>non esse dubium.</li><li>se suis copiis... illis regna conciliaturum [esse].</li></ul></li><li><strong>Claūsula completīva (introducta per quin):</strong> quin totius Galliae plurimum Heluetii possent.</li></ul>`,
+                    verba: [
+                        { id_verbi: 'v6_c3_1', terminus: 'Perfacile', analysis_morphologicus: 'Supīnum + Adiectīvum', significationes: { es: 'muy fácil', en: 'very easy', zh: '非常容易', ko: '매우 쉬운' } },
+                        { id_verbi: 'v6_c3_2', terminus: 'factu', analysis_morphologicus: 'Supīnum + Adiectīvum', significationes: { es: 'de hacer', en: 'to do', zh: '做起來', ko: '하기에' } },
+                        { id_verbi: 'v6_c3_3', terminus: 'esse', analysis_morphologicus: 'Verbum, praes., īnfīn., act.', significationes: { es: 'es', en: 'was', zh: '是', ko: '이다' } },
+                        { id_verbi: 'v6_c3_4', terminus: 'illis', analysis_morphologicus: 'Verbum + Pronomēn', significationes: { es: 'les', en: 'to them', zh: '向他們', ko: '그들에게' } },
+                        { id_verbi: 'v6_c3_5', terminus: 'probat', analysis_morphologicus: 'Verbum + Pronomēn', significationes: { es: 'demuestra', en: 'he proves', zh: '他證明', ko: '증명한다' } },
+                        { id_verbi: 'v6_c3_6', terminus: 'conata', analysis_morphologicus: 'Oratio īnfīnītīva', significationes: { es: 'lo intentado', en: 'the attempts', zh: '嘗試', ko: '시도를' } },
+                        { id_verbi: 'v6_c3_7', terminus: 'perficere', analysis_morphologicus: 'Oratio īnfīnītīva', significationes: { es: 'llevar a cabo', en: 'to accomplish', zh: '完成', ko: '완수하는 것' } },
+                        { id_verbi: 'v6_c3_8', terminus: 'propterea', analysis_morphologicus: 'Adverbium', significationes: { es: 'porque', en: 'because', zh: '因為', ko: '왜냐하면' } },
+                        { id_verbi: 'v6_c3_9', terminus: 'quod', analysis_morphologicus: 'Coniūnctiō causālis', significationes: { es: 'que', en: 'that', zh: '因為', ko: '때문에' } },
+                        { id_verbi: 'v6_c3_10', terminus: 'ipse', analysis_morphologicus: 'Pronomēn, masc., sing., nom.', significationes: { es: 'él mismo', en: 'he himself', zh: '他自己', ko: '그 자신' } },
+                        { id_verbi: 'v6_c3_11', terminus: 'suae', analysis_morphologicus: 'Adiectivum, fem., sing., gen.', significationes: { es: 'de su propia', en: 'of his own', zh: '他本邦的', ko: '자기' } },
+                        { id_verbi: 'v6_c3_12', terminus: 'ciuitatis', analysis_morphologicus: 'Nōmen, fem., sing., gen.', significationes: { es: 'ciudad', en: 'state', zh: '政權', ko: '국가' } },
+                        { id_verbi: 'v6_c3_13', terminus: 'imperium', analysis_morphologicus: 'Nōmen, neut., sing., acc.', significationes: { es: 'el poder', en: 'the power', zh: '權力', ko: '지배권' } },
+                        { id_verbi: 'v6_c3_14', terminus: 'obtenturus', analysis_morphologicus: 'Coniugātiō periphrast. act.', significationes: { es: 'iba a obtener', en: 'was about to obtain', zh: '將要佔據', ko: '차지할 것이기' } },
+                        { id_verbi: 'v6_c3_15', terminus: 'esset', analysis_morphologicus: 'Coniugātiō periphrast. act.', significationes: { es: 'estaba', en: 'he was', zh: '是', ko: '때문에' } },
+                        { id_verbi: 'v6_c3_16', terminus: 'non', analysis_morphologicus: 'Adverbium', significationes: { es: 'no', en: 'not', zh: '不', ko: '아니다' } },
+                        { id_verbi: 'v6_c3_17', terminus: 'esse', analysis_morphologicus: 'Oratio īnfīnītīva', significationes: { es: 'había', en: 'there was', zh: '有', ko: '있다' } },
+                        { id_verbi: 'v6_c3_18', terminus: 'dubium', analysis_morphologicus: 'Oratio īnfīnītīva', significationes: { es: 'duda', en: 'doubt', zh: '疑問', ko: '의심의 여지' } },
+                        { id_verbi: 'v6_c3_19', terminus: 'quin', analysis_morphologicus: 'Claūsula completīva', significationes: { es: 'de que', en: 'that', zh: '在於...', ko: '라는 점에' } },
+                        { id_verbi: 'v6_c3_20', terminus: 'totius', analysis_morphologicus: 'Adiectivum, fem., sing., gen.', significationes: { es: 'de toda', en: 'of all', zh: '全', ko: '전' } },
+                        { id_verbi: 'v6_c3_21', terminus: 'Galliae', analysis_morphologicus: 'Nōmen, fem., sing., gen.', significationes: { es: 'la Galia', en: 'Gaul', zh: '高盧', ko: '갈리아' } },
+                        { id_verbi: 'v6_c3_22', terminus: 'plurimum', analysis_morphologicus: 'Adverbium superlātīvum', significationes: { es: 'muchísimo', en: 'the most powerful', zh: '最強大的', ko: '가장 많이' } },
+                        { id_verbi: 'v6_c3_23', terminus: 'Heluetii', analysis_morphologicus: 'Nōmen, masc., pl., nom.', significationes: { es: 'los helvecios', en: 'the Helvetii', zh: '赫爾維蒂人', ko: '헬베티족' } },
+                        { id_verbi: 'v6_c3_24', terminus: 'possent', analysis_morphologicus: 'Verbum (possum), imperf., coniūnct., act., 3a, pl.', significationes: { es: 'podían', en: 'were', zh: '是', ko: '할 수 있었다' } },
+                        { id_verbi: 'v6_c3_25', terminus: 'se', analysis_morphologicus: 'Oratio īnfīnītīva', significationes: { es: 'que él', en: 'that he', zh: '他', ko: '자신이' } },
+                        { id_verbi: 'v6_c3_26', terminus: 'suis', analysis_morphologicus: 'Adiectivum, fem., pl., abl.', significationes: { es: 'con sus propias', en: 'with his own', zh: '用自己的', ko: '자신의' } },
+                        { id_verbi: 'v6_c3_27', terminus: 'copiis', analysis_morphologicus: 'Nōmen, fem., pl., abl.', significationes: { es: 'tropas', en: 'troops', zh: '軍隊', ko: '군대' } },
+                        { id_verbi: 'v6_c3_28', terminus: 'suoque', analysis_morphologicus: 'Adiectivum + -que', significationes: { es: 'y su', en: 'and his', zh: '和他的', ko: '그리고 자신의' } },
+                        { id_verbi: 'v6_c3_29', terminus: 'exercitu', analysis_morphologicus: 'Nōmen, masc., sing., abl.', significationes: { es: 'ejército', en: 'army', zh: '兵力', ko: '병력' } },
+                        { id_verbi: 'v6_c3_30', terminus: 'illis', analysis_morphologicus: 'Pronomēn, dat., pl.', significationes: { es: 'les', en: 'for them', zh: '為他們', ko: '그들을 위해' } },
+                        { id_verbi: 'v6_c3_31', terminus: 'regna', analysis_morphologicus: 'Nōmen, neut., pl., acc.', significationes: { es: 'los reinos', en: 'the kingdoms', zh: '王國', ko: '왕국들' } },
+                        { id_verbi: 'v6_c3_32', terminus: 'conciliaturum', analysis_morphologicus: 'Oratio īnfīnītīva', significationes: { es: 'conseguiría', en: 'would win over', zh: '贏得', ko: '획득해 줄 것이라고' } },
+                        { id_verbi: 'v6_c3_33', terminus: 'confirmat', analysis_morphologicus: 'Verbum, praes., ind., act., 3a, sing.', significationes: { es: 'afirma', en: 'he affirms', zh: '他確認', ko: '그는 확언한다' } }
+                    ]
+                },
+                {
+                    id_orationis: 'o7_c3',
+                    textus_latinus: "Hac oratione adducti inter se fidem et ius iurandum dant et regno occupato per tres potentissimos ac firmissimos populos totius Galliae sese potiri posse sperant.",
+                    translationes: {
+                        es: '<strong>Español</strong>: Inducidos por este discurso, se dan entre sí la palabra y un juramento y, una vez ocupado el poder real, esperan poder apoderarse de toda la Galia por medio de tres pueblos muy poderosos y muy firmes.',
+                        en: '<strong>English</strong>: Influenced by this speech, they give a pledge and an oath among themselves, and with the kingship seized, they hope that they can get possession of all Gaul through three very powerful and very strong peoples.',
+                        zh: '<strong>中文（繁體）</strong>: 受此番言論的引誘，他們互相交換了信義和誓言，並希望在奪取王權後，能通過三個最強大最堅定的民族來掌握整個高盧。',
+                        ko: '<strong>한국어</strong>: 이 연설에 이끌려 그들은 서로 신의와 맹세를 나누고, 왕권을 차지한 후에 세 개의 매우 강력하고 굳건한 민족을 통해 전 갈리아를 차지할 수 있으리라 희망한다.'
+                    },
+                    analysis_syntactica: `<p><strong>Propositio Principalis (duplex):</strong> dant et sperant.</p><ul><li><strong>Subiectum:</strong> (illi) adducti (subaudītum).</li><li><strong>Participium coniūnctum (causāle):</strong> adducti.</li><li><strong>Praedicāta:</strong> dant et sperant.</li><li><strong>Obiectum dīrēctum (verbī dant):</strong> fidem et ius iurandum.</li><li><strong>Ablātīvus absolūtus (temporālis/condicionālis):</strong> regno occupato.</li><li><strong>Oratio īnfīnītīva (obiectum verbī sperant):</strong> sese... totius Galliae potiri posse.</li></ul>`,
+                    verba: [
+                        { id_verbi: 'v7_c3_1', terminus: 'Hac', analysis_morphologicus: 'Ablātīvus causae', significationes: { es: 'Por este', en: 'By this', zh: '因這次', ko: '이' } },
+                        { id_verbi: 'v7_c3_2', terminus: 'oratione', analysis_morphologicus: 'Ablātīvus causae', significationes: { es: 'discurso', en: 'speech', zh: '演說', ko: '연설로' } },
+                        { id_verbi: 'v7_c3_3', terminus: 'adducti', analysis_morphologicus: 'Participium perf. pass., masc., pl., nom.', significationes: { es: 'Inducidos', en: 'Influenced', zh: '被引誘', ko: '이끌려' } },
+                        { id_verbi: 'v7_c3_4', terminus: 'inter', analysis_morphologicus: 'Pronomēn reciprocum', significationes: { es: 'entre sí', en: 'among themselves', zh: '互相', ko: '서로' } },
+                        { id_verbi: 'v7_c3_5', terminus: 'se', analysis_morphologicus: 'Pronomēn reciprocum', significationes: { es: 'entre sí', en: 'among themselves', zh: '互相', ko: '서로' } },
+                        { id_verbi: 'v7_c3_6', terminus: 'fidem', analysis_morphologicus: 'Obiectum dīrēctum duplex', significationes: { es: 'la palabra', en: 'a pledge', zh: '信義', ko: '신의와' } },
+                        { id_verbi: 'v7_c3_7', terminus: 'et', analysis_morphologicus: 'Coniūnctiō', significationes: { es: 'y', en: 'and', zh: '和', ko: '그리고' } },
+                        { id_verbi: 'v7_c3_8', terminus: 'ius', analysis_morphologicus: 'Obiectum dīrēctum duplex', significationes: { es: 'un juramento', en: 'an oath', zh: '誓言', ko: '맹세' } },
+                        { id_verbi: 'v7_c3_9', terminus: 'iurandum', analysis_morphologicus: 'Obiectum dīrēctum duplex', significationes: { es: 'juramento', en: 'oath', zh: '誓言', ko: '맹세' } },
+                        { id_verbi: 'v7_c3_10', terminus: 'dant', analysis_morphologicus: 'Verbum, praes., ind., act., 3a, pl.', significationes: { es: 'se dan', en: 'they give', zh: '他們給予', ko: '그들은 준다' } },
+                        { id_verbi: 'v7_c3_11', terminus: 'et', analysis_morphologicus: 'Coniūnctiō', significationes: { es: 'y', en: 'and', zh: '和', ko: '그리고' } },
+                        { id_verbi: 'v7_c3_12', terminus: 'regno', analysis_morphologicus: 'Ablātīvus absolūtus', significationes: { es: 'una vez ocupado el reino', en: 'with the kingdom seized', zh: '佔領王國後', ko: '왕국을 차지한 후에' } },
+                        { id_verbi: 'v7_c3_13', terminus: 'occupato', analysis_morphologicus: 'Ablātīvus absolūtus', significationes: { es: 'ocupado', en: 'seized', zh: '佔領', ko: '차지한' } },
+                        { id_verbi: 'v7_c3_14', terminus: 'per', analysis_morphologicus: 'Syntagma praep. (acc.)', significationes: { es: 'por medio de', en: 'through', zh: '通過', ko: '을 통해' } },
+                        { id_verbi: 'v7_c3_15', terminus: 'tres', analysis_morphologicus: 'Adiectivum numerāle', significationes: { es: 'tres', en: 'three', zh: '三個', ko: '세' } },
+                        { id_verbi: 'v7_c3_16', terminus: 'potentissimos', analysis_morphologicus: 'Adiectivum superlātīvum', significationes: { es: 'muy poderosos', en: 'very powerful', zh: '最強大', ko: '매우 강력한' } },
+                        { id_verbi: 'v7_c3_17', terminus: 'ac', analysis_morphologicus: 'Coniūnctiō', significationes: { es: 'y', en: 'and', zh: '和', ko: '그리고' } },
+                        { id_verbi: 'v7_c3_18', terminus: 'firmissimos', analysis_morphologicus: 'Adiectivum superlātīvum', significationes: { es: 'muy firmes', en: 'very strong', zh: '最堅定', ko: '매우 굳건한' } },
+                        { id_verbi: 'v7_c3_19', terminus: 'populos', analysis_morphologicus: 'Nōmen, masc., pl., acc.', significationes: { es: 'pueblos', en: 'peoples', zh: '民族', ko: '민족' } },
+                        { id_verbi: 'v7_c3_20', terminus: 'totius', analysis_morphologicus: 'Adiectivum, fem., sing., gen.', significationes: { es: 'de toda', en: 'of all', zh: '整個', ko: '전' } },
+                        { id_verbi: 'v7_c3_21', terminus: 'Galliae', analysis_morphologicus: 'Nōmen, fem., sing., gen.', significationes: { es: 'la Galia', en: 'Gaul', zh: '高盧', ko: '갈리아' } },
+                        { id_verbi: 'v7_c3_22', terminus: 'sese', analysis_morphologicus: 'Oratio īnfīnītīva', significationes: { es: 'que ellos', en: 'that they themselves', zh: '他們自己', ko: '자신들이' } },
+                        { id_verbi: 'v7_c3_23', terminus: 'potiri', analysis_morphologicus: 'Oratio īnfīnītīva', significationes: { es: 'apoderarse', en: 'get possession', zh: '掌握', ko: '차지할 수' } },
+                        { id_verbi: 'v7_c3_24', terminus: 'posse', analysis_morphologicus: 'Oratio īnfīnītīva', significationes: { es: 'podrían', en: 'could', zh: '能夠', ko: '있을 것이라고' } },
+                        { id_verbi: 'v7_c3_25', terminus: 'sperant', analysis_morphologicus: 'Verbum, praes., ind., act., 3a, pl.', significationes: { es: 'esperan', en: 'they hope', zh: '他們希望', ko: '그들은 희망한다' } }
+                    ]
+                }
+            ]
+        };
+        // =========================================================================================
+        // === FIN DE LA ZONA DE DATOS ===
+        // === No es necesario modificar el código debajo de esta línea. ===
+        // =========================================================================================
+
+        const paragrafusContentus = document.getElementById('paragrafus-contentus');
+        const marginaliaContentus = document.getElementById('marginalia-contentus');
+        const visusParagrafi = document.getElementById('visus-paragrafi');
+        const visusOrationis = document.getElementById('visus-orationis');
+        const buttonRedire = document.getElementById('button-redire');
+        const oratioLatinaTextus = document.getElementById('oratio-latina-textus');
+        const translatioES = document.getElementById('translatio-es');
+        const translatioEN = document.getElementById('translatio-en');
+        const translatioZH = document.getElementById('translatio-zh');
+        const translatioKO = document.getElementById('translatio-ko');
+        const analysisSyntacticaContentus = document.getElementById('analysis-syntactica-contentus');
+        const linguaSelector = document.getElementById('lingua-selector');
+        const tooltip = document.getElementById('translatio-tooltip');
+        let linguaPraefecta = 'es';
+
+        function monstraContentusDefectu() {
+            marginaliaContentus.innerHTML = `
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Analysis Morphologica</h3>
+                <div class="space-y-2 text-gray-600">
+                    <p><strong>ES:</strong> Selecciona una palabra para ver su análisis.</p>
+                    <p><strong>EN:</strong> Select a word to see its analysis.</p>
+                    <p><strong>中文:</strong> 選擇一個詞以查看其分析。</p>
+                    <p><strong>KO:</strong> 단어를 선택하여 분석을 확인하세요。</p>
+                </div>
+            `;
+        }
+
+        function reddeParagrafum() {
+            paragrafusContentus.innerHTML = '';
+            paragrafus.orationes.forEach(oratio => {
+                const oratioSpan = document.createElement('span');
+                oratioSpan.className = 'oratio';
+                oratioSpan.dataset.oratioId = oratio.id_orationis;
+
+                let textusTemporarius = oratio.textus_latinus;
+                const verbaSorted = [...oratio.verba].sort((a,b) => b.terminus.length - a.terminus.length);
+
+                verbaSorted.forEach(verbum => {
+                    const regex = new RegExp(`\\b${verbum.terminus.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b(?![^<]*?>)`, 'g');
+                    const replacement = `<span class="verbum" data-verbum-id="${verbum.id_verbi}">${verbum.terminus}</span>`;
+                    textusTemporarius = textusTemporarius.replace(regex, replacement);
+                });
+
+                oratioSpan.innerHTML = textusTemporarius + ' ';
+                oratioSpan.addEventListener('mouseenter', monstraTooltip);
+                oratioSpan.addEventListener('mouseleave', occultaTooltip);
+                oratioSpan.addEventListener('mousemove', moveTooltip);
+                paragrafusContentus.appendChild(oratioSpan);
+            });
+        }
+
+        function monstraAnalyseonVerbi(verbumId) {
+            let verbumData = null;
+            for (const oratio of paragrafus.orationes) {
+                verbumData = oratio.verba.find(v => v.id_verbi === verbumId);
+                if (verbumData) break;
+            }
+            if (!verbumData) return;
+
+            marginaliaContentus.innerHTML = `
+                <h3 class="text-2xl textum-classicum text-gray-800 mb-4">${verbumData.terminus}</h3>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-bold text-sm uppercase text-gray-500 tracking-wider">Analysis Morphologica</h4>
+                        <p class="text-gray-700 mt-1">${verbumData.analysis_morphologicus}</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm uppercase text-gray-500 tracking-wider">Significationes</h4>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-700">
+                            <li><strong>ES:</strong> ${verbumData.significationes.es}</li>
+                            <li><strong>EN:</strong> ${verbumData.significationes.en}</li>
+                            <li><strong>中文:</strong> ${verbumData.significationes.zh}</li>
+                            <li><strong>KO:</strong> ${verbumData.significationes.ko}</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function monstraAnalyseonOrationis(oratioId) {
+            const oratioData = paragrafus.orationes.find(o => o.id_orationis === oratioId);
+            if (!oratioData) return;
+
+            oratioLatinaTextus.textContent = oratioData.textus_latinus;
+            translatioES.innerHTML = oratioData.translationes.es;
+            translatioEN.innerHTML = oratioData.translationes.en;
+            translatioZH.innerHTML = oratioData.translationes.zh;
+            translatioKO.innerHTML = oratioData.translationes.ko;
+            analysisSyntacticaContentus.innerHTML = oratioData.analysis_syntactica;
+            
+            document.querySelector('.main-layout').classList.add('occultus');
+            visusOrationis.classList.remove('occultus');
+            window.scrollTo(0, 0);
+        }
+
+        function initialisareLinguam() {
+            const linguaServata = localStorage.getItem('linguaPraefecta') || 'es';
+            linguaPraefecta = linguaServata;
+            const radioInput = document.querySelector(`#lingua-selector input[value="${linguaServata}"]`);
+            if (radioInput) {
+                radioInput.checked = true;
+            }
+        }
+
+        function mutareLinguam(event) {
+            linguaPraefecta = event.target.value;
+            localStorage.setItem('linguaPraefecta', linguaPraefecta);
+        }
+        
+        function monstraTooltip(event) {
+            const oratioId = event.currentTarget.dataset.oratioId;
+            const oratioData = paragrafus.orationes.find(o => o.id_orationis === oratioId);
+            if (oratioData && oratioData.translationes[linguaPraefecta]) {
+                const translatioTextus = oratioData.translationes[linguaPraefecta].replace(/<strong>.*?<\/strong>:\s*/, '');
+                tooltip.textContent = translatioTextus;
+                tooltip.style.display = 'block';
+            }
+        }
+
+        function occultaTooltip() {
+            tooltip.style.display = 'none';
+        }
+
+        function moveTooltip(event) {
+            tooltip.style.left = `${event.pageX + 15}px`;
+            tooltip.style.top = `${event.pageY + 15}px`;
+        }
+
+        paragrafusContentus.addEventListener('click', (e) => {
+            const verbumTarget = e.target.closest('.verbum');
+            const oratioTarget = e.target.closest('.oratio');
+
+            if (verbumTarget) {
+                e.stopPropagation();
+                document.querySelectorAll('.activus').forEach(el => el.classList.remove('activus'));
+                monstraAnalyseonVerbi(verbumTarget.dataset.verbumId);
+                verbumTarget.classList.add('activus');
+            } else if (oratioTarget) {
+                monstraAnalyseonOrationis(oratioTarget.dataset.oratioId);
+            }
+        });
+
+        buttonRedire.addEventListener('click', () => {
+            visusOrationis.classList.add('occultus');
+            document.querySelector('.main-layout').classList.remove('occultus');
+        });
+
+        linguaSelector.addEventListener('change', mutareLinguam);
+
+        initialisareLinguam();
+        reddeParagrafum();
+        monstraContentusDefectu();
+    });
+    </script>
+</body>
+</html>

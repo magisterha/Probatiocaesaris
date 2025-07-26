@@ -72,23 +72,8 @@
                     let filePath;
                     // --- CONSTRUCCIÓN DEL ENLACE PARA GITHUB PAGES ---
                     // Condición especial para los capítulos del Liber I.
-                    if (liberNum === 'I' && caputNum === 1) {
-                        filePath = `1.1.html`;
-                    } else if (liberNum === 'I' && caputNum === 2) {
-                        filePath = `1.2.html`;
-                    } else if (liberNum === 'I' && caputNum === 3) {
-                        filePath = `1.3.html`;
-                    } else if (liberNum === 'I' && caputNum === 4) {
-                        filePath = `1.4.html`;
-                    } else if (liberNum === 'I' && caputNum === 5) {
-                        filePath = `1.5.html`;
-                    } else if (liberNum === 'I' && caputNum === 6) {
-                        filePath = `1.6.html`;
-                    } else if (liberNum === 'I' && caputNum === 7) {
-                        filePath = `1.7.html`;
-                    } else if (liberNum === 'I' && caputNum === 8) {
-                        // NUEVO: Enlace para el capítulo 8
-                        filePath = `1.8.html`;
+                    if (liberNum === 'I' && caputNum <= 11) {
+                         filePath = `1.${caputNum}.html`;
                     } else {
                         // Lógica genérica para los demás capítulos.
                         // Esta ruta asume que los otros archivos están en una carpeta "capitulos".

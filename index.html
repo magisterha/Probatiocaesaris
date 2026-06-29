@@ -3,105 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index: De Bello Gallico</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <style type="text/css">
-        body {
-            background-color: #f5f4f0; /* Un color hueso/pergamino claro */
-            font-family: 'Inter', sans-serif;
-            color: #3a3a3a;
+    <title>Magister HA - Práctica de Latín</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f9f9f9;
+            --text-color: #333;
         }
-        .textum-classicum {
-            font-family: 'Lora', serif; /* Una fuente serif elegante para los títulos */
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        select, button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #1a252f;
+        }
+        #practice-area {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 1.2em;
+            min-height: 200px;
+        }
+        .latin-word {
+            cursor: pointer;
+            transition: color 0.2s;
+            border-bottom: 1px dashed transparent;
+        }
+        .latin-word:hover {
+            color: var(--accent-color);
+            border-bottom: 1px dashed var(--accent-color);
+        }
+        #analysis-panel {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+            border-radius: 0 5px 5px 0;
+            display: none;
+            font-size: 0.9em;
+        }
+        .loading {
+            text-align: center;
+            font-style: italic;
+            color: #666;
         }
     </style>
 </head>
-<body class="bg-stone-100">
+<body>
 
-    <div class="container mx-auto p-4 sm:p-8 max-w-5xl">
-        <!-- Encabezado de la página -->
-        <header class="text-center mb-10 border-b-2 border-stone-300 pb-5">
-            <h1 class="text-4xl md:text-5xl textum-classicum text-gray-800">Commentarii de Bello Gallico</h1>
-            <p class="text-lg md:text-xl text-gray-500 mt-2">Gaius Iulius Caesar</p>
-        </header>
+    <header>
+        <h1>Magister HA</h1>
+        <p>Práctica contextualizada basada en <em>Lingua Latina Per Se Illustrata</em></p>
+    </header>
 
-        <!-- Contenedor principal para el índice -->
-        <main id="opus-index-contentus" class="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
-            <!-- El contenido del índice se generará aquí con JavaScript -->
-        </main>
+    <div class="controls">
+        <label for="capitulum">Nivel Actual:</label>
+        <select id="capitulum">
+            <option value="1">Capitulum I</option>
+            <option value="2">Capitulum II</option>
+            <option value="3">Capitulum III</option>
+        </select>
+        <button id="generate-btn">Generar Práctica (3-5 Oraciones)</button>
+    </div>
 
-        <!-- Pie de página -->
-        <footer class="text-center mt-8 text-sm text-gray-500">
-            <p>Seleccione un capítulo para comenzar el análisis.</p>
-        </footer>
+    <div id="practice-area">
+        <p class="loading" id="status-msg">Selecciona tu nivel y genera una nueva práctica para comenzar.</p>
+        <div id="sentences-container"></div>
+    </div>
+
+    <div id="analysis-panel">
+        <strong id="word-title"></strong>
+        <p id="word-context"></p>
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // --- CONFIGURACIÓN DE GITHUB ---
-        // !!! IMPORTANTE: Reemplaza estos valores con los de tu repositorio y rama.
-        const GITHUB_USER = 'magisterha'; // Tu usuario de GitHub (ej. magisterha)
-        const GITHUB_REPO = 'Probatiocaesaris'; // El nombre de tu repositorio
-        const GITHUB_BRANCH = 'nombre-de-la-rama'; // La rama donde están los archivos
+        // URL de tu Cloudflare Worker (API Gateway)
+        const CLOUDFLARE_API_URL = 'https://tu-worker.tu-dominio.workers.dev';
 
-        // --- ESTRUCTURA DEL ÍNDICE ---
-        const deBelloGallicoIndex = {
-            'I': 54, 'II': 35, 'III': 29, 'IV': 38, 
-            'V': 58, 'VI': 44, 'VII': 90, 'VIII': 55
-        };
+        const generateBtn = document.getElementById('generate-btn');
+        const capitulumSelect = document.getElementById('capitulum');
+        const sentencesContainer = document.getElementById('sentences-container');
+        const statusMsg = document.getElementById('status-msg');
+        const analysisPanel = document.getElementById('analysis-panel');
+        const wordTitle = document.getElementById('word-title');
+        const wordContext = document.getElementById('word-context');
 
-        const indexContainer = document.getElementById('opus-index-contentus');
+        generateBtn.addEventListener('click', async () => {
+            const capitulum = capitulumSelect.value;
+            statusMsg.textContent = "Consultando el corpus de LLPSI...";
+            statusMsg.style.display = 'block';
+            sentencesContainer.innerHTML = '';
+            analysisPanel.style.display = 'none';
 
-        function reddeOpusIndex() {
-            indexContainer.innerHTML = '<h2 class="text-3xl font-semibold mb-8 textum-classicum text-center text-gray-700">Index Librorum et Capitum</h2>';
+            try {
+                // Cuando conectes tu backend real, descomenta estas líneas:
+                /*
+                const response = await fetch(`${CLOUDFLARE_API_URL}/generate`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ capitulum: capitulum })
+                });
+                const data = await response.json();
+                */
 
-            for (const liberNum in deBelloGallicoIndex) {
-                const totalCapita = deBelloGallicoIndex[liberNum];
-                const liberDiv = document.createElement('div');
-                liberDiv.className = 'mb-8';
-                liberDiv.innerHTML = `<h3 class="text-2xl font-bold text-stone-700 border-b border-stone-200 pb-2 mb-4 textum-classicum">Liber ${liberNum}</h3>`;
+                // MOCK DATA: Simulación de respuesta del backend para el Capitulum 1
+                const data = {
+                    sentences: [
+                        "Roma in Italia est.",
+                        "Italia in Europa est.",
+                        "Ubi est Roma?",
+                        "Roma est in Italia."
+                    ]
+                };
 
-                const capitumList = document.createElement('div');
-                capitumList.className = 'grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-2';
+                renderSentences(data.sentences);
+                statusMsg.style.display = 'none';
 
-                for (let caputNum = 1; caputNum <= totalCapita; caputNum++) {
-                    const caputLink = document.createElement('a');
-                    
-                    let filePath;
-                    // --- CONSTRUCCIÓN DEL ENLACE A GITHUB ---
-                    // Condición especial para los capítulos 1 y 2 del Liber I según las imágenes.
-                    if (liberNum === 'I' && caputNum === 1) {
-                        filePath = `Probatiocaesaris/1.1.html`;
-                    } else if (liberNum === 'I' && caputNum === 2) {
-                        filePath = `Probatiocaesaris/1.2.html`;
-                    } else {
-                        // Lógica genérica para los demás capítulos.
-                        // Puedes ajustar esta ruta si tienes otros archivos específicos.
-                        filePath = `capitulos/liber-${liberNum}-caput-${caputNum}.html`;
-                    }
-                    
-                    caputLink.href = `https://github.com/${GITHUB_USER}/${GITHUB_REPO}/blob/${GITHUB_BRANCH}/${filePath}`;
-                    
-                    // Abrir en una nueva pestaña
-                    caputLink.setAttribute('target', '_blank');
-                    caputLink.setAttribute('rel', 'noopener noreferrer'); // Buena práctica de seguridad
-                    caputLink.setAttribute('title', `Ver Liber ${liberNum}, Caput ${caputNum}`);
-                    caputLink.className = 'flex items-center justify-center text-center p-2 bg-stone-100 rounded-md hover:bg-stone-300 hover:shadow-md transition-all duration-200 ease-in-out';
-                    caputLink.textContent = `${caputNum}`;
-                    
-                    capitumList.appendChild(caputLink);
-                }
-
-                liberDiv.appendChild(capitumList);
-                indexContainer.appendChild(liberDiv);
+            } catch (error) {
+                statusMsg.textContent = "Error al conectar con el servidor.";
+                console.error(error);
             }
+        });
+
+        function renderSentences(sentences) {
+            sentences.forEach(sentence => {
+                const p = document.createElement('p');
+
+                // Tokeniza la oración respetando palabras, puntuación y espacios
+                const tokens = sentence.match(/[A-Za-zÀ-ÿ0-9_]+|[^\w\s]+|\s+/g) || [];
+
+                tokens.forEach(token => {
+                    if (/^\s+$/.test(token)) {
+                        // Espacio: se añade tal cual
+                        p.appendChild(document.createTextNode(token));
+                    } else if (/^\w+$/.test(token)) {
+                        // Palabra latina: clickeable
+                        const span = document.createElement('span');
+                        span.textContent = token;
+                        span.className = 'latin-word';
+                        span.addEventListener('click', () => analyzeWord(token, capitulumSelect.value));
+                        p.appendChild(span);
+                    } else {
+                        // Puntuación: se añade directamente
+                        p.appendChild(document.createTextNode(token));
+                    }
+                });
+
+                sentencesContainer.appendChild(p);
+            });
         }
 
-        reddeOpusIndex();
-    });
+        async function analyzeWord(word, capitulum) {
+            analysisPanel.style.display = 'block';
+            wordTitle.textContent = `Analizando: ${word}...`;
+            wordContext.textContent = "Obteniendo conexión sensorial y morfológica...";
+
+            try {
+                // Cuando conectes tu backend real, descomenta estas líneas:
+                /*
+                const response = await fetch(`${CLOUDFLARE_API_URL}/analyze`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ word: word, current_capitulum: capitulum })
+                });
+                const data = await response.json();
+                */
+
+                // MOCK DATA: Simulación basada en el RAG de LLPSI
+                setTimeout(() => {
+                    wordTitle.textContent = word;
+                    wordContext.innerHTML = `<strong>Contexto (Cap. ${capitulum}):</strong> Relacionado con la idea de ubicación. <br><em>Nota:</em> Observa cómo la terminación te indica instintivamente que es el sujeto de la oración.`;
+                }, 500);
+
+            } catch (error) {
+                wordContext.textContent = "No se pudo cargar el contexto.";
+            }
+        }
     </script>
 </body>
 </html>
